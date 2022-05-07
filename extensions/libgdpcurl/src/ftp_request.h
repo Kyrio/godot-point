@@ -3,17 +3,17 @@
 
 #include <godot_cpp/classes/node.hpp>
 
-namespace godot {
-    class FtpRequest : public Node {
-        GDCLASS(FtpRequest, Node)
+using namespace godot;
 
-    protected:
-        static void _bind_methods();
+class FtpRequest : public Node {
+    GDCLASS(FtpRequest, Node)
 
-    public:
-        FtpRequest();
-        ~FtpRequest();
-    };
-}
+protected:
+    static void _bind_methods();
+
+public:
+    FtpRequest();
+    ~FtpRequest();
+};
 
 #endif
