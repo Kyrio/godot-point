@@ -2,3 +2,8 @@
 .godot/
 
 *.sconsign.dblite
+
+bin/
+*.idb
+*.pdb
+*.obj
