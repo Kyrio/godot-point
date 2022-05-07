@@ -25,7 +25,7 @@ opts.Add(
 )
 opts.Add(EnumVariable("bits", "Target platform bits", "64", ("32", "64")))
 opts.Add(BoolVariable("use_llvm", "Use the LLVM / Clang compiler", "no"))
-opts.Add(PathVariable("target_path", "The path where the lib is installed.", "project/addons/godot-point-curl/bin/", PathVariable.PathAccept))
+opts.Add(PathVariable("target_path", "The path where the lib is installed.", "project/addons/godot_point_curl/bin/", PathVariable.PathAccept))
 opts.Add(PathVariable("target_name", "The library name.", "libgdpcurl", PathVariable.PathAccept))
 
 # Local dependency paths, adapt them to your setup
