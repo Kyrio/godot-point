@@ -5,6 +5,7 @@
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
+#include <curl/curl.h>
 
 #include "ftp_request.h"
 
@@ -15,6 +16,8 @@ void initialize_gdpcurl_module(ModuleInitializationLevel p_level) {
         return;
     }
 
+    curl_global_init(CURL_GLOBAL_DEFAULT);
+
     ClassDB::register_class<FtpRequest>();
 }
 
@@ -22,6 +25,8 @@ void uninitialize_gdpcurl_module(ModuleInitializationLevel p_level) {
     if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
         return;
     }
+
+    curl_global_cleanup();
 }
 
 extern "C" {
