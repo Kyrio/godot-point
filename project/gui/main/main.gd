@@ -7,12 +7,8 @@ const GODOT_4_DIRECTORY_URL = "ftp://downloads.tuxfamily.org/godotengine/4.0/"
 var releases_request := HTTPRequest.new()
 var directory_request := FtpRequest.new()
 
-@onready var menu_available = $Split/Sidebar/Menu/Available
-
 
 func _ready():
-    menu_available.grab_focus()
-    
     add_child(releases_request)
     add_child(directory_request)
     releases_request.request_completed.connect(self._releases_request_completed)
