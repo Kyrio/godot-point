@@ -1,19 +1,23 @@
 extends Control
 
 
-const GODOT_RELEASES_URL = "https://api.github.com/repos/godotengine/godot/releases?per_page=20"
+const GODOT_RELEASES_URL = "https://api.github.com/repos/godotengine/godot/releases?per_page=10"
 const GODOT_4_DIRECTORY_URL = "ftp://downloads.tuxfamily.org/godotengine/4.0/"
 
 var releases_request := HTTPRequest.new()
 var directory_request := FtpRequest.new()
 
+@onready var menu_available = $Split/Sidebar/Menu/Available
+
 
 func _ready():
+    menu_available.grab_focus()
+    
     add_child(releases_request)
     add_child(directory_request)
     releases_request.request_completed.connect(self._releases_request_completed)
     directory_request.request_completed.connect(self._directory_request_completed)
-
+    
 
 func _on_json_pressed():
     var error = releases_request.request(GODOT_RELEASES_URL)
@@ -29,7 +33,7 @@ func _on_ftp_pressed():
 
 func _releases_request_completed(result: HTTPRequest.Result, response_code: int, _headers: PackedStringArray, body: PackedByteArray):
     if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
-        push_error("HTTP request returned with code ", response_code)
+        push_error("JSON request returned with code ", response_code)
         return
     
     var json = JSON.new()

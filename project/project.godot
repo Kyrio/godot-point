@@ -14,3 +14,7 @@ config/name="Godot Point"
 run/main_scene="res://gui/main.tscn"
 config/icon="res://assets/icons/logo_64.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.964706, 0.960784, 0.956863, 1)
