@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://rcn4avimk7ek"]
+
+[ext_resource type="Script" path="res://gui/releases/releases.gd" id="1_p00c8"]
+[ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="1_reyj7"]
+
+[sub_resource type="Font" id="Font_l6hwa"]
+data/0 = ExtResource( "1_reyj7" )
+
+[sub_resource type="Font" id="Font_adkh3"]
+data/0 = ExtResource( "1_reyj7" )
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6msa"]
+content_margin_left = 15.0
+content_margin_top = 7.0
+content_margin_right = 15.0
+content_margin_bottom = 7.0
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 2
+border_color = Color(0.207843, 0.517647, 0.894118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k67np"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24kel"]
+content_margin_left = 15.0
+content_margin_top = 7.0
+content_margin_right = 15.0
+content_margin_bottom = 7.0
+bg_color = Color(0.870588, 0.866667, 0.854902, 1)
+border_width_top = 2
+border_color = Color(0.239216, 0.219608, 0.27451, 0)
+
+[node name="Releases" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_p00c8" )
+
+[node name="Margins" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="VBoxContainer" parent="Margins"]
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 1014.0
+offset_bottom = 580.0
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Margins/Content"]
+offset_right = 1004.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource( "Font_l6hwa" )
+theme_override_font_sizes/font_size = 32
+text = "Available"
+
+[node name="TabContainer" type="TabContainer" parent="Margins/Content"]
+offset_top = 62.0
+offset_right = 1004.0
+offset_bottom = 560.0
+size_flags_vertical = 3
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_unselected_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_constants/side_margin = 0
+theme_override_fonts/font = SubResource( "Font_adkh3" )
+theme_override_styles/tab_selected = SubResource( "StyleBoxFlat_g6msa" )
+theme_override_styles/panel = SubResource( "StyleBoxFlat_k67np" )
+theme_override_styles/tab_unselected = SubResource( "StyleBoxFlat_24kel" )
+
+[node name="Godot 3" type="Control" parent="Margins/Content/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 34.0
+
+[node name="Godot 4" type="Control" parent="Margins/Content/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0

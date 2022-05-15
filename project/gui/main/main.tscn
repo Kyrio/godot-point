@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0lpf0m7n5bhn"]
+[gd_scene load_steps=15 format=3 uid="uid://c2j3v2pcxok8i"]
 
 [ext_resource type="Script" path="res://gui/main/main.gd" id="1_nya24"]
 [ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="3_cl3hj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c4gie421xhjyv" path="res://assets/icons/download-cloud.png" id="4_axlf2"]
 [ext_resource type="Texture2D" uid="uid://ni8gf8mlfr6t" path="res://assets/icons/logo_64.png" id="4_oafdt"]
 [ext_resource type="Texture2D" uid="uid://bq6lfjhinqf5u" path="res://assets/icons/settings.png" id="6_cmojx"]
+[ext_resource type="Script" path="res://gui/main/view.gd" id="7_16wn6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xpop"]
 content_margin_left = 10.0
@@ -81,7 +82,7 @@ offset_top = 68.0
 offset_right = 224.0
 offset_bottom = 78.0
 
-[node name="Available" type="Button" parent="Split/Sidebar/Menu"]
+[node name="Releases" type="Button" parent="Split/Sidebar/Menu"]
 offset_top = 82.0
 offset_right = 224.0
 offset_bottom = 122.0
@@ -98,14 +99,13 @@ theme_override_styles/pressed = SubResource( "StyleBoxFlat_2atrb" )
 theme_override_styles/focus = SubResource( "StyleBoxEmpty_6irce" )
 theme_override_styles/normal = SubResource( "StyleBoxEmpty_6irce" )
 toggle_mode = true
-button_pressed = true
 action_mode = 0
 button_group = SubResource( "ButtonGroup_ofb1b" )
 text = "Available"
 icon = ExtResource( "4_axlf2" )
 alignment = 0
 
-[node name="Installed" type="Button" parent="Split/Sidebar/Menu"]
+[node name="Installs" type="Button" parent="Split/Sidebar/Menu"]
 offset_top = 126.0
 offset_right = 224.0
 offset_bottom = 166.0
@@ -157,7 +157,10 @@ text = "Settings"
 icon = ExtResource( "6_cmojx" )
 alignment = 0
 
-[node name="Container" type="Container" parent="Split"]
+[node name="View" type="Control" parent="Split"]
 offset_left = 256.0
 offset_right = 1024.0
 offset_bottom = 600.0
+script = ExtResource( "7_16wn6" )
+
+[connection signal="toggled" from="Split/Sidebar/Menu/Releases" to="." method="_on_releases_toggled"]
