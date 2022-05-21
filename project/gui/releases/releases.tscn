@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://rcn4avimk7ek"]
+[gd_scene load_steps=9 format=3 uid="uid://rcn4avimk7ek"]
 
 [ext_resource type="Script" path="res://gui/releases/releases.gd" id="1_p00c8"]
 [ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="1_reyj7"]
+[ext_resource type="PackedScene" uid="uid://dnknkjjj8phgk" path="res://gui/releases/stable_releases.tscn" id="3_5d66j"]
 
 [sub_resource type="Font" id="Font_l6hwa"]
 data/0 = ExtResource( "1_reyj7" )
@@ -58,7 +59,8 @@ theme_override_fonts/font = SubResource( "Font_l6hwa" )
 theme_override_font_sizes/font_size = 32
 text = "Available"
 
-[node name="TabContainer" type="TabContainer" parent="Margins/Content"]
+[node name="Tabs" type="TabContainer" parent="Margins/Content"]
+unique_name_in_owner = true
 offset_top = 62.0
 offset_right = 1004.0
 offset_bottom = 560.0
@@ -71,13 +73,19 @@ theme_override_styles/tab_selected = SubResource( "StyleBoxFlat_g6msa" )
 theme_override_styles/panel = SubResource( "StyleBoxFlat_k67np" )
 theme_override_styles/tab_unselected = SubResource( "StyleBoxFlat_24kel" )
 
-[node name="Godot 3" type="Control" parent="Margins/Content/TabContainer"]
+[node name="Stable" type="ScrollContainer" parent="Margins/Content/Tabs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 34.0
 
-[node name="Godot 4" type="Control" parent="Margins/Content/TabContainer"]
+[node name="StableReleases" parent="Margins/Content/Tabs/Stable" instance=ExtResource( "3_5d66j" )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1004.0
+offset_bottom = 74.0
+
+[node name="Future" type="Control" parent="Margins/Content/Tabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 31.0
+offset_top = 34.0

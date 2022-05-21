@@ -1,8 +1,8 @@
 extends Control
 
 
-@onready var releases_button = $Split/Sidebar/Menu/Releases
-@onready var view = $Split/View
+@onready var releases_button := $Split/Sidebar/Menu/Releases as Button
+@onready var view := $Split/View as View
 
 
 func _ready():

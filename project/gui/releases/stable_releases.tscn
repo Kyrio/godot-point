@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnknkjjj8phgk"]
+
+[ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="1_jmsvl"]
+[ext_resource type="FontData" uid="uid://djyxorhks20ht" path="res://assets/fonts/inter.otf" id="2_eds7x"]
+[ext_resource type="Texture2D" uid="uid://bmyhkhwsyc4vr" path="res://assets/icons/download.png" id="4_o6vvr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dx0ts"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.870588, 0.866667, 0.854902, 0)
+border_width_bottom = 1
+border_color = Color(0.870588, 0.866667, 0.854902, 1)
+
+[sub_resource type="Font" id="Font_c52vr"]
+data/0 = ExtResource( "1_jmsvl" )
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwn1x"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.180392, 0.760784, 0.494118, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[sub_resource type="Font" id="Font_nhdec"]
+data/0 = ExtResource( "2_eds7x" )
+
+[sub_resource type="Font" id="Font_5kb23"]
+data/0 = ExtResource( "2_eds7x" )
+
+[node name="StableReleases" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Release" type="PanelContainer" parent="."]
+offset_right = 1024.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource( "StyleBoxFlat_dx0ts" )
+
+[node name="Content" type="VBoxContainer" parent="Release"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1014.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Header" type="HBoxContainer" parent="Release/Content"]
+offset_right = 1004.0
+offset_bottom = 26.0
+theme_override_constants/separation = 10
+
+[node name="Version" type="Label" parent="Release/Content/Header"]
+offset_top = 1.0
+offset_right = 96.0
+offset_bottom = 24.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource( "Font_c52vr" )
+text = "3.4.4-stable"
+
+[node name="Tag" type="Label" parent="Release/Content/Header"]
+offset_left = 106.0
+offset_right = 163.0
+offset_bottom = 26.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.180392, 0.760784, 0.494118, 1)
+theme_override_fonts/font = SubResource( "Font_c52vr" )
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource( "StyleBoxFlat_uwn1x" )
+text = "Latest"
+
+[node name="Spacing" type="Control" parent="Release/Content/Header"]
+offset_left = 173.0
+offset_right = 909.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+
+[node name="Date" type="Label" parent="Release/Content/Header"]
+offset_left = 919.0
+offset_top = 2.0
+offset_right = 1004.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_fonts/font = SubResource( "Font_nhdec" )
+theme_override_font_sizes/font_size = 14
+text = "23 Mar 2022"
+
+[node name="Body" type="HBoxContainer" parent="Release/Content"]
+offset_top = 30.0
+offset_right = 1004.0
+offset_bottom = 54.0
+
+[node name="Description" type="Label" parent="Release/Content/Body"]
+offset_top = 1.0
+offset_right = 876.0
+offset_bottom = 22.0
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_fonts/font = SubResource( "Font_5kb23" )
+theme_override_font_sizes/font_size = 14
+text = "Godot 3.4.4 is a maintenance release fixing a number of issues while preserving compatibility with previous 3.4.x releases."
+autowrap_mode = 2
+
+[node name="Spacing" type="Control" parent="Release/Content/Body"]
+minimum_size = Vector2(50, 0)
+offset_left = 880.0
+offset_right = 930.0
+offset_bottom = 24.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Release/Content/Body"]
+minimum_size = Vector2(70, 0)
+offset_left = 934.0
+offset_right = 1004.0
+offset_bottom = 24.0
+
+[node name="TextureButton" type="TextureButton" parent="Release/Content/Body/CenterContainer"]
+offset_left = 23.0
+offset_right = 47.0
+offset_bottom = 24.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( "4_o6vvr" )

@@ -7,10 +7,16 @@ const GODOT4_FTP = "ftp://downloads.tuxfamily.org/godotengine/4.0/"
 var godot3_request := HTTPRequest.new()
 var godot4_request := FtpRequest.new()
 
+@onready var tabs := get_node("%Tabs") as TabContainer
+
 
 func _ready():
+    tabs.set_tab_title(0, "Stable")
+    tabs.set_tab_title(1, "Godot 4.0")
+    
     add_child(godot3_request)
     add_child(godot4_request)
+    
     godot3_request.request_completed.connect(self._on_godot3_request_completed)
     godot4_request.request_completed.connect(self._on_godot4_request_completed)
 

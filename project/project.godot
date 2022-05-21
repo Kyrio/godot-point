@@ -8,12 +8,48 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Control",
+"class": &"View",
+"language": &"GDScript",
+"path": "res://gui/main/view.gd"
+}]
+_global_script_class_icons={
+"View": ""
+}
+
 [application]
 
 config/name="Godot Point"
 run/main_scene="res://gui/main/main.tscn"
 config/icon="res://assets/icons/logo_64.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+
+[display]
+
+window/energy_saving/keep_screen_on=false
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/channel_pack": 0,
+"compress/hdr_compression": 1,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d/compress_to": 0,
+"mipmaps/generate": false,
+"mipmaps/limit": -1,
+"process/fix_alpha_border": true,
+"process/hdr_as_srgb": false,
+"process/hdr_clamp_exposure": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"process/size_limit": 0,
+"roughness/mode": 0,
+"roughness/src_normal": ""
+}
 
 [rendering]
 
