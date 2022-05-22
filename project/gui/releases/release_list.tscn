@@ -1,14 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://rcn4avimk7ek"]
+[gd_scene load_steps=9 format=3 uid="uid://cdbvru78slu4n"]
 
-[ext_resource type="Script" path="res://gui/releases/releases.gd" id="1_p00c8"]
-[ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="1_reyj7"]
-[ext_resource type="PackedScene" uid="uid://dnknkjjj8phgk" path="res://gui/releases/stable_releases.tscn" id="3_5d66j"]
+[ext_resource type="Script" path="res://gui/releases/release_list.gd" id="1_aq747"]
+[ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
+[ext_resource type="PackedScene" uid="uid://dnknkjjj8phgk" path="res://gui/releases/release.tscn" id="3_5435f"]
 
 [sub_resource type="Font" id="Font_l6hwa"]
-data/0 = ExtResource( "1_reyj7" )
+data/0 = ExtResource( "2_pvafj" )
 
 [sub_resource type="Font" id="Font_adkh3"]
-data/0 = ExtResource( "1_reyj7" )
+data/0 = ExtResource( "2_pvafj" )
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6msa"]
 content_margin_left = 15.0
@@ -31,10 +31,10 @@ bg_color = Color(0.870588, 0.866667, 0.854902, 1)
 border_width_top = 2
 border_color = Color(0.239216, 0.219608, 0.27451, 0)
 
-[node name="Releases" type="Control"]
+[node name="ReleaseList" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( "1_p00c8" )
+script = ExtResource( "1_aq747" )
 
 [node name="Margins" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -78,11 +78,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 34.0
 
-[node name="StableReleases" parent="Margins/Content/Tabs/Stable" instance=ExtResource( "3_5d66j" )]
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="List" type="VBoxContainer" parent="Margins/Content/Tabs/Stable"]
 offset_right = 1004.0
 offset_bottom = 108.0
+size_flags_horizontal = 3
+
+[node name="Release" parent="Margins/Content/Tabs/Stable/List" instance=ExtResource( "3_5435f" )]
+offset_right = 1004.0
 
 [node name="Future" type="Control" parent="Margins/Content/Tabs"]
 visible = false

@@ -80,18 +80,13 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[node name="StableReleases" type="VBoxContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-theme_override_constants/separation = 0
-
-[node name="Release" type="PanelContainer" parent="."]
+[node name="Release" type="PanelContainer"]
 offset_right = 1024.0
 offset_bottom = 108.0
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource( "StyleBoxFlat_dx0ts" )
 
-[node name="Content" type="VBoxContainer" parent="Release"]
+[node name="Content" type="VBoxContainer" parent="."]
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 1014.0
@@ -100,12 +95,12 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="Header" type="HBoxContainer" parent="Release/Content"]
+[node name="Header" type="HBoxContainer" parent="Content"]
 offset_right = 1004.0
 offset_bottom = 23.0
 theme_override_constants/separation = 10
 
-[node name="Version" type="Label" parent="Release/Content/Header"]
+[node name="Version" type="Label" parent="Content/Header"]
 offset_right = 96.0
 offset_bottom = 23.0
 size_flags_vertical = 8
@@ -113,7 +108,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource( "Font_c52vr" )
 text = "3.4.4-stable"
 
-[node name="Tag" type="Label" parent="Release/Content/Header"]
+[node name="Tag" type="Label" parent="Content/Header"]
 offset_left = 106.0
 offset_top = 2.0
 offset_right = 159.0
@@ -125,13 +120,13 @@ theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource( "StyleBoxFlat_uwn1x" )
 text = "Latest"
 
-[node name="Spacing" type="Control" parent="Release/Content/Header"]
+[node name="Spacing" type="Control" parent="Content/Header"]
 offset_left = 169.0
 offset_right = 909.0
 offset_bottom = 23.0
 size_flags_horizontal = 3
 
-[node name="Date" type="Label" parent="Release/Content/Header"]
+[node name="Date" type="Label" parent="Content/Header"]
 offset_left = 919.0
 offset_top = 1.0
 offset_right = 1004.0
@@ -142,12 +137,12 @@ theme_override_fonts/font = SubResource( "Font_nhdec" )
 theme_override_font_sizes/font_size = 14
 text = "23 Mar 2022"
 
-[node name="Body" type="HBoxContainer" parent="Release/Content"]
+[node name="Body" type="HBoxContainer" parent="Content"]
 offset_top = 28.0
 offset_right = 1004.0
 offset_bottom = 88.0
 
-[node name="Description" type="Label" parent="Release/Content/Body"]
+[node name="Description" type="Label" parent="Content/Body"]
 offset_right = 815.0
 offset_bottom = 21.0
 size_flags_horizontal = 3
@@ -158,18 +153,18 @@ theme_override_font_sizes/font_size = 14
 text = "Godot 3.4.4 is a maintenance release fixing a number of issues while preserving compatibility with previous 3.4.x releases."
 autowrap_mode = 2
 
-[node name="Spacing" type="Control" parent="Release/Content/Body"]
+[node name="Spacing" type="Control" parent="Content/Body"]
 minimum_size = Vector2(80, 0)
 offset_left = 819.0
 offset_right = 899.0
 offset_bottom = 60.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Release/Content/Body"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/Body"]
 offset_left = 903.0
 offset_right = 1004.0
 offset_bottom = 60.0
 
-[node name="Button" type="Button" parent="Release/Content/Body/VBoxContainer"]
+[node name="Button" type="Button" parent="Content/Body/VBoxContainer"]
 offset_right = 101.0
 offset_bottom = 28.0
 size_flags_vertical = 4
@@ -191,7 +186,7 @@ theme_override_styles/normal = SubResource( "StyleBoxFlat_t0h7l" )
 text = "Standard"
 icon = ExtResource( "4_o6vvr" )
 
-[node name="Button2" type="Button" parent="Release/Content/Body/VBoxContainer"]
+[node name="Button2" type="Button" parent="Content/Body/VBoxContainer"]
 offset_top = 32.0
 offset_right = 101.0
 offset_bottom = 60.0

@@ -11,4 +11,4 @@ func _ready():
 
 func _on_releases_toggled(button_pressed: bool):
     if button_pressed:
-        view.load_view(&"res://gui/releases/releases.tscn")
+        view.load_view(&"res://gui/releases/release_list.tscn")
