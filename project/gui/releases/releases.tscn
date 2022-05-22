@@ -82,7 +82,7 @@ offset_top = 34.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_right = 1004.0
-offset_bottom = 74.0
+offset_bottom = 108.0
 
 [node name="Future" type="Control" parent="Margins/Content/Tabs"]
 visible = false
