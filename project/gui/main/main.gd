@@ -1,12 +1,12 @@
 extends Control
 
 
-@onready var releases_button := $Split/Sidebar/Menu/Releases as Button
+@onready var installs_button := $Split/Sidebar/Menu/Installs as Button
 @onready var view := $Split/View as View
 
 
 func _ready():
-    releases_button.button_pressed = true
+    installs_button.button_pressed = true
 
 
 func _on_releases_toggled(button_pressed: bool):

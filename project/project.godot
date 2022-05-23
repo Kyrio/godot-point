@@ -9,12 +9,18 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "PanelContainer",
+"class": &"ReleaseCard",
+"language": &"GDScript",
+"path": "res://gui/releases/release_card.gd"
+}, {
 "base": "Control",
 "class": &"View",
 "language": &"GDScript",
 "path": "res://gui/main/view.gd"
 }]
 _global_script_class_icons={
+"ReleaseCard": "",
 "View": ""
 }
 

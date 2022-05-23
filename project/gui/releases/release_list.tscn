@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdbvru78slu4n"]
+[gd_scene load_steps=11 format=3 uid="uid://cdbvru78slu4n"]
 
 [ext_resource type="Script" path="res://gui/releases/release_list.gd" id="1_aq747"]
 [ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
-[ext_resource type="PackedScene" uid="uid://dnknkjjj8phgk" path="res://gui/releases/release.tscn" id="3_5435f"]
+[ext_resource type="Texture2D" uid="uid://dc62jfanpuuqc" path="res://assets/icons/package-search.png" id="3_x5t6v"]
+[ext_resource type="FontData" uid="uid://djyxorhks20ht" path="res://assets/fonts/inter.otf" id="4_bme0v"]
 
 [sub_resource type="Font" id="Font_l6hwa"]
 data/0 = ExtResource( "2_pvafj" )
@@ -30,6 +31,9 @@ content_margin_bottom = 7.0
 bg_color = Color(0.870588, 0.866667, 0.854902, 1)
 border_width_top = 2
 border_color = Color(0.239216, 0.219608, 0.27451, 0)
+
+[sub_resource type="Font" id="Font_q6duh"]
+data/0 = ExtResource( "4_bme0v" )
 
 [node name="ReleaseList" type="Control"]
 anchor_right = 1.0
@@ -78,16 +82,56 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 34.0
 
-[node name="List" type="VBoxContainer" parent="Margins/Content/Tabs/Stable"]
+[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Stable"]
 offset_right = 1004.0
-offset_bottom = 108.0
+offset_bottom = 464.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
 
-[node name="Release" parent="Margins/Content/Tabs/Stable/List" instance=ExtResource( "3_5435f" )]
+[node name="StableList" type="VBoxContainer" parent="Margins/Content/Tabs/Stable/Content"]
+unique_name_in_owner = true
 offset_right = 1004.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="StablePlaceholder" type="CenterContainer" parent="Margins/Content/Tabs/Stable/Content"]
+unique_name_in_owner = true
+offset_right = 1004.0
+offset_bottom = 464.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Stable/Content/StablePlaceholder"]
+offset_left = 297.0
+offset_top = 172.0
+offset_right = 706.0
+offset_bottom = 292.0
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="Margins/Content/Tabs/Stable/Content/StablePlaceholder/Content"]
+offset_left = 172.0
+offset_right = 236.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( "3_x5t6v" )
+
+[node name="Label" type="Label" parent="Margins/Content/Tabs/Stable/Content/StablePlaceholder/Content"]
+offset_top = 74.0
+offset_right = 409.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_fonts/font = SubResource( "Font_q6duh" )
+text = "We are searching GitHub for Godot releases.
+If nothing happens, there may be a connectivity issue."
+horizontal_alignment = 1
 
 [node name="Future" type="Control" parent="Margins/Content/Tabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 34.0
+
+[connection signal="tab_changed" from="Margins/Content/Tabs" to="." method="_on_tab_changed"]

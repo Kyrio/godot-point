@@ -17,7 +17,7 @@ bg_color = Color(1, 1, 1, 1)
 border_width_right = 1
 border_color = Color(0.870588, 0.866667, 0.854902, 1)
 
-[sub_resource type="Font" id="Font_i1cvs"]
+[sub_resource type="Font" id="Font_xkwm1"]
 data/0 = ExtResource( "3_cl3hj" )
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6irce"]
@@ -40,7 +40,7 @@ corner_radius_bottom_left = 8
 [sub_resource type="ButtonGroup" id="ButtonGroup_ofb1b"]
 resource_name = "MenuButtons"
 
-[sub_resource type="Font" id="Font_xkwm1"]
+[sub_resource type="Font" id="Font_i1cvs"]
 data/0 = ExtResource( "3_cl3hj" )
 
 [sub_resource type="Font" id="Font_v6d80"]
@@ -82,33 +82,10 @@ offset_top = 68.0
 offset_right = 224.0
 offset_bottom = 78.0
 
-[node name="Releases" type="Button" parent="Split/Sidebar/Menu"]
+[node name="Installs" type="Button" parent="Split/Sidebar/Menu"]
 offset_top = 82.0
 offset_right = 224.0
 offset_bottom = 122.0
-mouse_default_cursor_shape = 2
-theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_constants/h_separation = 10
-theme_override_fonts/font = SubResource( "Font_i1cvs" )
-theme_override_styles/hover = SubResource( "StyleBoxEmpty_6irce" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_2atrb" )
-theme_override_styles/focus = SubResource( "StyleBoxEmpty_6irce" )
-theme_override_styles/normal = SubResource( "StyleBoxEmpty_6irce" )
-toggle_mode = true
-action_mode = 0
-button_group = SubResource( "ButtonGroup_ofb1b" )
-text = "Available"
-icon = ExtResource( "4_axlf2" )
-alignment = 0
-
-[node name="Installs" type="Button" parent="Split/Sidebar/Menu"]
-offset_top = 126.0
-offset_right = 224.0
-offset_bottom = 166.0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -126,6 +103,29 @@ action_mode = 0
 button_group = SubResource( "ButtonGroup_ofb1b" )
 text = "Installed"
 icon = ExtResource( "3_iy865" )
+alignment = 0
+
+[node name="Releases" type="Button" parent="Split/Sidebar/Menu"]
+offset_top = 126.0
+offset_right = 224.0
+offset_bottom = 166.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 10
+theme_override_fonts/font = SubResource( "Font_i1cvs" )
+theme_override_styles/hover = SubResource( "StyleBoxEmpty_6irce" )
+theme_override_styles/pressed = SubResource( "StyleBoxFlat_2atrb" )
+theme_override_styles/focus = SubResource( "StyleBoxEmpty_6irce" )
+theme_override_styles/normal = SubResource( "StyleBoxEmpty_6irce" )
+toggle_mode = true
+action_mode = 0
+button_group = SubResource( "ButtonGroup_ofb1b" )
+text = "Available"
+icon = ExtResource( "4_axlf2" )
 alignment = 0
 
 [node name="Spacing" type="Control" parent="Split/Sidebar/Menu"]
