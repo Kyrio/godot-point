@@ -15,7 +15,8 @@ class FtpRequest : public Node {
 private:
     CURL *curl;
 
-    static size_t write_callback(char *data, size_t size, size_t length, FtpRequest *userdata);
+    static size_t list_callback(char *data, size_t size, size_t length, FtpRequest *userdata);
+    static size_t throwaway_callback(char *data, size_t size, size_t length, void *userdata);
 
 protected:
     static void _bind_methods();
@@ -25,6 +26,7 @@ public:
     ~FtpRequest();
 
     int request_list(const String &url);
+    int request_info(const String &url);
 };
 
 #endif

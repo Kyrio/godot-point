@@ -10,6 +10,7 @@ const RELEASE_SCENE = preload("res://gui/releases/release_card.tscn")
 var stable_request := HTTPRequest.new()
 var future_request := FtpRequest.new()
 var stable_releases: Array
+var future_releases: Array
 
 var _github_headers = PackedStringArray(["Accept: application/vnd.github.text+json"])
 
@@ -23,7 +24,8 @@ func _ready():
     add_child(future_request)
     
     stable_request.request_completed.connect(self._on_stable_request_completed)
-    future_request.request_completed.connect(self._on_future_request_completed)
+    future_request.list_request_completed.connect(self._on_future_list_request_completed)
+    future_request.info_request_completed.connect(self._on_future_info_request_completed)
     
     tabs.set_tab_title(STABLE, "Stable")
     tabs.set_tab_title(FUTURE, "Godot 4.0")
@@ -37,9 +39,8 @@ func _on_tab_changed(tab):
                 _fetch_stable_releases()
         
         FUTURE:
-            var error = future_request.request_list(FUTURE_FTP)
-            if error != OK:
-                push_error("Error when creating future releases request.")
+            if future_releases.is_empty():
+                _fetch_future_releases()
                 
 
 func _fetch_stable_releases():
@@ -48,6 +49,16 @@ func _fetch_stable_releases():
     var error = stable_request.request(STABLE_RELEASES, _github_headers)
     if error != OK:
         push_error("Error when creating stable releases request.")
+
+
+func _fetch_future_releases():
+    var error = future_request.request_list(FUTURE_FTP)
+    if error != OK:
+        push_error("Error when creating future releases request.")
+    
+    error = future_request.request_info("ftp://downloads.tuxfamily.org/godotengine/4.0/alpha8/Godot_v4.0-alpha8_win64.exe.zip")
+    if error != OK:
+        push_error("Error when creating 2nd future releases request.")
 
 
 func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int, _headers: PackedStringArray, body: PackedByteArray):
@@ -71,12 +82,16 @@ func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int
     _refresh_stable_releases()
 
 
-func _on_future_request_completed(result: HTTPRequest.Result, body: String):
-    if result != HTTPRequest.RESULT_SUCCESS:
-        push_error("FTP request returned with an error")
+func _on_future_list_request_completed(body: String):
+    print(body)
+    
+
+func _on_future_info_request_completed(curlcode: int, filetime: int):
+    if curlcode != 0 or filetime < 0:
+        push_error("Info request returned with code ", curlcode)
         return
     
-    print(body)
+    print("Filetime is: ", Time.get_date_dict_from_unix_time(filetime))
 
 
 func _refresh_stable_releases():
