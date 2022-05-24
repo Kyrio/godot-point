@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdbvru78slu4n"]
+[gd_scene load_steps=16 format=3 uid="uid://cdbvru78slu4n"]
 
 [ext_resource type="Script" path="res://gui/releases/release_list.gd" id="1_aq747"]
 [ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
@@ -31,6 +31,38 @@ content_margin_bottom = 7.0
 bg_color = Color(0.870588, 0.866667, 0.854902, 1)
 border_width_top = 2
 border_color = Color(0.239216, 0.219608, 0.27451, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duo5q"]
+bg_color = Color(0.752941, 0.74902, 0.737255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_776da"]
+bg_color = Color(0.603922, 0.6, 0.588235, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8vou"]
+bg_color = Color(0.466667, 0.462745, 0.482353, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_m7wju"]
+color = Color(1, 1, 1, 0)
+thickness = 8
+vertical = true
+
+[sub_resource type="Theme" id="Theme_dlskl"]
+VScrollBar/styles/grabber = SubResource( "StyleBoxFlat_duo5q" )
+VScrollBar/styles/grabber_highlight = SubResource( "StyleBoxFlat_776da" )
+VScrollBar/styles/grabber_pressed = SubResource( "StyleBoxFlat_p8vou" )
+VScrollBar/styles/scroll = SubResource( "StyleBoxLine_m7wju" )
 
 [sub_resource type="Font" id="Font_q6duh"]
 data/0 = ExtResource( "4_bme0v" )
@@ -81,6 +113,7 @@ theme_override_styles/tab_unselected = SubResource( "StyleBoxFlat_24kel" )
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 34.0
+theme = SubResource( "Theme_dlskl" )
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Stable"]
 offset_right = 1004.0
