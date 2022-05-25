@@ -161,10 +161,55 @@ text = "We are searching GitHub for Godot releases.
 If nothing happens, there may be a connectivity issue."
 horizontal_alignment = 1
 
-[node name="Future" type="Control" parent="Margins/Content/Tabs"]
+[node name="Future" type="ScrollContainer" parent="Margins/Content/Tabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 34.0
+theme = SubResource( "Theme_dlskl" )
+
+[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Future"]
+offset_right = 1004.0
+offset_bottom = 464.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="FutureList" type="VBoxContainer" parent="Margins/Content/Tabs/Future/Content"]
+offset_right = 1004.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="FuturePlaceholder" type="CenterContainer" parent="Margins/Content/Tabs/Future/Content"]
+offset_right = 1004.0
+offset_bottom = 464.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Future/Content/FuturePlaceholder"]
+offset_left = 291.0
+offset_top = 172.0
+offset_right = 712.0
+offset_bottom = 292.0
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="Margins/Content/Tabs/Future/Content/FuturePlaceholder/Content"]
+offset_left = 178.0
+offset_right = 242.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( "3_x5t6v" )
+
+[node name="Label" type="Label" parent="Margins/Content/Tabs/Future/Content/FuturePlaceholder/Content"]
+offset_top = 74.0
+offset_right = 421.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_fonts/font = SubResource( "Font_q6duh" )
+text = "We are searching TuxFamily.org for Godot pre-releases.
+If nothing happens, there may be a connectivity issue."
+horizontal_alignment = 1
 
 [connection signal="tab_changed" from="Margins/Content/Tabs" to="." method="_on_tab_changed"]

@@ -1,7 +1,7 @@
 extends Control
 
 
-enum { STABLE, FUTURE }
+enum Tab { STABLE, FUTURE }
 
 const STABLE_RELEASES = "https://api.github.com/repos/godotengine/godot/releases?per_page=10"
 const FUTURE_FTP = "ftp://downloads.tuxfamily.org/godotengine/4.0/"
@@ -27,18 +27,18 @@ func _ready():
     future_request.list_request_completed.connect(self._on_future_list_request_completed)
     future_request.info_request_completed.connect(self._on_future_info_request_completed)
     
-    tabs.set_tab_title(STABLE, "Stable")
-    tabs.set_tab_title(FUTURE, "Godot 4.0")
+    tabs.set_tab_title(Tab.STABLE, "Stable")
+    tabs.set_tab_title(Tab.FUTURE, "Godot 4.0")
     _on_tab_changed(tabs.current_tab)
 
 
 func _on_tab_changed(tab):
     match tab:
-        STABLE:
+        Tab.STABLE:
             if stable_releases.is_empty():
                 _fetch_stable_releases()
         
-        FUTURE:
+        Tab.FUTURE:
             if future_releases.is_empty():
                 _fetch_future_releases()
                 
@@ -83,8 +83,13 @@ func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int
 
 
 func _on_future_list_request_completed(body: String):
-    print(body)
+    var lines = body.split("\n", false)
     
+    for line in lines:
+        line = line.strip_edges()
+        if line.begins_with("alpha") or line.begins_with("beta") or line.begins_with("rc"):
+            future_releases.append(line)
+
 
 func _on_future_info_request_completed(curlcode: int, filetime: int):
     if curlcode != 0 or filetime < 0:
@@ -115,3 +120,26 @@ func _refresh_stable_releases():
     
     if stable_list.get_child_count() > 0:
         stable_placeholder.hide()
+
+
+func _build_download_name(version_number: String, status: String, module_config: String, platform: String, bits: int):
+    var os = ""
+    var exe = ""
+    
+    match platform:
+        "Windows", "UWP":
+            os = "win%d" % bits
+            exe = "exe"
+        "macOS":
+            os = "osx"
+            exe = "universal"
+        "Linux":
+            os = "linux" if version_number == "4.0" else "x11"
+            exe = "%d" % bits
+    
+    var module_suffix = ""
+    if module_config == "mono":
+        module_suffix = "_mono"
+    
+    var download_name = "Godot_v%s-%s%s_%s.%s.zip" % [version_number, status, module_suffix, os, exe]
+    return download_name
