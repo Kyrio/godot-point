@@ -71,6 +71,7 @@ data/0 = ExtResource( "4_bme0v" )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( "1_aq747" )
+tab_names = ["Stable", "Godot 4.0"]
 
 [node name="Margins" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -122,28 +123,26 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="StableList" type="VBoxContainer" parent="Margins/Content/Tabs/Stable/Content"]
-unique_name_in_owner = true
+[node name="List" type="VBoxContainer" parent="Margins/Content/Tabs/Stable/Content"]
 offset_right = 1004.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="StablePlaceholder" type="CenterContainer" parent="Margins/Content/Tabs/Stable/Content"]
-unique_name_in_owner = true
+[node name="Placeholder" type="CenterContainer" parent="Margins/Content/Tabs/Stable/Content"]
 offset_right = 1004.0
 offset_bottom = 464.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Stable/Content/StablePlaceholder"]
+[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Stable/Content/Placeholder"]
 offset_left = 297.0
 offset_top = 172.0
 offset_right = 706.0
 offset_bottom = 292.0
 theme_override_constants/separation = 10
 
-[node name="Icon" type="TextureRect" parent="Margins/Content/Tabs/Stable/Content/StablePlaceholder/Content"]
+[node name="Icon" type="TextureRect" parent="Margins/Content/Tabs/Stable/Content/Placeholder/Content"]
 offset_left = 172.0
 offset_right = 236.0
 offset_bottom = 64.0
@@ -151,7 +150,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource( "3_x5t6v" )
 
-[node name="Label" type="Label" parent="Margins/Content/Tabs/Stable/Content/StablePlaceholder/Content"]
+[node name="Label" type="Label" parent="Margins/Content/Tabs/Stable/Content/Placeholder/Content"]
 offset_top = 74.0
 offset_right = 409.0
 offset_bottom = 120.0
@@ -175,26 +174,26 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="FutureList" type="VBoxContainer" parent="Margins/Content/Tabs/Future/Content"]
+[node name="List" type="VBoxContainer" parent="Margins/Content/Tabs/Future/Content"]
 offset_right = 1004.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="FuturePlaceholder" type="CenterContainer" parent="Margins/Content/Tabs/Future/Content"]
+[node name="Placeholder" type="CenterContainer" parent="Margins/Content/Tabs/Future/Content"]
 offset_right = 1004.0
 offset_bottom = 464.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Future/Content/FuturePlaceholder"]
+[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Future/Content/Placeholder"]
 offset_left = 291.0
 offset_top = 172.0
 offset_right = 712.0
 offset_bottom = 292.0
 theme_override_constants/separation = 10
 
-[node name="Icon" type="TextureRect" parent="Margins/Content/Tabs/Future/Content/FuturePlaceholder/Content"]
+[node name="Icon" type="TextureRect" parent="Margins/Content/Tabs/Future/Content/Placeholder/Content"]
 offset_left = 178.0
 offset_right = 242.0
 offset_bottom = 64.0
@@ -202,7 +201,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource( "3_x5t6v" )
 
-[node name="Label" type="Label" parent="Margins/Content/Tabs/Future/Content/FuturePlaceholder/Content"]
+[node name="Label" type="Label" parent="Margins/Content/Tabs/Future/Content/Placeholder/Content"]
 offset_top = 74.0
 offset_right = 421.0
 offset_bottom = 120.0
@@ -211,5 +210,3 @@ theme_override_fonts/font = SubResource( "Font_q6duh" )
 text = "We are searching TuxFamily.org for Godot pre-releases.
 If nothing happens, there may be a connectivity issue."
 horizontal_alignment = 1
-
-[connection signal="tab_changed" from="Margins/Content/Tabs" to="." method="_on_tab_changed"]

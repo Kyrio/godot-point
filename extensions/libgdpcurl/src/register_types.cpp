@@ -18,7 +18,7 @@ void initialize_gdpcurl_module(ModuleInitializationLevel p_level) {
 
     curl_global_init(CURL_GLOBAL_DEFAULT);
 
-    ClassDB::register_class<FtpRequest>();
+    ClassDB::register_class<FTPRequest>();
 }
 
 void uninitialize_gdpcurl_module(ModuleInitializationLevel p_level) {

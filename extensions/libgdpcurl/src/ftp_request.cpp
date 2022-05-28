@@ -7,17 +7,17 @@
 
 using namespace godot;
 
-FtpRequest::FtpRequest() {
+FTPRequest::FTPRequest() {
     curl = curl_easy_init();
 }
 
-FtpRequest::~FtpRequest() {
+FTPRequest::~FTPRequest() {
     if (curl) {
         curl_easy_cleanup(curl);
     }
 }
 
-int FtpRequest::request_list(const String &url) {
+int FTPRequest::request_list(const String &url) {
     if (!curl) {
         return Error::ERR_UNCONFIGURED;
     }
@@ -26,7 +26,7 @@ int FtpRequest::request_list(const String &url) {
 
     curl_easy_setopt(curl, CURLOPT_URL, url.utf8().get_data());
     curl_easy_setopt(curl, CURLOPT_DIRLISTONLY, 1L);
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, FtpRequest::list_callback);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, FTPRequest::list_callback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, this);
     CURLcode response = curl_easy_perform(curl);
 
@@ -37,7 +37,7 @@ int FtpRequest::request_list(const String &url) {
     return Error::ERR_CANT_CONNECT;
 }
 
-int FtpRequest::request_info(const String &url) {
+int FTPRequest::request_info(const String &url) {
     if (!curl) {
         return Error::ERR_UNCONFIGURED;
     }
@@ -49,7 +49,7 @@ int FtpRequest::request_info(const String &url) {
     curl_easy_setopt(curl, CURLOPT_URL, url.utf8().get_data());
     curl_easy_setopt(curl, CURLOPT_NOBODY, 1L);
     curl_easy_setopt(curl, CURLOPT_FILETIME, 1L);
-    curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, FtpRequest::throwaway_callback);
+    curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, FTPRequest::throwaway_callback);
     curl_easy_setopt(curl, CURLOPT_HEADER, 0L);
 
     CURLcode response = curl_easy_perform(curl);
@@ -64,7 +64,7 @@ int FtpRequest::request_info(const String &url) {
     return Error::ERR_CANT_CONNECT;
 }
 
-size_t FtpRequest::list_callback(char *data, size_t size, size_t length, FtpRequest *userdata) {
+size_t FTPRequest::list_callback(char *data, size_t size, size_t length, FTPRequest *userdata) {
     size_t real_size = size * length;
 
     std::string data_string(data, real_size);
@@ -75,14 +75,14 @@ size_t FtpRequest::list_callback(char *data, size_t size, size_t length, FtpRequ
     return real_size;
 }
 
-size_t FtpRequest::throwaway_callback(char *data, size_t size, size_t length, void *userdata) {
+size_t FTPRequest::throwaway_callback(char *data, size_t size, size_t length, void *userdata) {
     size_t real_size = size * length;
     return real_size;
 }
 
-void FtpRequest::_bind_methods() {
-	ClassDB::bind_method(D_METHOD("request_list"), &FtpRequest::request_list);
-	ClassDB::bind_method(D_METHOD("request_info"), &FtpRequest::request_info);
+void FTPRequest::_bind_methods() {
+	ClassDB::bind_method(D_METHOD("request_list"), &FTPRequest::request_list);
+	ClassDB::bind_method(D_METHOD("request_info"), &FTPRequest::request_info);
 
 	ADD_SIGNAL(MethodInfo("list_request_completed", PropertyInfo(Variant::STRING, "body")));
 	ADD_SIGNAL(MethodInfo("info_request_completed", PropertyInfo(Variant::INT, "curlcode"), PropertyInfo(Variant::INT, "filetime")));
