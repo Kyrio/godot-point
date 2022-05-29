@@ -9,6 +9,16 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Object",
+"class": &"Constants",
+"language": &"GDScript",
+"path": "res://core/constants.gd"
+}, {
+"base": "RefCounted",
+"class": &"Release",
+"language": &"GDScript",
+"path": "res://core/release.gd"
+}, {
 "base": "PanelContainer",
 "class": &"ReleaseCard",
 "language": &"GDScript",
@@ -20,6 +30,8 @@ _global_script_classes=[{
 "path": "res://gui/main/view.gd"
 }]
 _global_script_class_icons={
+"Constants": "",
+"Release": "",
 "ReleaseCard": "",
 "View": ""
 }

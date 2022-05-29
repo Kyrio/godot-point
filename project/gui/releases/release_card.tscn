@@ -166,12 +166,12 @@ offset_left = 819.0
 offset_right = 899.0
 offset_bottom = 60.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Content/Body"]
+[node name="Download" type="VBoxContainer" parent="Content/Body"]
 offset_left = 903.0
 offset_right = 1004.0
 offset_bottom = 60.0
 
-[node name="Button" type="Button" parent="Content/Body/VBoxContainer"]
+[node name="Standard" type="Button" parent="Content/Body/Download"]
 offset_right = 101.0
 offset_bottom = 28.0
 size_flags_vertical = 4
@@ -193,7 +193,8 @@ theme_override_styles/normal = SubResource( "StyleBoxFlat_t0h7l" )
 text = "Standard"
 icon = ExtResource( "4_7inw3" )
 
-[node name="Button2" type="Button" parent="Content/Body/VBoxContainer"]
+[node name="Mono" type="Button" parent="Content/Body/Download"]
+unique_name_in_owner = true
 offset_top = 32.0
 offset_right = 101.0
 offset_bottom = 60.0

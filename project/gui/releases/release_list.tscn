@@ -29,7 +29,9 @@ content_margin_top = 7.0
 content_margin_right = 15.0
 content_margin_bottom = 7.0
 bg_color = Color(0.870588, 0.866667, 0.854902, 1)
+border_width_left = 1
 border_width_top = 2
+border_width_right = 1
 border_color = Color(0.239216, 0.219608, 0.27451, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duo5q"]
@@ -71,7 +73,6 @@ data/0 = ExtResource( "4_bme0v" )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( "1_aq747" )
-tab_names = ["Stable", "Godot 4.0"]
 
 [node name="Margins" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -160,40 +161,40 @@ text = "We are searching GitHub for Godot releases.
 If nothing happens, there may be a connectivity issue."
 horizontal_alignment = 1
 
-[node name="Future" type="ScrollContainer" parent="Margins/Content/Tabs"]
+[node name="NextMinor" type="ScrollContainer" parent="Margins/Content/Tabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 34.0
 theme = SubResource( "Theme_dlskl" )
 
-[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Future"]
+[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMinor"]
 offset_right = 1004.0
 offset_bottom = 464.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="List" type="VBoxContainer" parent="Margins/Content/Tabs/Future/Content"]
+[node name="List" type="VBoxContainer" parent="Margins/Content/Tabs/NextMinor/Content"]
 offset_right = 1004.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="Placeholder" type="CenterContainer" parent="Margins/Content/Tabs/Future/Content"]
+[node name="Placeholder" type="CenterContainer" parent="Margins/Content/Tabs/NextMinor/Content"]
 offset_right = 1004.0
 offset_bottom = 464.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Future/Content/Placeholder"]
+[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMinor/Content/Placeholder"]
 offset_left = 291.0
 offset_top = 172.0
 offset_right = 712.0
 offset_bottom = 292.0
 theme_override_constants/separation = 10
 
-[node name="Icon" type="TextureRect" parent="Margins/Content/Tabs/Future/Content/Placeholder/Content"]
+[node name="Icon" type="TextureRect" parent="Margins/Content/Tabs/NextMinor/Content/Placeholder/Content"]
 offset_left = 178.0
 offset_right = 242.0
 offset_bottom = 64.0
@@ -201,7 +202,58 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource( "3_x5t6v" )
 
-[node name="Label" type="Label" parent="Margins/Content/Tabs/Future/Content/Placeholder/Content"]
+[node name="Label" type="Label" parent="Margins/Content/Tabs/NextMinor/Content/Placeholder/Content"]
+offset_top = 74.0
+offset_right = 421.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_fonts/font = SubResource( "Font_q6duh" )
+text = "We are searching TuxFamily.org for Godot pre-releases.
+If nothing happens, there may be a connectivity issue."
+horizontal_alignment = 1
+
+[node name="NextMajor" type="ScrollContainer" parent="Margins/Content/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 34.0
+theme = SubResource( "Theme_dlskl" )
+
+[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMajor"]
+offset_right = 1004.0
+offset_bottom = 464.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="List" type="VBoxContainer" parent="Margins/Content/Tabs/NextMajor/Content"]
+offset_right = 1004.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Placeholder" type="CenterContainer" parent="Margins/Content/Tabs/NextMajor/Content"]
+offset_right = 1004.0
+offset_bottom = 464.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMajor/Content/Placeholder"]
+offset_left = 291.0
+offset_top = 172.0
+offset_right = 712.0
+offset_bottom = 292.0
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="Margins/Content/Tabs/NextMajor/Content/Placeholder/Content"]
+offset_left = 178.0
+offset_right = 242.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( "3_x5t6v" )
+
+[node name="Label" type="Label" parent="Margins/Content/Tabs/NextMajor/Content/Placeholder/Content"]
 offset_top = 74.0
 offset_right = 421.0
 offset_bottom = 120.0
