@@ -28,16 +28,11 @@ int FTPRequest::request_list(const String &url) {
     curl_easy_setopt(curl, CURLOPT_DIRLISTONLY, 1L);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, FTPRequest::list_callback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, this);
-    CURLcode response = curl_easy_perform(curl);
 
-    if (response == CURLE_OK) {
-        return Error::OK;
-    }
-
-    return Error::ERR_CANT_CONNECT;
+    return curl_easy_perform(curl);
 }
 
-int FTPRequest::request_info(const String &url) {
+int FTPRequest::request_filetime(const String &url) {
     if (!curl) {
         return Error::ERR_UNCONFIGURED;
     }
@@ -56,21 +51,26 @@ int FTPRequest::request_info(const String &url) {
 
     if (response == CURLE_OK) {
         response = curl_easy_getinfo(curl, CURLINFO_FILETIME, &filetime);
-        emit_signal("info_request_completed", response, filetime);
-
-        return Error::OK;
+        latest_filetime = filetime;
+        return response;
     }
 
-    return Error::ERR_CANT_CONNECT;
+    return response;
+}
+
+String FTPRequest::get_list() {
+    return latest_list;
+}
+
+int64_t FTPRequest::get_filetime() {
+    return latest_filetime;
 }
 
 size_t FTPRequest::list_callback(char *data, size_t size, size_t length, FTPRequest *userdata) {
     size_t real_size = size * length;
 
     std::string data_string(data, real_size);
-    String body(data_string.c_str());
-    
-    userdata->emit_signal("list_request_completed", body);
+    userdata->latest_list = String(data_string.c_str());
 
     return real_size;
 }
@@ -82,8 +82,7 @@ size_t FTPRequest::throwaway_callback(char *data, size_t size, size_t length, vo
 
 void FTPRequest::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("request_list"), &FTPRequest::request_list);
-	ClassDB::bind_method(D_METHOD("request_info"), &FTPRequest::request_info);
-
-	ADD_SIGNAL(MethodInfo("list_request_completed", PropertyInfo(Variant::STRING, "body")));
-	ADD_SIGNAL(MethodInfo("info_request_completed", PropertyInfo(Variant::INT, "curlcode"), PropertyInfo(Variant::INT, "filetime")));
+	ClassDB::bind_method(D_METHOD("request_filetime"), &FTPRequest::request_filetime);
+	ClassDB::bind_method(D_METHOD("get_list"), &FTPRequest::get_list);
+	ClassDB::bind_method(D_METHOD("get_filetime"), &FTPRequest::get_filetime);
 }

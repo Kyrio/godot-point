@@ -188,9 +188,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMinor/Content/Placeholder"]
-offset_left = 291.0
+offset_left = 275.0
 offset_top = 172.0
-offset_right = 712.0
+offset_right = 728.0
 offset_bottom = 292.0
 theme_override_constants/separation = 10
 
@@ -208,7 +208,7 @@ offset_right = 421.0
 offset_bottom = 120.0
 theme_override_colors/font_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_fonts/font = SubResource( "Font_q6duh" )
-text = "We are searching TuxFamily.org for Godot pre-releases.
+text = "We are searching TuxFamily servers for Godot pre-releases.
 If nothing happens, there may be a connectivity issue."
 horizontal_alignment = 1
 
@@ -239,9 +239,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMajor/Content/Placeholder"]
-offset_left = 291.0
+offset_left = 275.0
 offset_top = 172.0
-offset_right = 712.0
+offset_right = 728.0
 offset_bottom = 292.0
 theme_override_constants/separation = 10
 
@@ -259,6 +259,8 @@ offset_right = 421.0
 offset_bottom = 120.0
 theme_override_colors/font_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_fonts/font = SubResource( "Font_q6duh" )
-text = "We are searching TuxFamily.org for Godot pre-releases.
+text = "We are searching TuxFamily servers for Godot pre-releases.
 If nothing happens, there may be a connectivity issue."
 horizontal_alignment = 1
+
+[connection signal="tab_changed" from="Margins/Content/Tabs" to="." method="_on_tab_changed"]

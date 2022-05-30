@@ -14,6 +14,9 @@ var has_mono: bool
 
 
 func _ready():
+    if not release:
+        return
+    
     _version.text = release.version_name
     _latest.visible = is_latest
     _date.text = Constants.get_pretty_date_from_timestamp(release.publish_date)
