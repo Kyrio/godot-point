@@ -4,6 +4,7 @@ extends RefCounted
 ## A released version of Godot, either stable (usually obtained through GitHub)
 ## or a pre-release (from mirrors).
 
+
 ## The release's version number without any prefix or suffix, e.g. "3.5" or "4.0".
 var version_number: String
 

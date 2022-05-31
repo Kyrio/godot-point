@@ -6,8 +6,7 @@ const NEXT_MINOR_VERSION = "3.5"
 const NEXT_MAJOR_VERSION = "4.0"
 
 const STABLE_RELEASES_API = "https://api.github.com/repos/godotengine/godot/releases?per_page=10"
-const NEXT_MAJOR_RELEASES_FTP = "ftp://downloads.tuxfamily.org/godotengine/4.0/"
-const NEXT_MINOR_RELEASES_FTP = "ftp://downloads.tuxfamily.org/godotengine/3.5/"
+const PRERELEASES_FTP = "ftp://downloads.tuxfamily.org/godotengine/"
 
 const GITHUB_HEADERS = ["Accept: application/vnd.github.text+json"]
 

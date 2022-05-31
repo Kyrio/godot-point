@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdbvru78slu4n"]
+[gd_scene load_steps=17 format=3 uid="uid://cdbvru78slu4n"]
 
 [ext_resource type="Script" path="res://gui/releases/release_list.gd" id="1_aq747"]
 [ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
 [ext_resource type="Texture2D" uid="uid://dc62jfanpuuqc" path="res://assets/icons/package-search.png" id="3_x5t6v"]
 [ext_resource type="FontData" uid="uid://djyxorhks20ht" path="res://assets/fonts/inter.otf" id="4_bme0v"]
+[ext_resource type="Script" path="res://core/prerelease_request.gd" id="5_qgilg"]
 
 [sub_resource type="Font" id="Font_l6hwa"]
 data/0 = ExtResource( "2_pvafj" )
@@ -161,6 +162,8 @@ text = "We are searching GitHub for Godot releases.
 If nothing happens, there may be a connectivity issue."
 horizontal_alignment = 1
 
+[node name="Request" type="HTTPRequest" parent="Margins/Content/Tabs/Stable"]
+
 [node name="NextMinor" type="ScrollContainer" parent="Margins/Content/Tabs"]
 visible = false
 anchor_right = 1.0
@@ -212,6 +215,9 @@ text = "We are searching TuxFamily servers for Godot pre-releases.
 If nothing happens, there may be a connectivity issue."
 horizontal_alignment = 1
 
+[node name="Request" type="Node" parent="Margins/Content/Tabs/NextMinor"]
+script = ExtResource( "5_qgilg" )
+
 [node name="NextMajor" type="ScrollContainer" parent="Margins/Content/Tabs"]
 visible = false
 anchor_right = 1.0
@@ -262,5 +268,8 @@ theme_override_fonts/font = SubResource( "Font_q6duh" )
 text = "We are searching TuxFamily servers for Godot pre-releases.
 If nothing happens, there may be a connectivity issue."
 horizontal_alignment = 1
+
+[node name="Request" type="Node" parent="Margins/Content/Tabs/NextMajor"]
+script = ExtResource( "5_qgilg" )
 
 [connection signal="tab_changed" from="Margins/Content/Tabs" to="." method="_on_tab_changed"]
