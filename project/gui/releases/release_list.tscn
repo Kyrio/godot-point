@@ -1,10 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://cdbvru78slu4n"]
+[gd_scene load_steps=22 format=3 uid="uid://cdbvru78slu4n"]
 
 [ext_resource type="Script" path="res://gui/releases/release_list.gd" id="1_aq747"]
 [ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
 [ext_resource type="PackedScene" uid="uid://s3buqb1yfncx" path="res://gui/releases/placeholder.tscn" id="3_4bsmp"]
 [ext_resource type="Texture2D" uid="uid://b2rllk2fmujyg" path="res://assets/icons/refresh-cw.png" id="5_oijwh"]
 [ext_resource type="Script" path="res://core/prerelease_request.gd" id="5_qgilg"]
+[ext_resource type="Texture2D" uid="uid://ccq5o5gui3otx" path="res://assets/icons/chevron-left.png" id="6_yhyt5"]
+[ext_resource type="Texture2D" uid="uid://debj67v57cyps" path="res://assets/icons/chevron-right.png" id="7_isynp"]
+[ext_resource type="Script" path="res://gui/releases/page_button.gd" id="7_lw6bu"]
 
 [sub_resource type="Font" id="Font_l6hwa"]
 data/0 = ExtResource( "2_pvafj" )
@@ -128,7 +131,7 @@ text = "Available"
 unique_name_in_owner = true
 offset_top = 62.0
 offset_right = 1004.0
-offset_bottom = 515.0
+offset_bottom = 518.0
 size_flags_vertical = 3
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/font_unselected_color = Color(0.239216, 0.219608, 0.27451, 1)
@@ -146,7 +149,7 @@ theme = SubResource( "Theme_dlskl" )
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Stable"]
 offset_right = 1004.0
-offset_bottom = 419.0
+offset_bottom = 422.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
@@ -161,7 +164,7 @@ theme_override_constants/separation = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_right = 1004.0
-offset_bottom = 419.0
+offset_bottom = 422.0
 loading_text = "We are searching GitHub for Godot releases.
 If nothing happens, there may be a connectivity issue."
 empty_text = "We could not find any Godot releases on GitHub.
@@ -178,7 +181,7 @@ theme = SubResource( "Theme_dlskl" )
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMinor"]
 offset_right = 1004.0
-offset_bottom = 419.0
+offset_bottom = 422.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
@@ -211,7 +214,7 @@ theme = SubResource( "Theme_dlskl" )
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMajor"]
 offset_right = 1004.0
-offset_bottom = 419.0
+offset_bottom = 422.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
@@ -235,23 +238,28 @@ If refreshing does not help, Godot Point might need to be updated."
 [node name="Request" type="Node" parent="Margins/Content/Tabs/NextMajor"]
 script = ExtResource( "5_qgilg" )
 
-[node name="Refresh" type="Button" parent="Margins/Content"]
-unique_name_in_owner = true
-offset_top = 535.0
-offset_right = 83.0
+[node name="Toolbar" type="HBoxContainer" parent="Margins/Content"]
+offset_top = 538.0
+offset_right = 1004.0
 offset_bottom = 560.0
+
+[node name="Refresh" type="Button" parent="Margins/Content/Toolbar"]
+unique_name_in_owner = true
+offset_right = 75.0
+offset_bottom = 22.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
-theme_override_colors/font_disabled_color = Color(0.466667, 0.462745, 0.482353, 1)
+theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_colors/icon_normal_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
-theme_override_colors/icon_disabled_color = Color(0.466667, 0.462745, 0.482353, 1)
+theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource( "StyleBoxFlat_xaahw" )
 theme_override_styles/hover = SubResource( "StyleBoxFlat_5q7q1" )
 theme_override_styles/pressed = SubResource( "StyleBoxFlat_5q7q1" )
@@ -260,6 +268,74 @@ theme_override_styles/focus = SubResource( "StyleBoxFlat_r6nhw" )
 text = "Refresh"
 icon = ExtResource( "5_oijwh" )
 alignment = 0
+script = ExtResource( "7_lw6bu" )
+
+[node name="Spacing" type="Control" parent="Margins/Content/Toolbar"]
+offset_left = 79.0
+offset_right = 842.0
+offset_bottom = 22.0
+size_flags_horizontal = 3
+
+[node name="Pagination" type="HBoxContainer" parent="Margins/Content/Toolbar"]
+unique_name_in_owner = true
+offset_left = 846.0
+offset_right = 1004.0
+offset_bottom = 22.0
+theme_override_constants/separation = 20
+
+[node name="Previous" type="Button" parent="Margins/Content/Toolbar/Pagination"]
+offset_right = 82.0
+offset_bottom = 22.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_colors/icon_normal_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_constants/h_separation = 5
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource( "StyleBoxFlat_xaahw" )
+theme_override_styles/hover = SubResource( "StyleBoxFlat_5q7q1" )
+theme_override_styles/pressed = SubResource( "StyleBoxFlat_5q7q1" )
+theme_override_styles/disabled = SubResource( "StyleBoxFlat_xaahw" )
+theme_override_styles/focus = SubResource( "StyleBoxFlat_r6nhw" )
+text = "Previous"
+icon = ExtResource( "6_yhyt5" )
+alignment = 0
+script = ExtResource( "7_lw6bu" )
+
+[node name="Next" type="Button" parent="Margins/Content/Toolbar/Pagination"]
+offset_left = 102.0
+offset_right = 158.0
+offset_bottom = 22.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_colors/icon_normal_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_constants/h_separation = 5
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource( "StyleBoxFlat_xaahw" )
+theme_override_styles/hover = SubResource( "StyleBoxFlat_5q7q1" )
+theme_override_styles/pressed = SubResource( "StyleBoxFlat_5q7q1" )
+theme_override_styles/disabled = SubResource( "StyleBoxFlat_xaahw" )
+theme_override_styles/focus = SubResource( "StyleBoxFlat_r6nhw" )
+text = "Next"
+icon = ExtResource( "7_isynp" )
+alignment = 2
+icon_alignment = 2
+script = ExtResource( "7_lw6bu" )
 
 [connection signal="tab_changed" from="Margins/Content/Tabs" to="." method="_on_tab_changed"]
-[connection signal="pressed" from="Margins/Content/Refresh" to="." method="_on_refresh_pressed"]
+[connection signal="pressed" from="Margins/Content/Toolbar/Refresh" to="." method="_on_refresh_pressed"]

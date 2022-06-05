@@ -7,12 +7,18 @@ enum TabStatus { EMPTY, LOADING, READY }
 const RELEASE_SCENE = preload("res://gui/releases/release_card.tscn")
 
 var tab_statuses: Array[TabStatus]
-var tab_lists: Array[Container]
+var tab_lists: Array[Control]
 var tab_placeholders: Array[ListPlaceholder]
 var tab_requests: Array
 
+var _previous_page_regex: RegEx
+var _next_page_regex: RegEx
+
 @onready var tabs := %Tabs as TabContainer
-@onready var refresh := %Refresh as Button
+@onready var refresh := %Refresh as PageButton
+@onready var pagination := %Pagination as Control
+@onready var previous_page := pagination.get_node("Previous") as PageButton
+@onready var next_page := pagination.get_node("Next") as PageButton
 
 
 static func sort_releases_by_date(a: Release, b: Release):
@@ -20,6 +26,12 @@ static func sort_releases_by_date(a: Release, b: Release):
 
 
 func _ready():
+    _previous_page_regex = RegEx.new()
+    _next_page_regex = RegEx.new()
+    
+    _previous_page_regex.compile("<(.+)>; rel=\"prev\"")
+    _next_page_regex.compile("<(.+)>; rel=\"next\"")
+    
     assert(tabs.get_tab_count() == Tab.COUNT)
     
     for tab in Tab.COUNT:
@@ -58,16 +70,21 @@ func _process(_delta):
     var current_tab = tabs.current_tab
     match tab_statuses[current_tab]:
         TabStatus.EMPTY:
-            _enable_refresh()
+            refresh.set_enabled(true)
             tab_placeholders[current_tab].set_empty()
         
         TabStatus.LOADING:
-            _enable_refresh(false)
+            refresh.set_enabled(false)
             tab_placeholders[current_tab].set_loading()
         
         TabStatus.READY:
-            _enable_refresh()
+            refresh.set_enabled(true)
             tab_placeholders[current_tab].set_ready()
+            
+    if current_tab == Tab.STABLE:
+        pagination.show()
+    else:
+        pagination.hide()
 
 
 func fetch_tab_list(tab: Tab):
@@ -103,7 +120,7 @@ func fetch_tab_list(tab: Tab):
                 return
 
 
-func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int, _headers: PackedStringArray, body: PackedByteArray):
+func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int, headers: PackedStringArray, body: PackedByteArray):
     if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
         push_error("JSON request returned with code ", response_code)
         tab_statuses[Tab.STABLE] = TabStatus.EMPTY
@@ -122,6 +139,22 @@ func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int
         push_error("Unexpected JSON data")
         tab_statuses[Tab.STABLE] = TabStatus.EMPTY
         return
+        
+    for header in headers:
+        if header.begins_with("Link: "):
+            var next_match = _next_page_regex.search(header)
+            if next_match:
+                next_page.page_url = next_match.get_string(1)
+                next_page.set_enabled(true)
+            else:
+                next_page.set_enabled(false)
+            
+            var prev_match = _previous_page_regex.search(header)
+            if prev_match:
+                previous_page.page_url = prev_match.get_string(1)
+                previous_page.set_enabled(true)
+            else:
+                previous_page.set_enabled(false)
     
     var stable_list = tab_lists[Tab.STABLE]
 
@@ -177,13 +210,3 @@ func _on_refresh_pressed():
     
     if tab_statuses[current_tab] != TabStatus.LOADING:
         fetch_tab_list(current_tab)
-
-
-func _enable_refresh(enable = true):
-    if enable:
-        refresh.disabled = false
-        refresh.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-    else:
-        refresh.disabled = true
-        refresh.mouse_default_cursor_shape = Control.CURSOR_ARROW
-        refresh.release_focus()

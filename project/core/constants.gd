@@ -5,6 +5,9 @@ extends Object
 const NEXT_MINOR_VERSION = "3.5"
 const NEXT_MAJOR_VERSION = "4.0"
 
+const EARLIEST_SUPPORTED_MAJOR = 3
+const EARLIEST_SUPPORTED_RELEASE = "3.0.6-stable"
+
 const STABLE_RELEASES_API = "https://api.github.com/repos/godotengine/godot/releases?per_page=10"
 const PRERELEASES_FTP = "ftp://downloads.tuxfamily.org/godotengine/"
 
