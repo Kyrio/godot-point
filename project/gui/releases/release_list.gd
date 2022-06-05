@@ -29,8 +29,8 @@ func _ready():
     _previous_page_regex = RegEx.new()
     _next_page_regex = RegEx.new()
     
-    _previous_page_regex.compile("<(.+)>; rel=\"prev\"")
-    _next_page_regex.compile("<(.+)>; rel=\"next\"")
+    _previous_page_regex.compile("<([^<>]+)>; rel=\"prev\"")
+    _next_page_regex.compile("<([^<>]+)>; rel=\"next\"")
     
     assert(tabs.get_tab_count() == Tab.COUNT)
     
@@ -70,15 +70,19 @@ func _process(_delta):
     var current_tab = tabs.current_tab
     match tab_statuses[current_tab]:
         TabStatus.EMPTY:
-            refresh.set_enabled(true)
+            refresh.set_available(true)
+            previous_page.set_available(false)
+            next_page.set_available(false)
             tab_placeholders[current_tab].set_empty()
         
         TabStatus.LOADING:
-            refresh.set_enabled(false)
+            refresh.set_available(false)
+            previous_page.set_available(false)
+            next_page.set_available(false)
             tab_placeholders[current_tab].set_loading()
         
         TabStatus.READY:
-            refresh.set_enabled(true)
+            refresh.set_available(true)
             tab_placeholders[current_tab].set_ready()
             
     if current_tab == Tab.STABLE:
@@ -87,7 +91,7 @@ func _process(_delta):
         pagination.hide()
 
 
-func fetch_tab_list(tab: Tab):
+func fetch_tab_list(tab: Tab, page_url = ""):
     var list = tab_lists[tab]
     var child_count = list.get_child_count()
 
@@ -99,8 +103,9 @@ func fetch_tab_list(tab: Tab):
     match tab:
         Tab.STABLE:
             var stable_request: HTTPRequest = tab_requests[tab]
+            var url = Constants.STABLE_RELEASES_API if page_url.is_empty() else page_url
             
-            var error = stable_request.request(Constants.STABLE_RELEASES_API, PackedStringArray(Constants.GITHUB_HEADERS))
+            var error = stable_request.request(url, PackedStringArray(Constants.GITHUB_HEADERS))
             if error != OK:
                 push_error("Error when creating stable releases request.")
                 tab_statuses[Tab.STABLE] = TabStatus.EMPTY
@@ -139,22 +144,19 @@ func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int
         push_error("Unexpected JSON data")
         tab_statuses[Tab.STABLE] = TabStatus.EMPTY
         return
-        
+    
+    previous_page.page_url = ""
+    next_page.page_url = ""
+    
     for header in headers:
         if header.begins_with("Link: "):
-            var next_match = _next_page_regex.search(header)
-            if next_match:
-                next_page.page_url = next_match.get_string(1)
-                next_page.set_enabled(true)
-            else:
-                next_page.set_enabled(false)
-            
             var prev_match = _previous_page_regex.search(header)
             if prev_match:
                 previous_page.page_url = prev_match.get_string(1)
-                previous_page.set_enabled(true)
-            else:
-                previous_page.set_enabled(false)
+            
+            var next_match = _next_page_regex.search(header)
+            if next_match:
+                next_page.page_url = next_match.get_string(1)
     
     var stable_list = tab_lists[Tab.STABLE]
 
@@ -164,13 +166,27 @@ func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int
         if typeof(release_data) != TYPE_DICTIONARY:
             continue
             
-        var release_card := RELEASE_SCENE.instantiate() as ReleaseCard
+        var release = Release.from_github_release(release_data)
         
-        release_card.release = Release.from_github_release(release_data)
-        release_card.is_latest = i == 0
+        var major = release.version_number[0].to_int()
+        if major < Constants.EARLIEST_SUPPORTED_MAJOR:
+            continue
+        
+        var release_card := RELEASE_SCENE.instantiate() as ReleaseCard
+        release_card.release = release
+        release_card.is_latest = i == 0 and previous_page.page_url.is_empty()
         release_card.has_mono = true
 
         stable_list.add_child(release_card)
+        
+        if release.version_name == Constants.EARLIEST_SUPPORTED_RELEASE:
+            next_page.page_url = ""
+            break
+    
+    var has_previous = not previous_page.page_url.is_empty()
+    var has_next = not next_page.page_url.is_empty()
+    previous_page.set_available(has_previous)
+    next_page.set_available(has_next)
 
     if stable_list.get_child_count() > 0:
         tab_statuses[Tab.STABLE] = TabStatus.READY
@@ -210,3 +226,25 @@ func _on_refresh_pressed():
     
     if tab_statuses[current_tab] != TabStatus.LOADING:
         fetch_tab_list(current_tab)
+
+
+func _on_previous_pressed():
+    if previous_page.page_url.is_empty():
+        return
+    
+    var current_tab = tabs.current_tab
+    if current_tab != Tab.STABLE or tab_statuses[current_tab] == TabStatus.LOADING:
+        return
+    
+    fetch_tab_list(current_tab, previous_page.page_url)
+
+
+func _on_next_pressed():
+    if next_page.page_url.is_empty():
+        return
+    
+    var current_tab = tabs.current_tab
+    if current_tab != Tab.STABLE or tab_statuses[current_tab] == TabStatus.LOADING:
+        return
+    
+    fetch_tab_list(current_tab, next_page.page_url)

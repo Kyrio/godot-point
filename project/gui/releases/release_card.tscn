@@ -92,7 +92,7 @@ script = ExtResource( "1_sw6p6" )
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 1014.0
-offset_bottom = 98.0
+offset_bottom = 99.0
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
 alignment = 1
@@ -146,7 +146,7 @@ horizontal_alignment = 2
 [node name="Body" type="HBoxContainer" parent="Content"]
 offset_top = 28.0
 offset_right = 1004.0
-offset_bottom = 88.0
+offset_bottom = 89.0
 
 [node name="Description" type="Label" parent="Content/Body"]
 unique_name_in_owner = true
@@ -164,12 +164,13 @@ autowrap_mode = 2
 minimum_size = Vector2(80, 0)
 offset_left = 819.0
 offset_right = 899.0
-offset_bottom = 60.0
+offset_bottom = 61.0
 
 [node name="Download" type="VBoxContainer" parent="Content/Body"]
 offset_left = 903.0
 offset_right = 1004.0
-offset_bottom = 60.0
+offset_bottom = 61.0
+theme_override_constants/separation = 5
 
 [node name="Standard" type="Button" parent="Content/Body/Download"]
 offset_right = 101.0
@@ -195,9 +196,9 @@ icon = ExtResource( "4_7inw3" )
 
 [node name="Mono" type="Button" parent="Content/Body/Download"]
 unique_name_in_owner = true
-offset_top = 32.0
+offset_top = 33.0
 offset_right = 101.0
-offset_bottom = 60.0
+offset_bottom = 61.0
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)

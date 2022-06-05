@@ -5,11 +5,20 @@ extends Button
 @export var page_url = ""
 
 
-func set_enabled(enabled: bool):
-    if enabled:
-        disabled = false
+func _ready():
+    if disabled:
+        mouse_default_cursor_shape = Control.CURSOR_ARROW
+    else:
+        mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+
+
+func set_available(available: bool):
+    if available == not disabled:
+        return
+    
+    disabled = not available
+    if available:
         mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
     else:
-        disabled = true
         mouse_default_cursor_shape = Control.CURSOR_ARROW
         release_focus()
