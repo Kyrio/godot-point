@@ -41,6 +41,22 @@ data/0 = ExtResource( "3_6e4qo" )
 [sub_resource type="Font" id="Font_eg8be"]
 data/0 = ExtResource( "2_icl6u" )
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0h7l"]
+content_margin_left = 8.0
+content_margin_top = 5.0
+content_margin_right = 8.0
+content_margin_bottom = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.207843, 0.517647, 0.894118, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojh7p"]
 content_margin_left = 8.0
 content_margin_top = 5.0
@@ -64,22 +80,6 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fpbfi"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0h7l"]
-content_margin_left = 8.0
-content_margin_top = 5.0
-content_margin_right = 8.0
-content_margin_bottom = 5.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.207843, 0.517647, 0.894118, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
 
 [node name="Release" type="PanelContainer"]
 offset_right = 1024.0
@@ -175,21 +175,21 @@ offset_bottom = 60.0
 offset_right = 101.0
 offset_bottom = 28.0
 size_flags_vertical = 4
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/font_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/icon_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/icon_normal_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
+theme_override_colors/icon_normal_color = Color(0.207843, 0.517647, 0.894118, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_constants/h_separation = 5
 theme_override_fonts/font = SubResource( "Font_eg8be" )
 theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource( "StyleBoxFlat_t0h7l" )
 theme_override_styles/hover = SubResource( "StyleBoxFlat_ojh7p" )
 theme_override_styles/pressed = SubResource( "StyleBoxFlat_mbduh" )
 theme_override_styles/focus = SubResource( "StyleBoxEmpty_fpbfi" )
-theme_override_styles/normal = SubResource( "StyleBoxFlat_t0h7l" )
 text = "Standard"
 icon = ExtResource( "4_7inw3" )
 
@@ -199,20 +199,20 @@ offset_top = 32.0
 offset_right = 101.0
 offset_bottom = 60.0
 size_flags_vertical = 4
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/font_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/icon_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/icon_normal_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
+theme_override_colors/icon_normal_color = Color(0.207843, 0.517647, 0.894118, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_constants/h_separation = 5
 theme_override_fonts/font = SubResource( "Font_eg8be" )
 theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource( "StyleBoxFlat_t0h7l" )
 theme_override_styles/hover = SubResource( "StyleBoxFlat_ojh7p" )
 theme_override_styles/pressed = SubResource( "StyleBoxFlat_mbduh" )
 theme_override_styles/focus = SubResource( "StyleBoxEmpty_fpbfi" )
-theme_override_styles/normal = SubResource( "StyleBoxFlat_t0h7l" )
 text = "Mono"
 icon = ExtResource( "4_7inw3" )

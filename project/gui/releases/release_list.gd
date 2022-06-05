@@ -8,10 +8,11 @@ const RELEASE_SCENE = preload("res://gui/releases/release_card.tscn")
 
 var tab_statuses: Array[TabStatus]
 var tab_lists: Array[Container]
-var tab_placeholders: Array[Container]
+var tab_placeholders: Array[ListPlaceholder]
 var tab_requests: Array
 
-@onready var tabs := get_node("%Tabs") as TabContainer
+@onready var tabs := %Tabs as TabContainer
+@onready var refresh := %Refresh as Button
 
 
 static func sort_releases_by_date(a: Release, b: Release):
@@ -41,14 +42,14 @@ func _ready():
                 
                 var request: PrereleaseRequest = tab_requests[tab]
                 request.results_received.connect(_on_prerelease_results_received.bind(tab))
-                request.request_failed.connect(_on_prerelease_request_failed)
+                request.request_failed.connect(_on_prerelease_request_failed.bind(tab))
             
             Tab.NEXT_MAJOR:
                 tabs.set_tab_title(tab, "Godot " + Constants.NEXT_MAJOR_VERSION)
                 
                 var request: PrereleaseRequest = tab_requests[tab]
                 request.results_received.connect(_on_prerelease_results_received.bind(tab))
-                request.request_failed.connect(_on_prerelease_request_failed)
+                request.request_failed.connect(_on_prerelease_request_failed.bind(tab))
     
     _on_tab_changed(tabs.current_tab)
 
@@ -57,22 +58,27 @@ func _process(_delta):
     var current_tab = tabs.current_tab
     match tab_statuses[current_tab]:
         TabStatus.EMPTY:
-            tab_placeholders[current_tab].show()
+            _enable_refresh()
+            tab_placeholders[current_tab].set_empty()
         
         TabStatus.LOADING:
-            tab_placeholders[current_tab].show()
+            _enable_refresh(false)
+            tab_placeholders[current_tab].set_loading()
         
         TabStatus.READY:
-            tab_placeholders[current_tab].hide()
-    
-
-func _on_tab_changed(tab: Tab):
-    if tab_statuses[tab] == TabStatus.EMPTY:
-        tab_statuses[tab] = TabStatus.LOADING
-        fetch_tab_list(tab)
+            _enable_refresh()
+            tab_placeholders[current_tab].set_ready()
 
 
 func fetch_tab_list(tab: Tab):
+    var list = tab_lists[tab]
+    var child_count = list.get_child_count()
+
+    for i in child_count:
+        list.get_child(i).queue_free()
+        
+    tab_statuses[tab] = TabStatus.LOADING
+    
     match tab:
         Tab.STABLE:
             var stable_request: HTTPRequest = tab_requests[tab]
@@ -118,10 +124,6 @@ func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int
         return
     
     var stable_list = tab_lists[Tab.STABLE]
-    var child_count = stable_list.get_child_count()
-
-    for i in child_count:
-        stable_list.get_child(i).queue_free()
 
     for i in len(data_received):
         var release_data = data_received[i]
@@ -145,10 +147,6 @@ func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int
 
 func _on_prerelease_results_received(results: Array[Release], tab: Tab):
     var list = tab_lists[tab]
-    var child_count = list.get_child_count()
-
-    for i in child_count:
-        list.get_child(i).queue_free()
 
     results.sort_custom(sort_releases_by_date)
 
@@ -167,3 +165,25 @@ func _on_prerelease_results_received(results: Array[Release], tab: Tab):
 
 func _on_prerelease_request_failed(tab: Tab):
     tab_statuses[tab] = TabStatus.EMPTY
+
+
+func _on_tab_changed(tab: Tab):
+    if tab_statuses[tab] == TabStatus.EMPTY:
+        fetch_tab_list(tab)
+
+
+func _on_refresh_pressed():
+    var current_tab = tabs.current_tab
+    
+    if tab_statuses[current_tab] != TabStatus.LOADING:
+        fetch_tab_list(current_tab)
+
+
+func _enable_refresh(enable = true):
+    if enable:
+        refresh.disabled = false
+        refresh.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+    else:
+        refresh.disabled = true
+        refresh.mouse_default_cursor_shape = Control.CURSOR_ARROW
+        refresh.release_focus()
