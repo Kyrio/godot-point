@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bjsrr4ovnc3vm"]
+[gd_scene load_steps=30 format=3 uid="uid://bjsrr4ovnc3vm"]
 
 [ext_resource type="Script" path="res://gui/settings/settings.gd" id="1_b5387"]
 [ext_resource type="Texture2D" uid="uid://cxns25rgigwyi" path="res://assets/icons/award.png" id="2_1jpnj"]
@@ -10,6 +10,87 @@
 
 [sub_resource type="Font" id="Font_l6hwa"]
 data/0 = ExtResource( "2_pvafj" )
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duo5q"]
+bg_color = Color(0.752941, 0.74902, 0.737255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_776da"]
+bg_color = Color(0.603922, 0.6, 0.588235, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8vou"]
+bg_color = Color(0.466667, 0.462745, 0.482353, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_kcr81"]
+color = Color(1, 1, 1, 0)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_m7wju"]
+color = Color(1, 1, 1, 0)
+thickness = 8
+vertical = true
+
+[sub_resource type="Theme" id="Theme_b6n5x"]
+HScrollBar/styles/grabber = SubResource( "StyleBoxFlat_duo5q" )
+HScrollBar/styles/grabber_highlight = SubResource( "StyleBoxFlat_776da" )
+HScrollBar/styles/grabber_pressed = SubResource( "StyleBoxFlat_p8vou" )
+HScrollBar/styles/scroll = SubResource( "StyleBoxLine_kcr81" )
+VScrollBar/styles/grabber = SubResource( "StyleBoxFlat_duo5q" )
+VScrollBar/styles/grabber_highlight = SubResource( "StyleBoxFlat_776da" )
+VScrollBar/styles/grabber_pressed = SubResource( "StyleBoxFlat_p8vou" )
+VScrollBar/styles/scroll = SubResource( "StyleBoxLine_m7wju" )
+
+[sub_resource type="Font" id="Font_s7bq6"]
+data/0 = ExtResource( "2_pvafj" )
+
+[sub_resource type="Font" id="Font_hoqef"]
+data/0 = ExtResource( "5_2tu4l" )
+
+[sub_resource type="Font" id="Font_hxwob"]
+data/0 = ExtResource( "5_2tu4l" )
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ht16"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.752941, 0.74902, 0.737255, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8frm6"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.207843, 0.517647, 0.894118, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nu73"]
 content_margin_bottom = 2.0
@@ -51,41 +132,13 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.870588, 0.866667, 0.854902, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="Font" id="Font_54n3q"]
 data/0 = ExtResource( "2_pvafj" )
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duo5q"]
-bg_color = Color(0.752941, 0.74902, 0.737255, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_776da"]
-bg_color = Color(0.603922, 0.6, 0.588235, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8vou"]
-bg_color = Color(0.466667, 0.462745, 0.482353, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_m7wju"]
-color = Color(1, 1, 1, 0)
-thickness = 8
-vertical = true
-
-[sub_resource type="Theme" id="Theme_b6n5x"]
-VScrollBar/styles/grabber = SubResource( "StyleBoxFlat_duo5q" )
-VScrollBar/styles/grabber_highlight = SubResource( "StyleBoxFlat_776da" )
-VScrollBar/styles/grabber_pressed = SubResource( "StyleBoxFlat_p8vou" )
-VScrollBar/styles/scroll = SubResource( "StyleBoxLine_m7wju" )
 
 [sub_resource type="Font" id="Font_8qri6"]
 data/0 = ExtResource( "5_2tu4l" )
@@ -99,10 +152,6 @@ content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 bg_color = Color(1, 0.996078, 0.992157, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
 border_color = Color(0.870588, 0.866667, 0.854902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0agd"]
@@ -139,10 +188,108 @@ theme_override_fonts/font = SubResource( "Font_l6hwa" )
 theme_override_font_sizes/font_size = 32
 text = "Settings"
 
-[node name="Credits" type="Button" parent="Margins/Content"]
+[node name="Scroll" type="ScrollContainer" parent="Margins/Content"]
 offset_top = 62.0
+offset_right = 1004.0
+offset_bottom = 560.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( "Theme_b6n5x" )
+
+[node name="SettingsList" type="VBoxContainer" parent="Margins/Content/Scroll"]
+offset_right = 1004.0
+offset_bottom = 498.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="InstallDirectory" type="HBoxContainer" parent="Margins/Content/Scroll/SettingsList"]
+unique_name_in_owner = true
+offset_right = 1004.0
+offset_bottom = 70.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="SettingLabel" type="VBoxContainer" parent="Margins/Content/Scroll/SettingsList/InstallDirectory"]
+offset_right = 697.0
+offset_bottom = 70.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="Title" type="Label" parent="Margins/Content/Scroll/SettingsList/InstallDirectory/SettingLabel"]
+offset_right = 697.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource( "Font_s7bq6" )
+text = "Base Install Directory"
+
+[node name="Description" type="Label" parent="Margins/Content/Scroll/SettingsList/InstallDirectory/SettingLabel"]
+offset_top = 28.0
+offset_right = 697.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_fonts/font = SubResource( "Font_hoqef" )
+theme_override_font_sizes/font_size = 14
+text = "Each Godot release you download will be installed in a sub-directory named after the version number and status, e.g. 4.0.alpha9."
+autowrap_mode = 2
+
+[node name="Edit" type="LineEdit" parent="Margins/Content/Scroll/SettingsList/InstallDirectory"]
+offset_left = 706.5
+offset_right = 1004.0
+offset_bottom = 25.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.752941, 0.74902, 0.737255, 1)
+theme_override_colors/caret_color = Color(0.207843, 0.517647, 0.894118, 1)
+theme_override_colors/selection_color = Color(0.6, 0.756863, 0.945098, 1)
+theme_override_colors/clear_button_color = Color(0.207843, 0.517647, 0.894118, 1)
+theme_override_colors/clear_button_color_pressed = Color(0.101961, 0.372549, 0.705882, 1)
+theme_override_constants/minimum_character_width = 24
+theme_override_fonts/font = SubResource( "Font_hxwob" )
+theme_override_font_sizes/font_size = 13
+theme_override_icons/clear = ExtResource( "5_itt8y" )
+theme_override_styles/normal = SubResource( "StyleBoxFlat_2ht16" )
+theme_override_styles/focus = SubResource( "StyleBoxFlat_8frm6" )
+placeholder_text = "%localappdata%\\Programs\\Godot"
+context_menu_enabled = false
+clear_button_enabled = true
+caret_blink = true
+
+[node name="DownloadMirror" type="HBoxContainer" parent="Margins/Content/Scroll/SettingsList"]
+offset_top = 90.0
+offset_right = 1004.0
+offset_bottom = 139.0
+theme_override_constants/separation = 10
+
+[node name="SettingLabel" type="VBoxContainer" parent="Margins/Content/Scroll/SettingsList/DownloadMirror"]
+offset_right = 1004.0
+offset_bottom = 49.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="Title" type="Label" parent="Margins/Content/Scroll/SettingsList/DownloadMirror/SettingLabel"]
+offset_right = 1004.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource( "Font_s7bq6" )
+text = "Preferred Download Mirror"
+
+[node name="Description" type="Label" parent="Margins/Content/Scroll/SettingsList/DownloadMirror/SettingLabel"]
+offset_top = 28.0
+offset_right = 1004.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_fonts/font = SubResource( "Font_hoqef" )
+theme_override_font_sizes/font_size = 14
+text = "When available, use this mirror to download releases. Godot Point will fall back to TuxFamily servers for prereleases and older versions."
+autowrap_mode = 2
+
+[node name="Credits" type="Button" parent="Margins/Content/Scroll/SettingsList"]
+offset_top = 159.0
 offset_right = 71.0
-offset_bottom = 84.0
+offset_bottom = 181.0
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
@@ -166,10 +313,10 @@ text = "Credits"
 icon = ExtResource( "2_1jpnj" )
 alignment = 0
 
-[node name="ThirdParty" type="Button" parent="Margins/Content"]
-offset_top = 104.0
+[node name="ThirdParty" type="Button" parent="Margins/Content/Scroll/SettingsList"]
+offset_top = 201.0
 offset_right = 160.0
-offset_bottom = 126.0
+offset_bottom = 223.0
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
@@ -237,7 +384,7 @@ theme_override_colors/default_color = Color(0.141176, 0.121569, 0.192157, 1)
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = SubResource( "Font_8qri6" )
 theme_override_fonts/bold_font = SubResource( "Font_7qpcw" )
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 13
 theme_override_styles/normal = SubResource( "StyleBoxFlat_dyiqo" )
 bbcode_enabled = true
 text = "[b]Godot Point[/b] - a version manager for Godot Engine
@@ -248,11 +395,11 @@ Developed by [b]Kyrio[/b]
 Sources available at: [url]https://github.com/Kyrio/godot-point[/url]
 
 This author would like to thank the following projects and their contributors:
-- Godot Engine, naturally, for being robust enough that making this entire app as a Godot 4.0 \"game\" was a breeze
-  - Godot XR Reference for providing a reference build script for GDExtension
-- Lucide, and its \"ancestor\" Feather, for the expansive set of icons that gave this app its professional looks
-- curl, for its documentation and build instructions that made the integration into Godot surprisingly smooth
-- Inter, because one should be thankful for open source typefaces of such quality
+• Godot Engine for being robust enough that making this entire app as a Godot 4.0 \"game\" was a breeze
+[indent]• Godot XR Reference for providing a reference GDExtension build script[/indent]
+• Lucide Icons for giving this app its professional looks
+• curl, for the quality of its documentation that made integrating it into Godot surprisingly smooth
+• The Inter font family, because one should always be thankful for open source typefaces
 
 Godot Point is released under the zlib/libpng license:
 Copyright (c) 2022 Kyrio <https://github.com/Kyrio>
@@ -327,6 +474,7 @@ theme_override_styles/focus = SubResource( "StyleBoxEmpty_jwq6q" )
 icon = ExtResource( "5_itt8y" )
 
 [node name="ThirdParty" type="PanelContainer" parent="Dialogs"]
+visible = false
 anchor_left = 0.1
 anchor_top = 0.1
 anchor_right = 0.9
@@ -365,7 +513,7 @@ theme_override_colors/default_color = Color(0.141176, 0.121569, 0.192157, 1)
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = SubResource( "Font_8qri6" )
 theme_override_fonts/bold_font = SubResource( "Font_7qpcw" )
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 13
 theme_override_styles/normal = SubResource( "StyleBoxFlat_dyiqo" )
 bbcode_enabled = true
 text = "Powered by Godot Engine <[url]https://godotengine.org[/url]>
@@ -584,8 +732,8 @@ theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
 theme_override_styles/focus = SubResource( "StyleBoxEmpty_jwq6q" )
 icon = ExtResource( "5_itt8y" )
 
-[connection signal="pressed" from="Margins/Content/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="Margins/Content/ThirdParty" to="." method="_on_third_party_pressed"]
+[connection signal="pressed" from="Margins/Content/Scroll/SettingsList/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Margins/Content/Scroll/SettingsList/ThirdParty" to="." method="_on_third_party_pressed"]
 [connection signal="pressed" from="Dialogs/Credits/Container/OK" to="." method="_on_credits_close_pressed"]
 [connection signal="pressed" from="Dialogs/Credits/Close" to="." method="_on_credits_close_pressed"]
 [connection signal="pressed" from="Dialogs/ThirdParty/Container/OK" to="." method="_on_third_party_close_pressed"]

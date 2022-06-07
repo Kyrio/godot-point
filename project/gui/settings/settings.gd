@@ -7,11 +7,15 @@ extends Control
 @onready var third_party_dialog := $Dialogs/ThirdParty as Control
 @onready var third_party_dialog_ok := $Dialogs/ThirdParty/Container/OK as Control
 
+@onready var install_directory := %InstallDirectory as Control
+@onready var install_directory_edit := install_directory.get_node("Edit") as LineEdit
+
 
 func _ready():
     dialogs.hide()
     credits_dialog.hide()
     third_party_dialog.hide()
+    install_directory_edit.grab_focus()
 
 
 func _on_credits_pressed():

@@ -71,14 +71,10 @@ func _process(_delta):
     match tab_statuses[current_tab]:
         TabStatus.EMPTY:
             refresh.set_available(true)
-            previous_page.set_available(false)
-            next_page.set_available(false)
             tab_placeholders[current_tab].set_empty()
         
         TabStatus.LOADING:
             refresh.set_available(false)
-            previous_page.set_available(false)
-            next_page.set_available(false)
             tab_placeholders[current_tab].set_loading()
         
         TabStatus.READY:
@@ -87,6 +83,11 @@ func _process(_delta):
             
     if current_tab == Tab.STABLE:
         pagination.show()
+        
+        match tab_statuses[current_tab]:
+            TabStatus.EMPTY, TabStatus.LOADING:
+                previous_page.set_available(false)
+                next_page.set_available(false)
     else:
         pagination.hide()
 
