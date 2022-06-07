@@ -1,4 +1,7 @@
-#!/usr/bin/env python
+# This build script is adapted from the godot_xr_reference project released under the MIT License.
+# Copyright (c) 2021 Bastiaan Olij and contributors
+# See <https://github.com/GodotVR/godot_xr_reference> for details.
+
 import os
 import sys
 

@@ -1,0 +1,592 @@
+[gd_scene load_steps=24 format=3 uid="uid://bjsrr4ovnc3vm"]
+
+[ext_resource type="Script" path="res://gui/settings/settings.gd" id="1_b5387"]
+[ext_resource type="Texture2D" uid="uid://cxns25rgigwyi" path="res://assets/icons/award.png" id="2_1jpnj"]
+[ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
+[ext_resource type="Texture2D" uid="uid://b6mdhm0s3cwei" path="res://assets/icons/library.png" id="4_pac3j"]
+[ext_resource type="FontData" uid="uid://djyxorhks20ht" path="res://assets/fonts/inter.otf" id="5_2tu4l"]
+[ext_resource type="Texture2D" uid="uid://dthe1lglit2bm" path="res://assets/icons/x.png" id="5_itt8y"]
+[ext_resource type="Texture2D" uid="uid://c8l7cmeu7346n" path="res://assets/icons/check.png" id="6_ury8l"]
+
+[sub_resource type="Font" id="Font_l6hwa"]
+data/0 = ExtResource( "2_pvafj" )
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nu73"]
+content_margin_bottom = 2.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iqsu"]
+content_margin_bottom = 2.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xskfx"]
+content_margin_bottom = 2.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.870588, 0.866667, 0.854902, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 5.0
+expand_margin_top = 3.0
+expand_margin_right = 5.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f07pp"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(1, 0.996078, 0.992157, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.870588, 0.866667, 0.854902, 1)
+
+[sub_resource type="Font" id="Font_54n3q"]
+data/0 = ExtResource( "2_pvafj" )
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duo5q"]
+bg_color = Color(0.752941, 0.74902, 0.737255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_776da"]
+bg_color = Color(0.603922, 0.6, 0.588235, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8vou"]
+bg_color = Color(0.466667, 0.462745, 0.482353, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_m7wju"]
+color = Color(1, 1, 1, 0)
+thickness = 8
+vertical = true
+
+[sub_resource type="Theme" id="Theme_b6n5x"]
+VScrollBar/styles/grabber = SubResource( "StyleBoxFlat_duo5q" )
+VScrollBar/styles/grabber_highlight = SubResource( "StyleBoxFlat_776da" )
+VScrollBar/styles/grabber_pressed = SubResource( "StyleBoxFlat_p8vou" )
+VScrollBar/styles/scroll = SubResource( "StyleBoxLine_m7wju" )
+
+[sub_resource type="Font" id="Font_8qri6"]
+data/0 = ExtResource( "5_2tu4l" )
+
+[sub_resource type="Font" id="Font_7qpcw"]
+data/0 = ExtResource( "2_pvafj" )
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyiqo"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 0.996078, 0.992157, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.870588, 0.866667, 0.854902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0agd"]
+content_margin_bottom = 2.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jwq6q"]
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_b5387" )
+
+[node name="Margins" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="VBoxContainer" parent="Margins"]
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 1014.0
+offset_bottom = 580.0
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Margins/Content"]
+offset_right = 1004.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource( "Font_l6hwa" )
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="Credits" type="Button" parent="Margins/Content"]
+offset_top = 62.0
+offset_right = 71.0
+offset_bottom = 84.0
+size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_colors/icon_normal_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_constants/h_separation = 5
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource( "StyleBoxFlat_8nu73" )
+theme_override_styles/hover = SubResource( "StyleBoxFlat_1iqsu" )
+theme_override_styles/pressed = SubResource( "StyleBoxFlat_1iqsu" )
+theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
+theme_override_styles/focus = SubResource( "StyleBoxFlat_xskfx" )
+text = "Credits"
+icon = ExtResource( "2_1jpnj" )
+alignment = 0
+
+[node name="ThirdParty" type="Button" parent="Margins/Content"]
+offset_top = 104.0
+offset_right = 160.0
+offset_bottom = 126.0
+size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_colors/icon_normal_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_constants/h_separation = 5
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource( "StyleBoxFlat_8nu73" )
+theme_override_styles/hover = SubResource( "StyleBoxFlat_1iqsu" )
+theme_override_styles/pressed = SubResource( "StyleBoxFlat_1iqsu" )
+theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
+theme_override_styles/focus = SubResource( "StyleBoxFlat_xskfx" )
+text = "Third-party Licenses"
+icon = ExtResource( "4_pac3j" )
+alignment = 0
+
+[node name="Dialogs" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Credits" type="PanelContainer" parent="Dialogs"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource( "StyleBoxFlat_f07pp" )
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = true
+
+[node name="Container" type="VBoxContainer" parent="Dialogs/Credits"]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 804.2
+offset_bottom = 465.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Dialogs/Credits/Container"]
+offset_right = 789.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource( "Font_54n3q" )
+text = "Credits"
+horizontal_alignment = 1
+metadata/_edit_layout_mode = 1
+
+[node name="Text" type="RichTextLabel" parent="Dialogs/Credits/Container"]
+offset_top = 33.0
+offset_right = 789.0
+offset_bottom = 408.0
+size_flags_vertical = 3
+theme = SubResource( "Theme_b6n5x" )
+theme_override_colors/default_color = Color(0.141176, 0.121569, 0.192157, 1)
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = SubResource( "Font_8qri6" )
+theme_override_fonts/bold_font = SubResource( "Font_7qpcw" )
+theme_override_font_sizes/normal_font_size = 14
+theme_override_styles/normal = SubResource( "StyleBoxFlat_dyiqo" )
+bbcode_enabled = true
+text = "[b]Godot Point[/b] - a version manager for Godot Engine
+
+This project is not affiliated with Godot or its developers.
+
+Developed by [b]Kyrio[/b]
+Sources available at: [url]https://github.com/Kyrio/godot-point[/url]
+
+This author would like to thank the following projects and their contributors:
+- Godot Engine, naturally, for being robust enough that making this entire app as a Godot 4.0 \"game\" was a breeze
+  - Godot XR Reference for providing a reference build script for GDExtension
+- Lucide, and its \"ancestor\" Feather, for the expansive set of icons that gave this app its professional looks
+- curl, for its documentation and build instructions that made the integration into Godot surprisingly smooth
+- Inter, because one should be thankful for open source typefaces of such quality
+
+Godot Point is released under the zlib/libpng license:
+Copyright (c) 2022 Kyrio <https://github.com/Kyrio>
+
+This software is provided 'as-is', without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose, including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions:
+
+    1. The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation would be appreciated but is not required.
+
+    2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
+
+    3. This notice may not be removed or altered from any source distribution."
+
+[node name="Spacing" type="Control" parent="Dialogs/Credits/Container"]
+offset_top = 418.0
+offset_right = 789.0
+offset_bottom = 418.0
+
+[node name="OK" type="Button" parent="Dialogs/Credits/Container"]
+offset_left = 373.0
+offset_top = 428.0
+offset_right = 416.0
+offset_bottom = 450.0
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_colors/icon_normal_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_constants/h_separation = 5
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource( "StyleBoxFlat_8nu73" )
+theme_override_styles/hover = SubResource( "StyleBoxFlat_1iqsu" )
+theme_override_styles/pressed = SubResource( "StyleBoxFlat_1iqsu" )
+theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
+theme_override_styles/focus = SubResource( "StyleBoxFlat_xskfx" )
+text = "OK"
+icon = ExtResource( "6_ury8l" )
+alignment = 0
+
+[node name="Close" type="Button" parent="Dialogs/Credits"]
+offset_left = 786.2
+offset_top = 15.0
+offset_right = 804.2
+offset_bottom = 35.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_colors/icon_normal_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_constants/h_separation = 5
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource( "StyleBoxFlat_8nu73" )
+theme_override_styles/hover = SubResource( "StyleBoxFlat_e0agd" )
+theme_override_styles/pressed = SubResource( "StyleBoxFlat_e0agd" )
+theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
+theme_override_styles/focus = SubResource( "StyleBoxEmpty_jwq6q" )
+icon = ExtResource( "5_itt8y" )
+
+[node name="ThirdParty" type="PanelContainer" parent="Dialogs"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource( "StyleBoxFlat_f07pp" )
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = true
+
+[node name="Container" type="VBoxContainer" parent="Dialogs/ThirdParty"]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 804.2
+offset_bottom = 465.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Dialogs/ThirdParty/Container"]
+offset_right = 789.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource( "Font_54n3q" )
+text = "Third-party Licenses"
+horizontal_alignment = 1
+metadata/_edit_layout_mode = 1
+
+[node name="Text" type="RichTextLabel" parent="Dialogs/ThirdParty/Container"]
+offset_top = 33.0
+offset_right = 789.0
+offset_bottom = 408.0
+size_flags_vertical = 3
+theme = SubResource( "Theme_b6n5x" )
+theme_override_colors/default_color = Color(0.141176, 0.121569, 0.192157, 1)
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = SubResource( "Font_8qri6" )
+theme_override_fonts/bold_font = SubResource( "Font_7qpcw" )
+theme_override_font_sizes/normal_font_size = 14
+theme_override_styles/normal = SubResource( "StyleBoxFlat_dyiqo" )
+bbcode_enabled = true
+text = "Powered by Godot Engine <[url]https://godotengine.org[/url]>
+MIT License
+
+Copyright (c) 2007-2022 Juan Linietsky, Ariel Manzur.
+Copyright (c) 2014-2022 Godot Engine contributors.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+Lucide <[url]https://lucide.dev[/url]>
+ISC License
+
+Copyright (c) 2020, Lucide Contributors
+
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+---
+
+libcurl <[url]https://curl.se[/url]>
+
+Copyright (c) 1996 - 2022, Daniel Stenberg, <daniel@haxx.se>, and many
+contributors, see the THANKS file.
+
+All rights reserved.
+
+Permission to use, copy, modify, and distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright
+notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall not
+be used in advertising or otherwise to promote the sale, use or other dealings
+in this Software without prior written authorization of the copyright holder.
+
+---
+
+Inter <[url]https://rsms.me/inter/[/url]>
+
+Copyright (c) 2016-2020 The Inter Project Authors.
+\"Inter\" is trademark of Rasmus Andersson.
+https://github.com/rsms/inter
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+\"Font Software\" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+\"Reserved Font Name\" refers to any names specified as such after the
+copyright statement(s).
+
+\"Original Version\" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+\"Modified Version\" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+\"Author\" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION AND CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE."
+
+[node name="Spacing" type="Control" parent="Dialogs/ThirdParty/Container"]
+offset_top = 418.0
+offset_right = 789.0
+offset_bottom = 418.0
+
+[node name="OK" type="Button" parent="Dialogs/ThirdParty/Container"]
+offset_left = 373.0
+offset_top = 428.0
+offset_right = 416.0
+offset_bottom = 450.0
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_colors/icon_normal_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_constants/h_separation = 5
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource( "StyleBoxFlat_8nu73" )
+theme_override_styles/hover = SubResource( "StyleBoxFlat_1iqsu" )
+theme_override_styles/pressed = SubResource( "StyleBoxFlat_1iqsu" )
+theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
+theme_override_styles/focus = SubResource( "StyleBoxFlat_xskfx" )
+text = "OK"
+icon = ExtResource( "6_ury8l" )
+alignment = 0
+
+[node name="Close" type="Button" parent="Dialogs/ThirdParty"]
+offset_left = 786.2
+offset_top = 15.0
+offset_right = 804.2
+offset_bottom = 35.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_colors/icon_normal_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
+theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_constants/h_separation = 5
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource( "StyleBoxFlat_8nu73" )
+theme_override_styles/hover = SubResource( "StyleBoxFlat_e0agd" )
+theme_override_styles/pressed = SubResource( "StyleBoxFlat_e0agd" )
+theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
+theme_override_styles/focus = SubResource( "StyleBoxEmpty_jwq6q" )
+icon = ExtResource( "5_itt8y" )
+
+[connection signal="pressed" from="Margins/Content/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Margins/Content/ThirdParty" to="." method="_on_third_party_pressed"]
+[connection signal="pressed" from="Dialogs/Credits/Container/OK" to="." method="_on_credits_close_pressed"]
+[connection signal="pressed" from="Dialogs/Credits/Close" to="." method="_on_credits_close_pressed"]
+[connection signal="pressed" from="Dialogs/ThirdParty/Container/OK" to="." method="_on_third_party_close_pressed"]
+[connection signal="pressed" from="Dialogs/ThirdParty/Close" to="." method="_on_third_party_close_pressed"]

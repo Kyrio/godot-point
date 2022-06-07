@@ -194,4 +194,6 @@ offset_right = 1024.0
 offset_bottom = 600.0
 script = ExtResource( "7_16wn6" )
 
+[connection signal="toggled" from="Split/Sidebar/Menu/Installs" to="." method="_on_installs_toggled"]
 [connection signal="toggled" from="Split/Sidebar/Menu/Releases" to="." method="_on_releases_toggled"]
+[connection signal="toggled" from="Split/Sidebar/Menu/Settings" to="." method="_on_settings_toggled"]

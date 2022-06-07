@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://nvl2up6m7x77"]
+
+[ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
+
+[sub_resource type="Font" id="Font_l6hwa"]
+data/0 = ExtResource( "2_pvafj" )
+
+[node name="Installs" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Margins" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="VBoxContainer" parent="Margins"]
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 1014.0
+offset_bottom = 580.0
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Margins/Content"]
+offset_right = 1004.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource( "Font_l6hwa" )
+theme_override_font_sizes/font_size = 32
+text = "Installed"
