@@ -1,11 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://bjsrr4ovnc3vm"]
+[gd_scene load_steps=40 format=3 uid="uid://bjsrr4ovnc3vm"]
 
 [ext_resource type="Script" path="res://gui/settings/settings.gd" id="1_b5387"]
 [ext_resource type="Texture2D" uid="uid://cxns25rgigwyi" path="res://assets/icons/award.png" id="2_1jpnj"]
 [ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
+[ext_resource type="Texture2D" uid="uid://cb1k0npd3323o" path="res://assets/icons/check-blue.png" id="4_bn78d"]
 [ext_resource type="Texture2D" uid="uid://b6mdhm0s3cwei" path="res://assets/icons/library.png" id="4_pac3j"]
 [ext_resource type="FontData" uid="uid://djyxorhks20ht" path="res://assets/fonts/inter.otf" id="5_2tu4l"]
 [ext_resource type="Texture2D" uid="uid://dthe1lglit2bm" path="res://assets/icons/x.png" id="5_itt8y"]
+[ext_resource type="Texture2D" uid="uid://dl76jfoec4d8h" path="res://assets/icons/chevron-down.png" id="5_osjwf"]
 [ext_resource type="Texture2D" uid="uid://c8l7cmeu7346n" path="res://assets/icons/check.png" id="6_ury8l"]
 
 [sub_resource type="Font" id="Font_l6hwa"]
@@ -36,6 +38,32 @@ corner_radius_bottom_left = 5
 color = Color(1, 1, 1, 0)
 thickness = 8
 
+[sub_resource type="Font" id="Font_u68rp"]
+data/0 = ExtResource( "5_2tu4l" )
+
+[sub_resource type="Texture2D" id="Texture2D_1diil"]
+resource_local_to_scene = false
+resource_name = ""
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0g30a"]
+bg_color = Color(0.870588, 0.866667, 0.854902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uqbn"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.752941, 0.74902, 0.737255, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_m7wju"]
 color = Color(1, 1, 1, 0)
 thickness = 8
@@ -46,10 +74,24 @@ HScrollBar/styles/grabber = SubResource( "StyleBoxFlat_duo5q" )
 HScrollBar/styles/grabber_highlight = SubResource( "StyleBoxFlat_776da" )
 HScrollBar/styles/grabber_pressed = SubResource( "StyleBoxFlat_p8vou" )
 HScrollBar/styles/scroll = SubResource( "StyleBoxLine_kcr81" )
+PopupMenu/colors/font_color = Color(0.141176, 0.121569, 0.192157, 1)
+PopupMenu/colors/font_hover_color = Color(0.141176, 0.121569, 0.192157, 1)
+PopupMenu/constants/v_separation = 8
+PopupMenu/font_sizes/font_size = 14
+PopupMenu/fonts/font = SubResource( "Font_u68rp" )
+PopupMenu/icons/radio_checked = ExtResource( "4_bn78d" )
+PopupMenu/icons/radio_unchecked = SubResource( "Texture2D_1diil" )
+PopupMenu/styles/hover = SubResource( "StyleBoxFlat_0g30a" )
+PopupMenu/styles/panel = SubResource( "StyleBoxFlat_8uqbn" )
 VScrollBar/styles/grabber = SubResource( "StyleBoxFlat_duo5q" )
 VScrollBar/styles/grabber_highlight = SubResource( "StyleBoxFlat_776da" )
 VScrollBar/styles/grabber_pressed = SubResource( "StyleBoxFlat_p8vou" )
 VScrollBar/styles/scroll = SubResource( "StyleBoxLine_m7wju" )
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3asqo"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 20.0
 
 [sub_resource type="Font" id="Font_s7bq6"]
 data/0 = ExtResource( "2_pvafj" )
@@ -87,6 +129,41 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.207843, 0.517647, 0.894118, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Font" id="Font_ooqho"]
+data/0 = ExtResource( "5_2tu4l" )
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgjko"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.207843, 0.517647, 0.894118, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t82r1"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.752941, 0.74902, 0.737255, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -165,67 +242,71 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( "1_b5387" )
 
-[node name="Margins" type="MarginContainer" parent="."]
+[node name="Content" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme_override_constants/separation = 20
+
+[node name="TitleMargins" type="MarginContainer" parent="Content"]
+offset_right = 1024.0
+offset_bottom = 62.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 20
 
-[node name="Content" type="VBoxContainer" parent="Margins"]
+[node name="Title" type="Label" parent="Content/TitleMargins"]
 offset_left = 10.0
 offset_top = 20.0
-offset_right = 1014.0
-offset_bottom = 580.0
-theme_override_constants/separation = 20
-
-[node name="Title" type="Label" parent="Margins/Content"]
-offset_right = 1004.0
-offset_bottom = 42.0
+offset_right = 140.0
+offset_bottom = 62.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource( "Font_l6hwa" )
 theme_override_font_sizes/font_size = 32
 text = "Settings"
 
-[node name="Scroll" type="ScrollContainer" parent="Margins/Content"]
-offset_top = 62.0
-offset_right = 1004.0
-offset_bottom = 560.0
+[node name="Scroll" type="ScrollContainer" parent="Content"]
+offset_top = 82.0
+offset_right = 1024.0
+offset_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource( "Theme_b6n5x" )
+theme_override_styles/bg = SubResource( "StyleBoxEmpty_3asqo" )
 
-[node name="SettingsList" type="VBoxContainer" parent="Margins/Content/Scroll"]
-offset_right = 1004.0
+[node name="SettingsList" type="VBoxContainer" parent="Content/Scroll"]
+offset_left = 10.0
+offset_right = 1014.0
 offset_bottom = 498.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="InstallDirectory" type="HBoxContainer" parent="Margins/Content/Scroll/SettingsList"]
+[node name="InstallDirectory" type="HBoxContainer" parent="Content/Scroll/SettingsList"]
 unique_name_in_owner = true
 offset_right = 1004.0
 offset_bottom = 70.0
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="SettingLabel" type="VBoxContainer" parent="Margins/Content/Scroll/SettingsList/InstallDirectory"]
-offset_right = 697.0
+[node name="SettingLabel" type="VBoxContainer" parent="Content/Scroll/SettingsList/InstallDirectory"]
+offset_right = 596.0
 offset_bottom = 70.0
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
 theme_override_constants/separation = 5
 
-[node name="Title" type="Label" parent="Margins/Content/Scroll/SettingsList/InstallDirectory/SettingLabel"]
-offset_right = 697.0
+[node name="Title" type="Label" parent="Content/Scroll/SettingsList/InstallDirectory/SettingLabel"]
+offset_right = 596.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource( "Font_s7bq6" )
 text = "Base Install Directory"
 
-[node name="Description" type="Label" parent="Margins/Content/Scroll/SettingsList/InstallDirectory/SettingLabel"]
+[node name="Description" type="Label" parent="Content/Scroll/SettingsList/InstallDirectory/SettingLabel"]
 offset_top = 28.0
-offset_right = 697.0
+offset_right = 596.0
 offset_bottom = 70.0
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_fonts/font = SubResource( "Font_hoqef" )
@@ -233,22 +314,21 @@ theme_override_font_sizes/font_size = 14
 text = "Each Godot release you download will be installed in a sub-directory named after the version number and status, e.g. 4.0.alpha9."
 autowrap_mode = 2
 
-[node name="Edit" type="LineEdit" parent="Margins/Content/Scroll/SettingsList/InstallDirectory"]
-offset_left = 706.5
+[node name="Edit" type="LineEdit" parent="Content/Scroll/SettingsList/InstallDirectory"]
+offset_left = 606.0
 offset_right = 1004.0
-offset_bottom = 25.0
-size_flags_horizontal = 8
+offset_bottom = 26.0
+size_flags_horizontal = 3
 size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.141176, 0.121569, 0.192157, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.752941, 0.74902, 0.737255, 1)
 theme_override_colors/caret_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/selection_color = Color(0.6, 0.756863, 0.945098, 1)
 theme_override_colors/clear_button_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/clear_button_color_pressed = Color(0.101961, 0.372549, 0.705882, 1)
-theme_override_constants/minimum_character_width = 24
 theme_override_fonts/font = SubResource( "Font_hxwob" )
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 14
 theme_override_icons/clear = ExtResource( "5_itt8y" )
 theme_override_styles/normal = SubResource( "StyleBoxFlat_2ht16" )
 theme_override_styles/focus = SubResource( "StyleBoxFlat_8frm6" )
@@ -257,39 +337,65 @@ context_menu_enabled = false
 clear_button_enabled = true
 caret_blink = true
 
-[node name="DownloadMirror" type="HBoxContainer" parent="Margins/Content/Scroll/SettingsList"]
+[node name="DownloadMirror" type="HBoxContainer" parent="Content/Scroll/SettingsList"]
 offset_top = 90.0
 offset_right = 1004.0
-offset_bottom = 139.0
+offset_bottom = 160.0
 theme_override_constants/separation = 10
 
-[node name="SettingLabel" type="VBoxContainer" parent="Margins/Content/Scroll/SettingsList/DownloadMirror"]
-offset_right = 1004.0
-offset_bottom = 49.0
+[node name="SettingLabel" type="VBoxContainer" parent="Content/Scroll/SettingsList/DownloadMirror"]
+offset_right = 596.0
+offset_bottom = 70.0
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
 theme_override_constants/separation = 5
 
-[node name="Title" type="Label" parent="Margins/Content/Scroll/SettingsList/DownloadMirror/SettingLabel"]
-offset_right = 1004.0
+[node name="Title" type="Label" parent="Content/Scroll/SettingsList/DownloadMirror/SettingLabel"]
+offset_right = 596.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource( "Font_s7bq6" )
 text = "Preferred Download Mirror"
 
-[node name="Description" type="Label" parent="Margins/Content/Scroll/SettingsList/DownloadMirror/SettingLabel"]
+[node name="Description" type="Label" parent="Content/Scroll/SettingsList/DownloadMirror/SettingLabel"]
 offset_top = 28.0
-offset_right = 1004.0
-offset_bottom = 49.0
+offset_right = 596.0
+offset_bottom = 70.0
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_fonts/font = SubResource( "Font_hoqef" )
 theme_override_font_sizes/font_size = 14
 text = "When available, use this mirror to download releases. Godot Point will fall back to TuxFamily servers for prereleases and older versions."
 autowrap_mode = 2
 
-[node name="Credits" type="Button" parent="Margins/Content/Scroll/SettingsList"]
-offset_top = 159.0
+[node name="OptionButton" type="OptionButton" parent="Content/Scroll/SettingsList/DownloadMirror"]
+offset_left = 606.0
+offset_right = 1004.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = SubResource( "Theme_b6n5x" )
+theme_override_colors/font_color = Color(0.141176, 0.121569, 0.192157, 1)
+theme_override_colors/font_pressed_color = Color(0.207843, 0.517647, 0.894118, 1)
+theme_override_colors/font_hover_color = Color(0.141176, 0.121569, 0.192157, 1)
+theme_override_colors/font_focus_color = Color(0.141176, 0.121569, 0.192157, 1)
+theme_override_fonts/font = SubResource( "Font_ooqho" )
+theme_override_font_sizes/font_size = 14
+theme_override_icons/arrow = ExtResource( "5_osjwf" )
+theme_override_styles/focus = SubResource( "StyleBoxFlat_wgjko" )
+theme_override_styles/normal = SubResource( "StyleBoxFlat_t82r1" )
+theme_override_styles/hover = SubResource( "StyleBoxFlat_t82r1" )
+theme_override_styles/pressed = SubResource( "StyleBoxFlat_wgjko" )
+item_count = 2
+selected = 0
+popup/item_0/text = "Official TuxFamily mirror"
+popup/item_0/id = 0
+popup/item_1/text = "GitHub Releases"
+popup/item_1/id = 1
+
+[node name="Credits" type="Button" parent="Content/Scroll/SettingsList"]
+offset_top = 180.0
 offset_right = 71.0
-offset_bottom = 181.0
+offset_bottom = 202.0
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
@@ -313,10 +419,10 @@ text = "Credits"
 icon = ExtResource( "2_1jpnj" )
 alignment = 0
 
-[node name="ThirdParty" type="Button" parent="Margins/Content/Scroll/SettingsList"]
-offset_top = 201.0
+[node name="ThirdParty" type="Button" parent="Content/Scroll/SettingsList"]
+offset_top = 222.0
 offset_right = 160.0
-offset_bottom = 223.0
+offset_bottom = 244.0
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
@@ -732,8 +838,8 @@ theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
 theme_override_styles/focus = SubResource( "StyleBoxEmpty_jwq6q" )
 icon = ExtResource( "5_itt8y" )
 
-[connection signal="pressed" from="Margins/Content/Scroll/SettingsList/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="Margins/Content/Scroll/SettingsList/ThirdParty" to="." method="_on_third_party_pressed"]
+[connection signal="pressed" from="Content/Scroll/SettingsList/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Content/Scroll/SettingsList/ThirdParty" to="." method="_on_third_party_pressed"]
 [connection signal="pressed" from="Dialogs/Credits/Container/OK" to="." method="_on_credits_close_pressed"]
 [connection signal="pressed" from="Dialogs/Credits/Close" to="." method="_on_credits_close_pressed"]
 [connection signal="pressed" from="Dialogs/ThirdParty/Container/OK" to="." method="_on_third_party_close_pressed"]
