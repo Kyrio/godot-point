@@ -269,7 +269,6 @@ text = "Refresh"
 icon = ExtResource( "5_oijwh" )
 alignment = 0
 script = ExtResource( "7_lw6bu" )
-page_url = null
 
 [node name="Spacing" type="Control" parent="Margins/Content/Toolbar"]
 offset_left = 79.0
@@ -309,7 +308,6 @@ text = "Previous"
 icon = ExtResource( "6_yhyt5" )
 alignment = 0
 script = ExtResource( "7_lw6bu" )
-page_url = null
 
 [node name="Next" type="Button" parent="Margins/Content/Toolbar/Pagination"]
 offset_left = 102.0
@@ -338,7 +336,6 @@ icon = ExtResource( "7_isynp" )
 alignment = 2
 icon_alignment = 2
 script = ExtResource( "7_lw6bu" )
-page_url = null
 
 [connection signal="tab_changed" from="Margins/Content/Tabs" to="." method="_on_tab_changed"]
 [connection signal="pressed" from="Margins/Content/Toolbar/Refresh" to="." method="_on_refresh_pressed"]
