@@ -10,10 +10,10 @@
 [ext_resource type="Script" path="res://gui/releases/page_button.gd" id="7_lw6bu"]
 
 [sub_resource type="Font" id="Font_l6hwa"]
-data/0 = ExtResource( "2_pvafj" )
+data/0 = ExtResource("2_pvafj")
 
 [sub_resource type="Font" id="Font_adkh3"]
-data/0 = ExtResource( "2_pvafj" )
+data/0 = ExtResource("2_pvafj")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6msa"]
 content_margin_left = 15.0
@@ -65,10 +65,10 @@ thickness = 8
 vertical = true
 
 [sub_resource type="Theme" id="Theme_dlskl"]
-VScrollBar/styles/grabber = SubResource( "StyleBoxFlat_duo5q" )
-VScrollBar/styles/grabber_highlight = SubResource( "StyleBoxFlat_776da" )
-VScrollBar/styles/grabber_pressed = SubResource( "StyleBoxFlat_p8vou" )
-VScrollBar/styles/scroll = SubResource( "StyleBoxLine_m7wju" )
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_duo5q")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_776da")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_p8vou")
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_m7wju")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xaahw"]
 content_margin_bottom = 2.0
@@ -102,7 +102,7 @@ expand_margin_bottom = 3.0
 [node name="ReleaseList" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( "1_aq747" )
+script = ExtResource("1_aq747")
 
 [node name="Margins" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -123,7 +123,7 @@ theme_override_constants/separation = 20
 offset_right = 1004.0
 offset_bottom = 42.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource( "Font_l6hwa" )
+theme_override_fonts/font = SubResource("Font_l6hwa")
 theme_override_font_sizes/font_size = 32
 text = "Available"
 
@@ -136,16 +136,16 @@ size_flags_vertical = 3
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/font_unselected_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_constants/side_margin = 0
-theme_override_fonts/font = SubResource( "Font_adkh3" )
-theme_override_styles/tab_selected = SubResource( "StyleBoxFlat_g6msa" )
-theme_override_styles/tab_unselected = SubResource( "StyleBoxFlat_24kel" )
-theme_override_styles/panel = SubResource( "StyleBoxFlat_k67np" )
+theme_override_fonts/font = SubResource("Font_adkh3")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_g6msa")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_24kel")
+theme_override_styles/panel = SubResource("StyleBoxFlat_k67np")
 
 [node name="Stable" type="ScrollContainer" parent="Margins/Content/Tabs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 34.0
-theme = SubResource( "Theme_dlskl" )
+theme = SubResource("Theme_dlskl")
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Stable"]
 offset_right = 1004.0
@@ -160,7 +160,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="Placeholder" parent="Margins/Content/Tabs/Stable/Content" instance=ExtResource( "3_4bsmp" )]
+[node name="Placeholder" parent="Margins/Content/Tabs/Stable/Content" instance=ExtResource("3_4bsmp")]
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_right = 1004.0
@@ -177,7 +177,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 34.0
-theme = SubResource( "Theme_dlskl" )
+theme = SubResource("Theme_dlskl")
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMinor"]
 offset_right = 1004.0
@@ -192,7 +192,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="Placeholder" parent="Margins/Content/Tabs/NextMinor/Content" instance=ExtResource( "3_4bsmp" )]
+[node name="Placeholder" parent="Margins/Content/Tabs/NextMinor/Content" instance=ExtResource("3_4bsmp")]
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_right = 1004.0
@@ -203,14 +203,14 @@ empty_text = "We could not find any pre-releases on TuxFamily servers.
 If refreshing does not help, Godot Point might need to be updated."
 
 [node name="Request" type="Node" parent="Margins/Content/Tabs/NextMinor"]
-script = ExtResource( "5_qgilg" )
+script = ExtResource("5_qgilg")
 
 [node name="NextMajor" type="ScrollContainer" parent="Margins/Content/Tabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 34.0
-theme = SubResource( "Theme_dlskl" )
+theme = SubResource("Theme_dlskl")
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMajor"]
 offset_right = 1004.0
@@ -225,7 +225,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="Placeholder" parent="Margins/Content/Tabs/NextMajor/Content" instance=ExtResource( "3_4bsmp" )]
+[node name="Placeholder" parent="Margins/Content/Tabs/NextMajor/Content" instance=ExtResource("3_4bsmp")]
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_right = 1004.0
@@ -236,7 +236,7 @@ empty_text = "We could not find any pre-releases on TuxFamily servers.
 If refreshing does not help, Godot Point might need to be updated."
 
 [node name="Request" type="Node" parent="Margins/Content/Tabs/NextMajor"]
-script = ExtResource( "5_qgilg" )
+script = ExtResource("5_qgilg")
 
 [node name="Toolbar" type="HBoxContainer" parent="Margins/Content"]
 offset_top = 538.0
@@ -260,15 +260,15 @@ theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource( "StyleBoxFlat_xaahw" )
-theme_override_styles/hover = SubResource( "StyleBoxFlat_5q7q1" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_5q7q1" )
-theme_override_styles/disabled = SubResource( "StyleBoxFlat_xaahw" )
-theme_override_styles/focus = SubResource( "StyleBoxFlat_r6nhw" )
+theme_override_styles/normal = SubResource("StyleBoxFlat_xaahw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5q7q1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5q7q1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xaahw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_r6nhw")
 text = "Refresh"
-icon = ExtResource( "5_oijwh" )
+icon = ExtResource("5_oijwh")
 alignment = 0
-script = ExtResource( "7_lw6bu" )
+script = ExtResource("7_lw6bu")
 
 [node name="Spacing" type="Control" parent="Margins/Content/Toolbar"]
 offset_left = 79.0
@@ -299,15 +299,15 @@ theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource( "StyleBoxFlat_xaahw" )
-theme_override_styles/hover = SubResource( "StyleBoxFlat_5q7q1" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_5q7q1" )
-theme_override_styles/disabled = SubResource( "StyleBoxFlat_xaahw" )
-theme_override_styles/focus = SubResource( "StyleBoxFlat_r6nhw" )
+theme_override_styles/normal = SubResource("StyleBoxFlat_xaahw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5q7q1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5q7q1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xaahw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_r6nhw")
 text = "Previous"
-icon = ExtResource( "6_yhyt5" )
+icon = ExtResource("6_yhyt5")
 alignment = 0
-script = ExtResource( "7_lw6bu" )
+script = ExtResource("7_lw6bu")
 
 [node name="Next" type="Button" parent="Margins/Content/Toolbar/Pagination"]
 offset_left = 102.0
@@ -326,16 +326,16 @@ theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource( "StyleBoxFlat_xaahw" )
-theme_override_styles/hover = SubResource( "StyleBoxFlat_5q7q1" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_5q7q1" )
-theme_override_styles/disabled = SubResource( "StyleBoxFlat_xaahw" )
-theme_override_styles/focus = SubResource( "StyleBoxFlat_r6nhw" )
+theme_override_styles/normal = SubResource("StyleBoxFlat_xaahw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5q7q1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5q7q1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xaahw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_r6nhw")
 text = "Next"
-icon = ExtResource( "7_isynp" )
+icon = ExtResource("7_isynp")
 alignment = 2
 icon_alignment = 2
-script = ExtResource( "7_lw6bu" )
+script = ExtResource("7_lw6bu")
 
 [connection signal="tab_changed" from="Margins/Content/Tabs" to="." method="_on_tab_changed"]
 [connection signal="pressed" from="Margins/Content/Toolbar/Refresh" to="." method="_on_refresh_pressed"]

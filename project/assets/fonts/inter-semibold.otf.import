@@ -12,6 +12,7 @@ dest_files=["res://.godot/imported/inter-semibold.otf-d55c1f32182a14aee213e9475c
 
 [params]
 
+face_index=0
 antialiased=true
 generate_mipmaps=false
 multichannel_signed_distance_field=false

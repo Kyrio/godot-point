@@ -12,6 +12,7 @@ dest_files=["res://.godot/imported/inter.otf-d6d1878708cd005dbdfcf36f8408f137.fo
 
 [params]
 
+face_index=0
 antialiased=true
 generate_mipmaps=false
 multichannel_signed_distance_field=false

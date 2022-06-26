@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://0rpmrgtwkpq8" path="res://assets/icons/save.png" id="9_e1vnk"]
 
 [sub_resource type="Font" id="Font_l6hwa"]
-data/0 = ExtResource( "2_pvafj" )
+data/0 = ExtResource("2_pvafj")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duo5q"]
 bg_color = Color(0.752941, 0.74902, 0.737255, 1)
@@ -40,7 +40,7 @@ color = Color(1, 1, 1, 0)
 thickness = 8
 
 [sub_resource type="Font" id="Font_u68rp"]
-data/0 = ExtResource( "5_2tu4l" )
+data/0 = ExtResource("5_2tu4l")
 
 [sub_resource type="Texture2D" id="Texture2D_1diil"]
 resource_local_to_scene = false
@@ -71,23 +71,23 @@ thickness = 8
 vertical = true
 
 [sub_resource type="Theme" id="Theme_b6n5x"]
-HScrollBar/styles/grabber = SubResource( "StyleBoxFlat_duo5q" )
-HScrollBar/styles/grabber_highlight = SubResource( "StyleBoxFlat_776da" )
-HScrollBar/styles/grabber_pressed = SubResource( "StyleBoxFlat_p8vou" )
-HScrollBar/styles/scroll = SubResource( "StyleBoxLine_kcr81" )
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_duo5q")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_776da")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_p8vou")
+HScrollBar/styles/scroll = SubResource("StyleBoxLine_kcr81")
 PopupMenu/colors/font_color = Color(0.141176, 0.121569, 0.192157, 1)
 PopupMenu/colors/font_hover_color = Color(0.141176, 0.121569, 0.192157, 1)
 PopupMenu/constants/v_separation = 8
 PopupMenu/font_sizes/font_size = 14
-PopupMenu/fonts/font = SubResource( "Font_u68rp" )
-PopupMenu/icons/radio_checked = ExtResource( "4_bn78d" )
-PopupMenu/icons/radio_unchecked = SubResource( "Texture2D_1diil" )
-PopupMenu/styles/hover = SubResource( "StyleBoxFlat_0g30a" )
-PopupMenu/styles/panel = SubResource( "StyleBoxFlat_8uqbn" )
-VScrollBar/styles/grabber = SubResource( "StyleBoxFlat_duo5q" )
-VScrollBar/styles/grabber_highlight = SubResource( "StyleBoxFlat_776da" )
-VScrollBar/styles/grabber_pressed = SubResource( "StyleBoxFlat_p8vou" )
-VScrollBar/styles/scroll = SubResource( "StyleBoxLine_m7wju" )
+PopupMenu/fonts/font = SubResource("Font_u68rp")
+PopupMenu/icons/radio_checked = ExtResource("4_bn78d")
+PopupMenu/icons/radio_unchecked = SubResource("Texture2D_1diil")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_0g30a")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_8uqbn")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_duo5q")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_776da")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_p8vou")
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_m7wju")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3asqo"]
 content_margin_left = 10.0
@@ -95,13 +95,13 @@ content_margin_right = 10.0
 content_margin_bottom = 20.0
 
 [sub_resource type="Font" id="Font_s7bq6"]
-data/0 = ExtResource( "2_pvafj" )
+data/0 = ExtResource("2_pvafj")
 
 [sub_resource type="Font" id="Font_hoqef"]
-data/0 = ExtResource( "5_2tu4l" )
+data/0 = ExtResource("5_2tu4l")
 
 [sub_resource type="Font" id="Font_hxwob"]
-data/0 = ExtResource( "5_2tu4l" )
+data/0 = ExtResource("5_2tu4l")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ht16"]
 content_margin_left = 10.0
@@ -136,7 +136,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="Font" id="Font_ooqho"]
-data/0 = ExtResource( "5_2tu4l" )
+data/0 = ExtResource("5_2tu4l")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgjko"]
 content_margin_left = 10.0
@@ -216,13 +216,13 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
 [sub_resource type="Font" id="Font_54n3q"]
-data/0 = ExtResource( "2_pvafj" )
+data/0 = ExtResource("2_pvafj")
 
 [sub_resource type="Font" id="Font_8qri6"]
-data/0 = ExtResource( "5_2tu4l" )
+data/0 = ExtResource("5_2tu4l")
 
 [sub_resource type="Font" id="Font_7qpcw"]
-data/0 = ExtResource( "2_pvafj" )
+data/0 = ExtResource("2_pvafj")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyiqo"]
 content_margin_left = 10.0
@@ -241,7 +241,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [node name="Settings" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( "1_b5387" )
+script = ExtResource("1_b5387")
 
 [node name="Content" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -264,7 +264,7 @@ offset_bottom = 62.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource( "Font_l6hwa" )
+theme_override_fonts/font = SubResource("Font_l6hwa")
 theme_override_font_sizes/font_size = 32
 text = "Settings"
 
@@ -274,8 +274,8 @@ offset_right = 1024.0
 offset_bottom = 574.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = SubResource( "Theme_b6n5x" )
-theme_override_styles/bg = SubResource( "StyleBoxEmpty_3asqo" )
+theme = SubResource("Theme_b6n5x")
+theme_override_styles/bg = SubResource("StyleBoxEmpty_3asqo")
 
 [node name="SettingsList" type="VBoxContainer" parent="Content/Scroll"]
 offset_left = 10.0
@@ -302,7 +302,7 @@ theme_override_constants/separation = 5
 offset_right = 497.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource( "Font_s7bq6" )
+theme_override_fonts/font = SubResource("Font_s7bq6")
 text = "Custom Install Directory"
 
 [node name="Description" type="Label" parent="Content/Scroll/SettingsList/InstallDirectory/SettingLabel"]
@@ -310,7 +310,7 @@ offset_top = 28.0
 offset_right = 497.0
 offset_bottom = 70.0
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
-theme_override_fonts/font = SubResource( "Font_hoqef" )
+theme_override_fonts/font = SubResource("Font_hoqef")
 theme_override_font_sizes/font_size = 14
 text = "Each Godot release you download will be installed in a sub-directory named after the version number and status, e.g. 4.0.alpha9."
 autowrap_mode = 2
@@ -328,11 +328,11 @@ theme_override_colors/caret_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/selection_color = Color(0.6, 0.756863, 0.945098, 1)
 theme_override_colors/clear_button_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/clear_button_color_pressed = Color(0.101961, 0.372549, 0.705882, 1)
-theme_override_fonts/font = SubResource( "Font_hxwob" )
+theme_override_fonts/font = SubResource("Font_hxwob")
 theme_override_font_sizes/font_size = 14
-theme_override_icons/clear = ExtResource( "5_itt8y" )
-theme_override_styles/normal = SubResource( "StyleBoxFlat_2ht16" )
-theme_override_styles/focus = SubResource( "StyleBoxFlat_8frm6" )
+theme_override_icons/clear = ExtResource("5_itt8y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ht16")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8frm6")
 placeholder_text = "C:/Users/Godette/AppData/Local/Programs/Godot"
 context_menu_enabled = false
 clear_button_enabled = true
@@ -354,7 +354,7 @@ theme_override_constants/separation = 5
 offset_right = 497.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource( "Font_s7bq6" )
+theme_override_fonts/font = SubResource("Font_s7bq6")
 text = "Preferred Download Mirror"
 
 [node name="Description" type="Label" parent="Content/Scroll/SettingsList/DownloadMirror/SettingLabel"]
@@ -362,7 +362,7 @@ offset_top = 28.0
 offset_right = 497.0
 offset_bottom = 70.0
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
-theme_override_fonts/font = SubResource( "Font_hoqef" )
+theme_override_fonts/font = SubResource("Font_hoqef")
 theme_override_font_sizes/font_size = 14
 text = "When available, use this mirror to download releases. Godot Point will fall back to TuxFamily servers for prereleases and older versions."
 autowrap_mode = 2
@@ -373,18 +373,18 @@ offset_right = 1004.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme = SubResource( "Theme_b6n5x" )
+theme = SubResource("Theme_b6n5x")
 theme_override_colors/font_color = Color(0.141176, 0.121569, 0.192157, 1)
 theme_override_colors/font_pressed_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/font_hover_color = Color(0.141176, 0.121569, 0.192157, 1)
 theme_override_colors/font_focus_color = Color(0.141176, 0.121569, 0.192157, 1)
-theme_override_fonts/font = SubResource( "Font_ooqho" )
+theme_override_fonts/font = SubResource("Font_ooqho")
 theme_override_font_sizes/font_size = 14
-theme_override_icons/arrow = ExtResource( "5_osjwf" )
-theme_override_styles/focus = SubResource( "StyleBoxFlat_wgjko" )
-theme_override_styles/normal = SubResource( "StyleBoxFlat_t82r1" )
-theme_override_styles/hover = SubResource( "StyleBoxFlat_t82r1" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_wgjko" )
+theme_override_icons/arrow = ExtResource("5_osjwf")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wgjko")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t82r1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t82r1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wgjko")
 item_count = 2
 selected = 0
 popup/item_0/text = "Official TuxFamily mirror"
@@ -410,13 +410,13 @@ theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/hover = SubResource( "StyleBoxFlat_1iqsu" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_1iqsu" )
-theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/focus = SubResource( "StyleBoxFlat_xskfx" )
+theme_override_styles/normal = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1iqsu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1iqsu")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xskfx")
 text = "Credits"
-icon = ExtResource( "2_1jpnj" )
+icon = ExtResource("2_1jpnj")
 alignment = 0
 
 [node name="ThirdParty" type="Button" parent="Content/Scroll/SettingsList"]
@@ -437,13 +437,13 @@ theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/hover = SubResource( "StyleBoxFlat_1iqsu" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_1iqsu" )
-theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/focus = SubResource( "StyleBoxFlat_xskfx" )
+theme_override_styles/normal = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1iqsu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1iqsu")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xskfx")
 text = "Third-party Licenses"
-icon = ExtResource( "4_pac3j" )
+icon = ExtResource("4_pac3j")
 alignment = 0
 
 [node name="HSeparator" type="HSeparator" parent="Content"]
@@ -474,14 +474,14 @@ theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/hover = SubResource( "StyleBoxFlat_1iqsu" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_1iqsu" )
-theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/focus = SubResource( "StyleBoxFlat_xskfx" )
+theme_override_styles/normal = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1iqsu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1iqsu")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xskfx")
 disabled = true
 text = "Save Changes"
-icon = ExtResource( "9_e1vnk" )
+icon = ExtResource("9_e1vnk")
 alignment = 0
 
 [node name="Dialogs" type="Control" parent="."]
@@ -496,7 +496,7 @@ anchor_right = 0.9
 anchor_bottom = 0.9
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource( "StyleBoxFlat_f07pp" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_f07pp")
 metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = true
 
@@ -513,7 +513,7 @@ theme_override_constants/separation = 10
 offset_right = 789.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource( "Font_54n3q" )
+theme_override_fonts/font = SubResource("Font_54n3q")
 text = "Credits"
 horizontal_alignment = 1
 metadata/_edit_layout_mode = 1
@@ -523,13 +523,13 @@ offset_top = 33.0
 offset_right = 789.0
 offset_bottom = 408.0
 size_flags_vertical = 3
-theme = SubResource( "Theme_b6n5x" )
+theme = SubResource("Theme_b6n5x")
 theme_override_colors/default_color = Color(0.141176, 0.121569, 0.192157, 1)
 theme_override_constants/line_separation = 2
-theme_override_fonts/normal_font = SubResource( "Font_8qri6" )
-theme_override_fonts/bold_font = SubResource( "Font_7qpcw" )
+theme_override_fonts/normal_font = SubResource("Font_8qri6")
+theme_override_fonts/bold_font = SubResource("Font_7qpcw")
 theme_override_font_sizes/normal_font_size = 13
-theme_override_styles/normal = SubResource( "StyleBoxFlat_dyiqo" )
+theme_override_styles/normal = SubResource("StyleBoxFlat_dyiqo")
 bbcode_enabled = true
 text = "[b]Godot Point[/b] - a version manager for Godot Engine
 
@@ -582,13 +582,13 @@ theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/hover = SubResource( "StyleBoxFlat_1iqsu" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_1iqsu" )
-theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/focus = SubResource( "StyleBoxFlat_xskfx" )
+theme_override_styles/normal = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1iqsu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1iqsu")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xskfx")
 text = "OK"
-icon = ExtResource( "6_ury8l" )
+icon = ExtResource("6_ury8l")
 alignment = 0
 
 [node name="Close" type="Button" parent="Dialogs/Credits"]
@@ -610,12 +610,12 @@ theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/hover = SubResource( "StyleBoxFlat_e0agd" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_e0agd" )
-theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/focus = SubResource( "StyleBoxEmpty_jwq6q" )
-icon = ExtResource( "5_itt8y" )
+theme_override_styles/normal = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e0agd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e0agd")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jwq6q")
+icon = ExtResource("5_itt8y")
 
 [node name="ThirdParty" type="PanelContainer" parent="Dialogs"]
 visible = false
@@ -625,7 +625,7 @@ anchor_right = 0.9
 anchor_bottom = 0.9
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource( "StyleBoxFlat_f07pp" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_f07pp")
 metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = true
 
@@ -642,7 +642,7 @@ theme_override_constants/separation = 10
 offset_right = 789.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource( "Font_54n3q" )
+theme_override_fonts/font = SubResource("Font_54n3q")
 text = "Third-party Licenses"
 horizontal_alignment = 1
 metadata/_edit_layout_mode = 1
@@ -652,13 +652,13 @@ offset_top = 33.0
 offset_right = 789.0
 offset_bottom = 408.0
 size_flags_vertical = 3
-theme = SubResource( "Theme_b6n5x" )
+theme = SubResource("Theme_b6n5x")
 theme_override_colors/default_color = Color(0.141176, 0.121569, 0.192157, 1)
 theme_override_constants/line_separation = 2
-theme_override_fonts/normal_font = SubResource( "Font_8qri6" )
-theme_override_fonts/bold_font = SubResource( "Font_7qpcw" )
+theme_override_fonts/normal_font = SubResource("Font_8qri6")
+theme_override_fonts/bold_font = SubResource("Font_7qpcw")
 theme_override_font_sizes/normal_font_size = 13
-theme_override_styles/normal = SubResource( "StyleBoxFlat_dyiqo" )
+theme_override_styles/normal = SubResource("StyleBoxFlat_dyiqo")
 bbcode_enabled = true
 text = "Powered by Godot Engine <[url]https://godotengine.org[/url]>
 MIT License
@@ -841,13 +841,13 @@ theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/hover = SubResource( "StyleBoxFlat_1iqsu" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_1iqsu" )
-theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/focus = SubResource( "StyleBoxFlat_xskfx" )
+theme_override_styles/normal = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1iqsu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1iqsu")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xskfx")
 text = "OK"
-icon = ExtResource( "6_ury8l" )
+icon = ExtResource("6_ury8l")
 alignment = 0
 
 [node name="Close" type="Button" parent="Dialogs/ThirdParty"]
@@ -869,12 +869,12 @@ theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/hover = SubResource( "StyleBoxFlat_e0agd" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_e0agd" )
-theme_override_styles/disabled = SubResource( "StyleBoxFlat_8nu73" )
-theme_override_styles/focus = SubResource( "StyleBoxEmpty_jwq6q" )
-icon = ExtResource( "5_itt8y" )
+theme_override_styles/normal = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e0agd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e0agd")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8nu73")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jwq6q")
+icon = ExtResource("5_itt8y")
 
 [connection signal="pressed" from="Content/Scroll/SettingsList/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Content/Scroll/SettingsList/ThirdParty" to="." method="_on_third_party_pressed"]

@@ -60,8 +60,8 @@ config/name="Godot Point"
 run/main_scene="res://gui/main/main.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="GodotPoint"
-config/icon="res://assets/icons/logo_64.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/icon="res://assets/icons/logo_64.png"
 
 [autoload]
 

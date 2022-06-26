@@ -18,7 +18,7 @@ border_width_right = 1
 border_color = Color(0.870588, 0.866667, 0.854902, 1)
 
 [sub_resource type="Font" id="Font_xkwm1"]
-data/0 = ExtResource( "3_cl3hj" )
+data/0 = ExtResource("3_cl3hj")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6irce"]
 content_margin_left = 12.0
@@ -57,15 +57,15 @@ corner_radius_bottom_left = 8
 resource_name = "MenuButtons"
 
 [sub_resource type="Font" id="Font_i1cvs"]
-data/0 = ExtResource( "3_cl3hj" )
+data/0 = ExtResource("3_cl3hj")
 
 [sub_resource type="Font" id="Font_v6d80"]
-data/0 = ExtResource( "3_cl3hj" )
+data/0 = ExtResource("3_cl3hj")
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( "1_nya24" )
+script = ExtResource("1_nya24")
 
 [node name="Split" type="HSplitContainer" parent="."]
 anchor_right = 1.0
@@ -78,7 +78,7 @@ metadata/_edit_layout_mode = 1
 [node name="Sidebar" type="PanelContainer" parent="Split"]
 offset_right = 244.0
 offset_bottom = 600.0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_5xpop" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_5xpop")
 
 [node name="Menu" type="VBoxContainer" parent="Split/Sidebar"]
 offset_left = 10.0
@@ -89,19 +89,18 @@ offset_bottom = 585.0
 [node name="Logo" type="TextureRect" parent="Split/Sidebar/Menu"]
 offset_right = 224.0
 offset_bottom = 64.0
-texture = ExtResource( "4_oafdt" )
+texture = ExtResource("4_oafdt")
 stretch_mode = 3
 
 [node name="LogoSpacing" type="Control" parent="Split/Sidebar/Menu"]
-minimum_size = Vector2(0, 10)
 offset_top = 68.0
 offset_right = 224.0
-offset_bottom = 78.0
+offset_bottom = 68.0
 
 [node name="Installs" type="Button" parent="Split/Sidebar/Menu"]
-offset_top = 82.0
+offset_top = 72.0
 offset_right = 224.0
-offset_bottom = 122.0
+offset_bottom = 112.0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -114,22 +113,22 @@ theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_constants/h_separation = 10
-theme_override_fonts/font = SubResource( "Font_xkwm1" )
-theme_override_styles/normal = SubResource( "StyleBoxEmpty_6irce" )
-theme_override_styles/hover = SubResource( "StyleBoxEmpty_6irce" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_2atrb" )
-theme_override_styles/focus = SubResource( "StyleBoxFlat_v7hgx" )
+theme_override_fonts/font = SubResource("Font_xkwm1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6irce")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6irce")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2atrb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v7hgx")
 toggle_mode = true
 action_mode = 0
-button_group = SubResource( "ButtonGroup_ofb1b" )
+button_group = SubResource("ButtonGroup_ofb1b")
 text = "Installed"
-icon = ExtResource( "3_iy865" )
+icon = ExtResource("3_iy865")
 alignment = 0
 
 [node name="Releases" type="Button" parent="Split/Sidebar/Menu"]
-offset_top = 126.0
+offset_top = 116.0
 offset_right = 224.0
-offset_bottom = 166.0
+offset_bottom = 156.0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -142,20 +141,20 @@ theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_constants/h_separation = 10
-theme_override_fonts/font = SubResource( "Font_i1cvs" )
-theme_override_styles/normal = SubResource( "StyleBoxEmpty_6irce" )
-theme_override_styles/hover = SubResource( "StyleBoxEmpty_6irce" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_2atrb" )
-theme_override_styles/focus = SubResource( "StyleBoxFlat_v7hgx" )
+theme_override_fonts/font = SubResource("Font_i1cvs")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6irce")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6irce")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2atrb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v7hgx")
 toggle_mode = true
 action_mode = 0
-button_group = SubResource( "ButtonGroup_ofb1b" )
+button_group = SubResource("ButtonGroup_ofb1b")
 text = "Available"
-icon = ExtResource( "4_axlf2" )
+icon = ExtResource("4_axlf2")
 alignment = 0
 
 [node name="Spacing" type="Control" parent="Split/Sidebar/Menu"]
-offset_top = 170.0
+offset_top = 160.0
 offset_right = 224.0
 offset_bottom = 526.0
 size_flags_vertical = 3
@@ -176,23 +175,23 @@ theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_constants/h_separation = 10
-theme_override_fonts/font = SubResource( "Font_v6d80" )
-theme_override_styles/normal = SubResource( "StyleBoxEmpty_6irce" )
-theme_override_styles/hover = SubResource( "StyleBoxEmpty_6irce" )
-theme_override_styles/pressed = SubResource( "StyleBoxFlat_2atrb" )
-theme_override_styles/focus = SubResource( "StyleBoxFlat_v7hgx" )
+theme_override_fonts/font = SubResource("Font_v6d80")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6irce")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6irce")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2atrb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v7hgx")
 toggle_mode = true
 action_mode = 0
-button_group = SubResource( "ButtonGroup_ofb1b" )
+button_group = SubResource("ButtonGroup_ofb1b")
 text = "Settings"
-icon = ExtResource( "6_cmojx" )
+icon = ExtResource("6_cmojx")
 alignment = 0
 
 [node name="View" type="Control" parent="Split"]
 offset_left = 256.0
 offset_right = 1024.0
 offset_bottom = 600.0
-script = ExtResource( "7_16wn6" )
+script = ExtResource("7_16wn6")
 
 [connection signal="toggled" from="Split/Sidebar/Menu/Installs" to="." method="_on_installs_toggled"]
 [connection signal="toggled" from="Split/Sidebar/Menu/Releases" to="." method="_on_releases_toggled"]
