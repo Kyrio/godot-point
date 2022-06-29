@@ -109,18 +109,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="Content" type="VBoxContainer" parent="Margins"]
 offset_left = 10.0
 offset_top = 20.0
-offset_right = 1014.0
+offset_right = 1004.0
 offset_bottom = 580.0
 theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="Margins/Content"]
-offset_right = 1004.0
+offset_right = 994.0
 offset_bottom = 42.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("Font_l6hwa")
@@ -130,7 +130,7 @@ text = "Available"
 [node name="Tabs" type="TabContainer" parent="Margins/Content"]
 unique_name_in_owner = true
 offset_top = 62.0
-offset_right = 1004.0
+offset_right = 994.0
 offset_bottom = 518.0
 size_flags_vertical = 3
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
@@ -148,14 +148,14 @@ offset_top = 34.0
 theme = SubResource("Theme_dlskl")
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Stable"]
-offset_right = 1004.0
+offset_right = 994.0
 offset_bottom = 422.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="List" type="VBoxContainer" parent="Margins/Content/Tabs/Stable/Content"]
-offset_right = 1004.0
+offset_right = 994.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 0
@@ -163,7 +163,7 @@ theme_override_constants/separation = 0
 [node name="Placeholder" parent="Margins/Content/Tabs/Stable/Content" instance=ExtResource("3_4bsmp")]
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 1004.0
+offset_right = 994.0
 offset_bottom = 422.0
 loading_text = "We are searching GitHub for Godot releases.
 If nothing happens, there may be a connectivity issue."
@@ -180,7 +180,7 @@ offset_top = 34.0
 theme = SubResource("Theme_dlskl")
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMinor"]
-offset_right = 1004.0
+offset_right = 994.0
 offset_bottom = 422.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -213,7 +213,7 @@ offset_top = 34.0
 theme = SubResource("Theme_dlskl")
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMajor"]
-offset_right = 1004.0
+offset_right = 994.0
 offset_bottom = 422.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -240,7 +240,7 @@ script = ExtResource("5_qgilg")
 
 [node name="Toolbar" type="HBoxContainer" parent="Margins/Content"]
 offset_top = 538.0
-offset_right = 1004.0
+offset_right = 994.0
 offset_bottom = 560.0
 
 [node name="Refresh" type="Button" parent="Margins/Content/Toolbar"]
@@ -272,14 +272,14 @@ script = ExtResource("7_lw6bu")
 
 [node name="Spacing" type="Control" parent="Margins/Content/Toolbar"]
 offset_left = 79.0
-offset_right = 842.0
+offset_right = 832.0
 offset_bottom = 22.0
 size_flags_horizontal = 3
 
 [node name="Pagination" type="HBoxContainer" parent="Margins/Content/Toolbar"]
 unique_name_in_owner = true
-offset_left = 846.0
-offset_right = 1004.0
+offset_left = 836.0
+offset_right = 994.0
 offset_bottom = 22.0
 theme_override_constants/separation = 20
 

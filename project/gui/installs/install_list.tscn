@@ -14,18 +14,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="Content" type="VBoxContainer" parent="Margins"]
 offset_left = 10.0
 offset_top = 20.0
-offset_right = 1014.0
+offset_right = 1004.0
 offset_bottom = 580.0
 theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="Margins/Content"]
-offset_right = 1004.0
+offset_right = 994.0
 offset_bottom = 42.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("Font_l6hwa")

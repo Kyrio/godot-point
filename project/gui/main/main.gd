@@ -7,6 +7,7 @@ extends Control
 
 func _ready():
     installs_button.button_pressed = true
+    installs_button.grab_focus()
 
 
 func _on_installs_toggled(button_pressed: bool):
