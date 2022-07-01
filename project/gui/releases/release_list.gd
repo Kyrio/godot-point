@@ -13,12 +13,15 @@ var tab_requests: Array
 
 var _previous_page_regex: RegEx
 var _next_page_regex: RegEx
+var _previous_page_url = ""
+var _next_page_url = ""
 
 @onready var tabs := %Tabs as TabContainer
-@onready var refresh := %Refresh as PageButton
+@onready var refresh := %Refresh as Button
 @onready var pagination := %Pagination as Control
-@onready var previous_page := pagination.get_node("Previous") as PageButton
-@onready var next_page := pagination.get_node("Next") as PageButton
+@onready var previous_page := pagination.get_node("Previous") as Button
+@onready var next_page := pagination.get_node("Next") as Button
+@onready var toolbar_buttons: Array[Button] = [refresh, previous_page, next_page]
 
 
 static func sort_releases_by_date(a: Release, b: Release):
@@ -70,15 +73,15 @@ func _process(_delta):
     var current_tab = tabs.current_tab
     match tab_statuses[current_tab]:
         TabStatus.EMPTY:
-            refresh.set_available(true)
+            refresh.disabled = false
             tab_placeholders[current_tab].set_empty()
         
         TabStatus.LOADING:
-            refresh.set_available(false)
+            refresh.disabled = true
             tab_placeholders[current_tab].set_loading()
         
         TabStatus.READY:
-            refresh.set_available(true)
+            refresh.disabled = false
             tab_placeholders[current_tab].set_ready()
             
     if current_tab == Tab.STABLE:
@@ -86,10 +89,23 @@ func _process(_delta):
         
         match tab_statuses[current_tab]:
             TabStatus.EMPTY, TabStatus.LOADING:
-                previous_page.set_available(false)
-                next_page.set_available(false)
+                previous_page.disabled = true
+                next_page.disabled = true
     else:
         pagination.hide()
+        
+    for button in toolbar_buttons:
+        if button.disabled:
+            button.mouse_default_cursor_shape = Control.CURSOR_ARROW
+        else:
+            button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+
+
+func _input(event: InputEvent):
+    if event.is_action_pressed("ui_prev_tab"):
+        tabs.current_tab = tabs.current_tab - 1 if tabs.current_tab > 0 else tabs.get_tab_count() - 1
+    elif event.is_action_pressed("ui_next_tab"):
+        tabs.current_tab = tabs.current_tab + 1 if tabs.current_tab < tabs.get_tab_count() - 1 else 0
 
 
 func fetch_tab_list(tab: Tab, page_url = ""):
@@ -146,18 +162,18 @@ func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int
         tab_statuses[Tab.STABLE] = TabStatus.EMPTY
         return
     
-    previous_page.page_url = ""
-    next_page.page_url = ""
+    _previous_page_url = ""
+    _next_page_url = ""
     
     for header in headers:
         if header.begins_with("Link: "):
             var prev_match = _previous_page_regex.search(header)
             if prev_match:
-                previous_page.page_url = prev_match.get_string(1)
+                _previous_page_url = prev_match.get_string(1)
             
             var next_match = _next_page_regex.search(header)
             if next_match:
-                next_page.page_url = next_match.get_string(1)
+                _next_page_url = next_match.get_string(1)
     
     var stable_list = tab_lists[Tab.STABLE]
 
@@ -175,19 +191,17 @@ func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int
         
         var release_card := RELEASE_SCENE.instantiate() as ReleaseCard
         release_card.release = release
-        release_card.is_latest = i == 0 and previous_page.page_url.is_empty()
+        release_card.is_latest = i == 0 and _previous_page_url.is_empty()
         release_card.has_mono = true
 
         stable_list.add_child(release_card)
         
         if release.version_name == Constants.EARLIEST_SUPPORTED_RELEASE:
-            next_page.page_url = ""
+            _next_page_url = ""
             break
     
-    var has_previous = not previous_page.page_url.is_empty()
-    var has_next = not next_page.page_url.is_empty()
-    previous_page.set_available(has_previous)
-    next_page.set_available(has_next)
+    previous_page.disabled = _previous_page_url.is_empty()
+    next_page.disabled = _next_page_url.is_empty()
 
     if stable_list.get_child_count() > 0:
         tab_statuses[Tab.STABLE] = TabStatus.READY
@@ -230,22 +244,22 @@ func _on_refresh_pressed():
 
 
 func _on_previous_pressed():
-    if previous_page.page_url.is_empty():
+    if _previous_page_url.is_empty():
         return
     
     var current_tab = tabs.current_tab
     if current_tab != Tab.STABLE or tab_statuses[current_tab] == TabStatus.LOADING:
         return
     
-    fetch_tab_list(current_tab, previous_page.page_url)
+    fetch_tab_list(current_tab, _previous_page_url)
 
 
 func _on_next_pressed():
-    if next_page.page_url.is_empty():
+    if _next_page_url.is_empty():
         return
     
     var current_tab = tabs.current_tab
     if current_tab != Tab.STABLE or tab_statuses[current_tab] == TabStatus.LOADING:
         return
     
-    fetch_tab_list(current_tab, next_page.page_url)
+    fetch_tab_list(current_tab, _next_page_url)
