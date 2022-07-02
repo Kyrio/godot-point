@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bjsrr4ovnc3vm"]
+[gd_scene load_steps=43 format=3 uid="uid://bjsrr4ovnc3vm"]
 
 [ext_resource type="Script" path="res://gui/settings/settings.gd" id="1_b5387"]
 [ext_resource type="Texture2D" uid="uid://cxns25rgigwyi" path="res://assets/icons/award.png" id="2_1jpnj"]
@@ -109,8 +109,6 @@ border_color = Color(0, 0, 0, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0agd"]
 content_margin_bottom = 2.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jwq6q"]
 
 [sub_resource type="Font" id="Font_hxwob"]
 data/0 = ExtResource("5_2tu4l")
@@ -342,15 +340,14 @@ offset_right = 18.0
 offset_bottom = 23.0
 size_flags_horizontal = 8
 size_flags_vertical = 4
+focus_mode = 0
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_colors/icon_normal_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 0)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
@@ -358,7 +355,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_8nu73")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e0agd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_e0agd")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8nu73")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_jwq6q")
 disabled = true
 icon = ExtResource("5_y7y2y")
 
@@ -435,15 +431,14 @@ offset_right = 18.0
 offset_bottom = 23.0
 size_flags_horizontal = 8
 size_flags_vertical = 4
+focus_mode = 0
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_colors/icon_normal_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 0)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
@@ -451,7 +446,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_8nu73")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e0agd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_e0agd")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8nu73")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_jwq6q")
 disabled = true
 icon = ExtResource("5_y7y2y")
 
@@ -700,15 +694,14 @@ offset_right = 804.2
 offset_bottom = 35.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
+focus_mode = 0
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_colors/icon_normal_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
@@ -716,7 +709,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_8nu73")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e0agd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_e0agd")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8nu73")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_jwq6q")
 icon = ExtResource("5_itt8y")
 
 [node name="ThirdParty" type="PanelContainer" parent="Dialogs"]
@@ -959,15 +951,14 @@ offset_right = 804.2
 offset_bottom = 35.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
+focus_mode = 0
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_colors/icon_normal_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_font_sizes/font_size = 14
@@ -975,7 +966,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_8nu73")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e0agd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_e0agd")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8nu73")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_jwq6q")
 icon = ExtResource("5_itt8y")
 
 [connection signal="pressed" from="Content/Scroll/SettingsList/InstallDirectory/ErrorContainer/Setting/Undo" to="." method="_on_install_directory_undo_pressed"]

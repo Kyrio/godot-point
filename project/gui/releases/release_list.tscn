@@ -145,6 +145,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 34.0
 theme = SubResource("Theme_dlskl")
+follow_focus = true
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/Stable"]
 offset_right = 994.0
@@ -177,6 +178,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 34.0
 theme = SubResource("Theme_dlskl")
+follow_focus = true
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMinor"]
 offset_right = 994.0
@@ -210,6 +212,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 34.0
 theme = SubResource("Theme_dlskl")
+follow_focus = true
 
 [node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMajor"]
 offset_right = 994.0

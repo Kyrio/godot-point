@@ -79,7 +79,22 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fpbfi"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_088cm"]
+content_margin_bottom = 2.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.870588, 0.866667, 0.854902, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
 
 [node name="Release" type="PanelContainer"]
 offset_right = 1024.0
@@ -189,7 +204,7 @@ theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_t0h7l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ojh7p")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mbduh")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fpbfi")
+theme_override_styles/focus = SubResource("StyleBoxFlat_088cm")
 text = "Standard"
 icon = ExtResource("4_7inw3")
 
@@ -213,6 +228,6 @@ theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_t0h7l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ojh7p")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mbduh")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fpbfi")
+theme_override_styles/focus = SubResource("StyleBoxFlat_088cm")
 text = "Mono"
 icon = ExtResource("4_7inw3")
