@@ -13,6 +13,8 @@ var has_mono: bool
 @onready var _latest := get_node("%Latest") as Label
 @onready var _date := get_node("%Date") as Label
 @onready var _description := get_node("%Description") as Label
+
+@onready var _standard := get_node("%Standard") as Button
 @onready var _mono := get_node("%Mono") as Button
 
 
@@ -25,6 +27,11 @@ func _ready():
     _date.text = Constants.get_pretty_date_from_timestamp(release.publish_date)
     _description.text = release.description
     _mono.visible = has_mono
+
+
+func _process(_delta):
+    _standard.disabled = DownloadManager.is_downloading
+    _mono.disabled = DownloadManager.is_downloading
 
 
 func _on_standard_pressed():

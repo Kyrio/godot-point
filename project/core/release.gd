@@ -4,6 +4,9 @@ extends RefCounted
 ## A released version of Godot, either stable (usually obtained through GitHub)
 ## or a pre-release (from mirrors).
 
+## A release may come with various module configs: none for a standard build,
+## or Mono in a build with C# support.
+enum ModuleConfig { NONE, MONO }
 
 ## The release's version number without any prefix or suffix, e.g. "3.5" or "4.0".
 var version_number: String
@@ -47,22 +50,22 @@ static func from_github_release(data: Dictionary) -> Release:
     return release
 
 
-## Returns the name of the archive corresponding to this [Release] and the provided module config
-## (usually empty or "mono"), platform (as returned by [method OS.get_name]) and CPU bits.
-func get_download_name(module_config: String, platform: String, bits: int) -> String:
+## Returns the name of the archive corresponding to this [Release] and the
+## provided [member ModuleConfig], platform (as returned by [method OS.get_name]) and CPU bits.
+func get_download_filename(module_config: ModuleConfig, platform: String, bits: int) -> String:
     var os = ""
     var exe = ""
     
     match platform:
         "Windows", "UWP":
-            if module_config == "mono":
+            if module_config == ModuleConfig.MONO:
                 os = "win%d" % bits
                 exe = ""
             else:
                 os = "win%d" % bits
                 exe = ".exe"
         "macOS":
-            if version_number.begins_with("3.3") and module_config == "mono":
+            if version_number.begins_with("3.3") and module_config == ModuleConfig.MONO:
                 os = "osx"
                 exe = ".%d" % bits     # Careful, there are no 32-bit releases
             if version_number.begins_with("3.2") or version_number.begins_with("3.1"):
@@ -75,7 +78,7 @@ func get_download_name(module_config: String, platform: String, bits: int) -> St
                 os = "osx"
                 exe = ".universal"
         "Linux":
-            if module_config == "mono":
+            if module_config == ModuleConfig.MONO:
                 os = "x11_%d" % bits
                 exe = ""
             else:
@@ -83,7 +86,7 @@ func get_download_name(module_config: String, platform: String, bits: int) -> St
                 exe = ".%d" % bits
     
     var module_suffix = ""
-    if module_config == "mono":
+    if module_config == ModuleConfig.MONO:
         module_suffix = "_mono"
     
     var download_name = "Godot_v%s-%s%s_%s%s.zip" % [version_number, status, module_suffix, os, exe]

@@ -25,17 +25,17 @@ func _ready():
     credits_dialog.hide()
     third_party_dialog.hide()
     
-    default_install_directory = Config.get_default_setting("paths", "installs")
-    default_download_mirror = Config.get_default_setting("core", "download_mirror")
+    default_install_directory = ConfigManager.get_default_setting("paths", "installs")
+    default_download_mirror = ConfigManager.get_default_setting("core", "download_mirror")
     
-    var install_directory = Config.get_setting("paths", "installs")
+    var install_directory = ConfigManager.get_setting("paths", "installs")
     if install_directory != default_install_directory:
         install_directory_field.text = install_directory
     
     install_directory_field.placeholder_text = ProjectSettings.globalize_path(default_install_directory)
     install_directory_field.grab_focus()
     
-    download_mirror_options.selected = Config.get_setting("core", "download_mirror")
+    download_mirror_options.selected = ConfigManager.get_setting("core", "download_mirror")
 
 
 func _process(_delta):
@@ -95,14 +95,14 @@ func _on_save_pressed():
     install_directory_error.hide()
     
     var install_directory = default_install_directory if install_directory_field.text.is_empty() else install_directory_field.text
-    if not Config.validate_setting("paths", "installs", install_directory):
+    if not ConfigManager.validate_setting("paths", "installs", install_directory):
         install_directory_error.show()
         return
      
-    if not Config.validate_setting("core", "download_mirror", download_mirror_options.selected):
+    if not ConfigManager.validate_setting("core", "download_mirror", download_mirror_options.selected):
         return
     
-    Config.set_setting("paths", "installs", install_directory)
-    Config.set_setting("core", "download_mirror", download_mirror_options.selected)
-    Config.save_settings()
+    ConfigManager.set_setting("paths", "installs", install_directory)
+    ConfigManager.set_setting("core", "download_mirror", download_mirror_options.selected)
+    ConfigManager.save_settings()
     save_button.disabled = true

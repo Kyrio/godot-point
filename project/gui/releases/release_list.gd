@@ -144,7 +144,7 @@ func fetch_tab_list(tab: Tab, page_url = ""):
 
 func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int, headers: PackedStringArray, body: PackedByteArray):
     if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
-        push_error("JSON request returned with code ", response_code)
+        push_error("JSON request returned with error ", result , "and response code ", response_code)
         tab_statuses[Tab.STABLE] = TabStatus.EMPTY
         return
     
@@ -195,8 +195,8 @@ func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int
         release_card.has_mono = true
 
         stable_list.add_child(release_card)
-        release_card.started_standard_download.connect(_on_started_download.bind(""))
-        release_card.started_mono_download.connect(_on_started_download.bind("mono"))
+        release_card.started_standard_download.connect(DownloadManager.start_download.bind(Release.ModuleConfig.NONE))
+        release_card.started_mono_download.connect(DownloadManager.start_download.bind(Release.ModuleConfig.MONO))
         
         if release.version_name == Constants.EARLIEST_SUPPORTED_RELEASE:
             _next_page_url = ""
@@ -225,8 +225,8 @@ func _on_prerelease_results_received(results: Array[Release], tab: Tab):
         release_card.has_mono = release.version_number != "4.0"
 
         list.add_child(release_card)
-        release_card.started_standard_download.connect(_on_started_download.bind(""))
-        release_card.started_mono_download.connect(_on_started_download.bind("mono"))
+        release_card.started_standard_download.connect(DownloadManager.start_download.bind(Release.ModuleConfig.NONE))
+        release_card.started_mono_download.connect(DownloadManager.start_download.bind(Release.ModuleConfig.MONO))
         
     tab_statuses[tab] = TabStatus.READY
 
@@ -267,9 +267,3 @@ func _on_next_pressed():
         return
     
     fetch_tab_list(current_tab, _next_page_url)
-
-
-func _on_started_download(release: Release, module_config: String):
-    if release.status == "stable":
-        print(Constants.get_github_releases_download_url(release, module_config))
-    print(Constants.get_tuxfamily_download_url(release, module_config))

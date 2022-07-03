@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b51oq7j6jqkb"]
+[gd_scene load_steps=16 format=3 uid="uid://b51oq7j6jqkb"]
 
 [ext_resource type="Script" path="res://gui/releases/release_card.gd" id="1_sw6p6"]
 [ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_icl6u"]
@@ -74,6 +74,22 @@ content_margin_top = 5.0
 content_margin_right = 8.0
 content_margin_bottom = 5.0
 bg_color = Color(0.101961, 0.372549, 0.705882, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lo88a"]
+content_margin_left = 8.0
+content_margin_top = 5.0
+content_margin_right = 8.0
+content_margin_bottom = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.603922, 0.6, 0.588235, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -187,6 +203,7 @@ offset_bottom = 61.0
 theme_override_constants/separation = 5
 
 [node name="Standard" type="Button" parent="Content/Body/Download"]
+unique_name_in_owner = true
 offset_right = 101.0
 offset_bottom = 28.0
 size_flags_vertical = 4
@@ -194,16 +211,19 @@ theme_override_colors/font_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
+theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_colors/icon_normal_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
+theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_fonts/font = SubResource("Font_eg8be")
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_t0h7l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ojh7p")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mbduh")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_lo88a")
 theme_override_styles/focus = SubResource("StyleBoxFlat_088cm")
 text = "Standard"
 icon = ExtResource("4_7inw3")
@@ -218,16 +238,19 @@ theme_override_colors/font_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
+theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_colors/icon_normal_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
+theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
 theme_override_constants/h_separation = 5
 theme_override_fonts/font = SubResource("Font_eg8be")
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_t0h7l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ojh7p")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mbduh")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_lo88a")
 theme_override_styles/focus = SubResource("StyleBoxFlat_088cm")
 text = "Mono"
 icon = ExtResource("4_7inw3")

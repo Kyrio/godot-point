@@ -59,7 +59,8 @@ config/icon="res://assets/icons/logo_64.png"
 
 [autoload]
 
-Config="*res://core/config.gd"
+ConfigManager="*res://core/managers/config_manager.gd"
+DownloadManager="*res://core/managers/download_manager.tscn"
 
 [display]
 

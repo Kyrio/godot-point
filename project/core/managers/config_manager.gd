@@ -1,7 +1,7 @@
 extends Node
 
 
-enum Mirrors { TUXFAMILY, GITHUB, COUNT }
+enum Mirror { TUXFAMILY, GITHUB, COUNT }
 
 const defaults = """
 [core]
@@ -26,6 +26,9 @@ func _ready():
     var default_installs = _default_config_file.get_value("paths", "installs")
     if not _user_directory.dir_exists(default_installs):
         _user_directory.make_dir(default_installs)
+        
+    if not _user_directory.dir_exists("download_cache"):
+        _user_directory.make_dir("download_cache")
     
     _error = _config_file.load("user://config.ini")
 
@@ -48,7 +51,7 @@ func validate_setting(section: String, key: String, value: Variant) -> bool:
         "core":
             match key:
                 "download_mirror":
-                    return value is int and value >= 0 and value < Mirrors.COUNT
+                    return value is int and value >= 0 and value < Mirror.COUNT
         
     return false
 

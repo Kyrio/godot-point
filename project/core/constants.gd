@@ -15,6 +15,7 @@ const PRERELEASES_FTP = "ftp://downloads.tuxfamily.org/godotengine/"
 
 const TUXFAMILY_DOWNLOADS = "https://downloads.tuxfamily.org/godotengine/"
 const GITHUB_RELEASES_DOWNLOADS = "https://github.com/godotengine/godot/releases/download/"
+const GITHUB_FIRST_RELEASE_TIME = 1562835880
 
 const GITHUB_HEADERS = ["Accept: application/vnd.github.text+json"]
 
@@ -30,20 +31,20 @@ static func get_pretty_date_from_timestamp(timestamp: int) -> String:
     return "{day} {month_name} {year}".format(datetime_dict)
 
 
-## Returns the URL used to download the given [Release] and config
+## Returns the URL used to download the given [Release] and [member Release.ModuleConfig]
 ## (usually empty or "mono") from TuxFamily servers.
-static func get_tuxfamily_download_url(release: Release, module_config: String) -> String:
-    if module_config == "mono":
+static func get_tuxfamily_download_url(release: Release, module_config: Release.ModuleConfig) -> String:
+    if module_config == Release.ModuleConfig.MONO:
         return Constants.TUXFAMILY_DOWNLOADS + release.version_number + (
             "/mono/" if release.status == "stable" else "/%s/mono/" % release.status
-        ) + release.get_download_name(module_config, OS.get_name(), BITS)
+        ) + release.get_download_filename(module_config, OS.get_name(), BITS)
     else:
         return Constants.TUXFAMILY_DOWNLOADS + release.version_number + (
             "/" if release.status == "stable" else "/%s/" % release.status
-        ) + release.get_download_name(module_config, OS.get_name(), BITS)
+        ) + release.get_download_filename(module_config, OS.get_name(), BITS)
 
 
 ## Returns the URL used to download the given [Release] and config from GitHub Releases.
 ## The URL won't be valid for prereleases, which are not stored on GitHub.
-static func get_github_releases_download_url(release: Release, module_config: String) -> String:
-    return GITHUB_RELEASES_DOWNLOADS + release.version_name + "/" + release.get_download_name(module_config, OS.get_name(), BITS)
+static func get_github_releases_download_url(release: Release, module_config: Release.ModuleConfig) -> String:
+    return GITHUB_RELEASES_DOWNLOADS + release.version_name + "/" + release.get_download_filename(module_config, OS.get_name(), BITS)

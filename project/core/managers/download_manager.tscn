@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://daa7pb6q2q8ov"]
+
+[ext_resource type="Script" path="res://core/managers/download_manager.gd" id="1_8dc1n"]
+
+[node name="DownloadManager" type="Node"]
+script = ExtResource("1_8dc1n")
+
+[node name="DownloadRequest" type="HTTPRequest" parent="."]
+use_threads = true
