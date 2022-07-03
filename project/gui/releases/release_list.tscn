@@ -336,6 +336,9 @@ icon = ExtResource("7_isynp")
 alignment = 2
 icon_alignment = 2
 
+[node name="DownloadRequest" type="HTTPRequest" parent="."]
+use_threads = true
+
 [connection signal="tab_changed" from="Margins/Content/Tabs" to="." method="_on_tab_changed"]
 [connection signal="pressed" from="Margins/Content/Toolbar/Refresh" to="." method="_on_refresh_pressed"]
 [connection signal="pressed" from="Margins/Content/Toolbar/Pagination/Previous" to="." method="_on_previous_pressed"]

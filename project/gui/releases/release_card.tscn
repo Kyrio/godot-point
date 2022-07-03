@@ -231,3 +231,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_mbduh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_088cm")
 text = "Mono"
 icon = ExtResource("4_7inw3")
+
+[connection signal="pressed" from="Content/Body/Download/Standard" to="." method="_on_standard_pressed"]
+[connection signal="pressed" from="Content/Body/Download/Mono" to="." method="_on_mono_pressed"]

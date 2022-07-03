@@ -195,6 +195,8 @@ func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int
         release_card.has_mono = true
 
         stable_list.add_child(release_card)
+        release_card.started_standard_download.connect(_on_started_download.bind(""))
+        release_card.started_mono_download.connect(_on_started_download.bind("mono"))
         
         if release.version_name == Constants.EARLIEST_SUPPORTED_RELEASE:
             _next_page_url = ""
@@ -223,6 +225,8 @@ func _on_prerelease_results_received(results: Array[Release], tab: Tab):
         release_card.has_mono = release.version_number != "4.0"
 
         list.add_child(release_card)
+        release_card.started_standard_download.connect(_on_started_download.bind(""))
+        release_card.started_mono_download.connect(_on_started_download.bind("mono"))
         
     tab_statuses[tab] = TabStatus.READY
 
@@ -263,3 +267,9 @@ func _on_next_pressed():
         return
     
     fetch_tab_list(current_tab, _next_page_url)
+
+
+func _on_started_download(release: Release, module_config: String):
+    if release.status == "stable":
+        print(Constants.get_github_releases_download_url(release, module_config))
+    print(Constants.get_tuxfamily_download_url(release, module_config))

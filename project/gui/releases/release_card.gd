@@ -2,6 +2,9 @@ class_name ReleaseCard
 extends PanelContainer
 
 
+signal started_standard_download(release: Release)
+signal started_mono_download(release: Release)
+
 var release: Release
 var is_latest: bool
 var has_mono: bool
@@ -22,3 +25,11 @@ func _ready():
     _date.text = Constants.get_pretty_date_from_timestamp(release.publish_date)
     _description.text = release.description
     _mono.visible = has_mono
+
+
+func _on_standard_pressed():
+    started_standard_download.emit(release)
+
+
+func _on_mono_pressed():
+    started_mono_download.emit(release)

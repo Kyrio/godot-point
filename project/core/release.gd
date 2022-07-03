@@ -55,28 +55,36 @@ func get_download_name(module_config: String, platform: String, bits: int) -> St
     
     match platform:
         "Windows", "UWP":
-            os = "win%d" % bits
-            exe = "exe"
+            if module_config == "mono":
+                os = "win%d" % bits
+                exe = ""
+            else:
+                os = "win%d" % bits
+                exe = ".exe"
         "macOS":
             if version_number.begins_with("3.3") and module_config == "mono":
                 os = "osx"
-                exe = str(bits)     # Careful, there are no 32-bit releases
+                exe = ".%d" % bits     # Careful, there are no 32-bit releases
             if version_number.begins_with("3.2") or version_number.begins_with("3.1"):
                 os = "osx"
-                exe = str(bits)     # Careful, there are no 32-bit releases
+                exe = ".%d" % bits     # Careful, there are no 32-bit releases
             elif version_number.begins_with("3.0"):
                 os = "osx"
-                exe = "fat"
+                exe = ".fat"
             else:
                 os = "osx"
-                exe = "universal"
+                exe = ".universal"
         "Linux":
-            os = "linux" if version_number == "4.0" else "x11"
-            exe = str(bits)
+            if module_config == "mono":
+                os = "x11_%d" % bits
+                exe = ""
+            else:
+                os = "linux" if version_number == "4.0" else "x11"
+                exe = ".%d" % bits
     
     var module_suffix = ""
     if module_config == "mono":
         module_suffix = "_mono"
     
-    var download_name = "Godot_v%s-%s%s_%s.%s.zip" % [version_number, status, module_suffix, os, exe]
+    var download_name = "Godot_v%s-%s%s_%s%s.zip" % [version_number, status, module_suffix, os, exe]
     return download_name
