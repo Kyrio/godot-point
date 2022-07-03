@@ -7,3 +7,5 @@ script = ExtResource("1_8dc1n")
 
 [node name="DownloadRequest" type="HTTPRequest" parent="."]
 use_threads = true
+
+[connection signal="request_completed" from="DownloadRequest" to="." method="_on_download_request_completed"]

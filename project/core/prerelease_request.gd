@@ -130,7 +130,7 @@ func _thread_function():
                 release.version_name = "%s-%s" % [release.version_number, release.status]
                 release.description = "This is a prerelease of the upcoming Godot %s." % release.version_number
 
-                var file_url = base_url + status + "/" + release.get_download_filename("", OS.get_name(), Constants.BITS)
+                var file_url = base_url + status + "/" + release.get_download_filename(Release.ModuleConfig.NONE, OS.get_name(), Constants.BITS)
                 error = _ftp_request.request_filetime(file_url)
                 if error != OK:
                     push_warning("Error when fetching release info, ignoring: ", file_url)

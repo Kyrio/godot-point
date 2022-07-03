@@ -181,7 +181,7 @@ offset_bottom = 89.0
 
 [node name="Description" type="Label" parent="Content/Body"]
 unique_name_in_owner = true
-offset_right = 895.0
+offset_right = 891.0
 offset_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -192,19 +192,20 @@ text = "Description of the release."
 autowrap_mode = 2
 
 [node name="Spacing" type="Control" parent="Content/Body"]
-offset_left = 899.0
-offset_right = 899.0
+offset_left = 895.0
+offset_right = 895.0
 offset_bottom = 61.0
 
 [node name="Download" type="VBoxContainer" parent="Content/Body"]
-offset_left = 903.0
+offset_left = 899.0
 offset_right = 1004.0
 offset_bottom = 61.0
 theme_override_constants/separation = 5
 
 [node name="Standard" type="Button" parent="Content/Body/Download"]
 unique_name_in_owner = true
-offset_right = 101.0
+custom_minimum_size = Vector2(105, 0)
+offset_right = 105.0
 offset_bottom = 28.0
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.207843, 0.517647, 0.894118, 1)
@@ -230,8 +231,9 @@ icon = ExtResource("4_7inw3")
 
 [node name="Mono" type="Button" parent="Content/Body/Download"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(105, 0)
 offset_top = 33.0
-offset_right = 101.0
+offset_right = 105.0
 offset_bottom = 61.0
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.207843, 0.517647, 0.894118, 1)

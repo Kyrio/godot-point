@@ -30,8 +30,23 @@ func _ready():
 
 
 func _process(_delta):
-    _standard.disabled = DownloadManager.is_downloading
-    _mono.disabled = DownloadManager.is_downloading
+    _standard.text = "Standard"
+    _mono.text = "Mono"
+    
+    _standard.disabled = false
+    _mono.disabled = false
+    
+    if DownloadManager.is_downloading:
+        _standard.disabled = true
+        _mono.disabled = true
+        
+        if DownloadManager.current_download_release.version_name == release.version_name:
+            var percentage = DownloadManager.current_download_progress * 100
+            
+            if DownloadManager.current_download_module_config == Release.ModuleConfig.MONO:
+                _mono.text = "%d%%" % percentage
+            else:
+                _standard.text = "%d%%" % percentage
 
 
 func _on_standard_pressed():
