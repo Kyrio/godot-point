@@ -5,6 +5,7 @@ var is_downloading = false
 var current_download_release: Release
 var current_download_module_config: Release.ModuleConfig
 var current_download_progress = 0.0
+var current_download_bytes = 0
 
 var _update_countdown = 0.0
 
@@ -23,11 +24,13 @@ func _process(delta):
     
     match download_request.get_http_client_status():
         HTTPClient.STATUS_BODY:
-            var bytes = download_request.get_downloaded_bytes()
+            current_download_bytes = download_request.get_downloaded_bytes()
             var total_bytes = download_request.get_body_size()
             
-            if bytes > 0 and total_bytes > 0:
-                current_download_progress = float(bytes) / total_bytes
+            if total_bytes > 0:
+                current_download_progress = float(current_download_bytes) / total_bytes
+            else:
+                current_download_progress = 0.0
         
         _:
             current_download_progress = 0.0
@@ -52,13 +55,13 @@ func start_download(release: Release, module_config: Release.ModuleConfig):
         is_downloading = true
         current_download_release = release
         current_download_module_config = module_config
+        current_download_progress = 0.0
+        current_download_bytes = 0
     else:
         push_error("Error when creating download request.")
 
 
 func _on_download_request_completed(result: int, response_code: int, _headers: PackedStringArray, _body: PackedByteArray):
-    is_downloading = false
-    
     if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
         push_error("Download request returned with error ", result , "and response code ", response_code)
         return
@@ -71,3 +74,5 @@ func _on_download_request_completed(result: int, response_code: int, _headers: P
     match OS.get_name():
         "Windows", "UWP":
             OS.create_process("powershell.exe", ["-Command", "Expand-Archive", zip_file, "-DestinationPath", extract_directory])
+            
+    is_downloading = false
