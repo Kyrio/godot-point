@@ -1,9 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://b51oq7j6jqkb"]
+[gd_scene load_steps=10 format=3 uid="uid://b51oq7j6jqkb"]
 
 [ext_resource type="Script" path="res://gui/releases/release_card.gd" id="1_sw6p6"]
 [ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_icl6u"]
 [ext_resource type="FontData" uid="uid://djyxorhks20ht" path="res://assets/fonts/inter.otf" id="3_6e4qo"]
-[ext_resource type="Texture2D" uid="uid://bmyhkhwsyc4vr" path="res://assets/icons/download.png" id="4_7inw3"]
+[ext_resource type="PackedScene" uid="uid://dy7om6rm04ose" path="res://gui/releases/download_button.tscn" id="4_ce0xq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dx0ts"]
 content_margin_left = 10.0
@@ -38,102 +38,6 @@ data/0 = ExtResource("3_6e4qo")
 [sub_resource type="Font" id="Font_5kb23"]
 data/0 = ExtResource("3_6e4qo")
 
-[sub_resource type="Font" id="Font_eg8be"]
-data/0 = ExtResource("2_icl6u")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0h7l"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.207843, 0.517647, 0.894118, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojh7p"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.207843, 0.517647, 0.894118, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbduh"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.101961, 0.372549, 0.705882, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lo88a"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.603922, 0.6, 0.588235, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_088cm"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.870588, 0.866667, 0.854902, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-expand_margin_left = 3.0
-expand_margin_top = 3.0
-expand_margin_right = 3.0
-expand_margin_bottom = 3.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkl82"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
-bg_color = Color(0.6, 0.756863, 0.945098, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.207843, 0.517647, 0.894118, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lf3d2"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
-bg_color = Color(0.207843, 0.517647, 0.894118, 1)
-border_color = Color(0.207843, 0.517647, 0.894118, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="Font" id="Font_4xhrj"]
-data/0 = ExtResource("2_icl6u")
-
 [node name="Release" type="PanelContainer"]
 offset_right = 1024.0
 offset_bottom = 108.0
@@ -145,7 +49,7 @@ script = ExtResource("1_sw6p6")
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 1014.0
-offset_bottom = 132.0
+offset_bottom = 99.0
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
 alignment = 1
@@ -199,11 +103,11 @@ horizontal_alignment = 2
 [node name="Body" type="HBoxContainer" parent="Content"]
 offset_top = 28.0
 offset_right = 1004.0
-offset_bottom = 122.0
+offset_bottom = 89.0
 
 [node name="Description" type="Label" parent="Content/Body"]
 unique_name_in_owner = true
-offset_right = 891.0
+offset_right = 881.0
 offset_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -214,97 +118,28 @@ text = "Description of the release."
 autowrap_mode = 2
 
 [node name="Spacing" type="Control" parent="Content/Body"]
-offset_left = 895.0
-offset_right = 895.0
-offset_bottom = 94.0
+offset_left = 885.0
+offset_right = 885.0
+offset_bottom = 61.0
 
 [node name="Download" type="VBoxContainer" parent="Content/Body"]
-offset_left = 899.0
+offset_left = 889.0
 offset_right = 1004.0
-offset_bottom = 94.0
+offset_bottom = 61.0
 theme_override_constants/separation = 5
 
-[node name="Standard" type="Button" parent="Content/Body/Download"]
+[node name="Standard" parent="Content/Body/Download" instance=ExtResource("4_ce0xq")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(105, 28)
-offset_right = 105.0
+offset_right = 115.0
 offset_bottom = 28.0
-size_flags_vertical = 4
-theme_override_colors/font_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
-theme_override_colors/icon_normal_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
-theme_override_constants/h_separation = 5
-theme_override_fonts/font = SubResource("Font_eg8be")
-theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_t0h7l")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ojh7p")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mbduh")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_lo88a")
-theme_override_styles/focus = SubResource("StyleBoxFlat_088cm")
-text = "Standard"
-icon = ExtResource("4_7inw3")
+download_title = "Standard"
 
-[node name="Progress" type="ProgressBar" parent="Content/Body/Download"]
+[node name="Mono" parent="Content/Body/Download" instance=ExtResource("4_ce0xq")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(105, 28)
 offset_top = 33.0
-offset_right = 105.0
+offset_right = 115.0
 offset_bottom = 61.0
-theme_override_fonts/font = SubResource("Font_eg8be")
-theme_override_font_sizes/font_size = 14
-theme_override_styles/bg = SubResource("StyleBoxFlat_lkl82")
-theme_override_styles/fg = SubResource("StyleBoxFlat_lf3d2")
-max_value = 1.0
-percent_visible = false
-
-[node name="ProgressStatus" type="Label" parent="Content/Body/Download/Progress"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(105, 28)
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = SubResource("Font_4xhrj")
-theme_override_font_sizes/font_size = 14
-text = "0 MiB"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_layout_mode = 1
-
-[node name="Mono" type="Button" parent="Content/Body/Download"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(105, 28)
-offset_top = 66.0
-offset_right = 105.0
-offset_bottom = 94.0
-size_flags_vertical = 4
-theme_override_colors/font_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
-theme_override_colors/icon_normal_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
-theme_override_constants/h_separation = 5
-theme_override_fonts/font = SubResource("Font_eg8be")
-theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_t0h7l")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ojh7p")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mbduh")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_lo88a")
-theme_override_styles/focus = SubResource("StyleBoxFlat_088cm")
-text = "Mono"
-icon = ExtResource("4_7inw3")
+download_title = "Mono"
 
 [connection signal="pressed" from="Content/Body/Download/Standard" to="." method="_on_standard_pressed"]
 [connection signal="pressed" from="Content/Body/Download/Mono" to="." method="_on_mono_pressed"]

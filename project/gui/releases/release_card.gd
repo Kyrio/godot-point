@@ -17,10 +17,8 @@ var status = Status.IDLE
 @onready var _date := %Date as Label
 @onready var _description := %Description as Label
 
-@onready var _standard := %Standard as Button
-@onready var _mono := %Mono as Button
-@onready var _progress := %Progress as ProgressBar
-@onready var _progress_status := %ProgressStatus as Label
+@onready var _standard := %Standard as DownloadButton
+@onready var _mono := %Mono as DownloadButton
 
 
 func _ready():
@@ -32,37 +30,41 @@ func _ready():
     _date.text = Constants.get_pretty_date_from_timestamp(release.publish_date)
     _description.text = release.description
     _mono.visible = has_mono
-    _progress.visible = false
 
 
 func _process(_delta):
-    _standard.disabled = DownloadManager.is_downloading
-    _mono.disabled = DownloadManager.is_downloading
-    
-    if status == Status.DOWNLOADING_STANDARD:
-        _update_progress(_standard)
-    elif status == Status.DOWNLOADING_MONO:
-        _update_progress(_mono)
-
-
-func _update_progress(download_button: Button):
-    if DownloadManager.is_downloading:
-        download_button.visible = false
-        _progress.visible = true
-        _progress.value = DownloadManager.current_download_progress
-        _progress_status.text = String.humanize_size(DownloadManager.current_download_bytes)
-    else:
-        download_button.visible = true
-        _progress.visible = false
+    match status:
+        Status.IDLE:
+            if DownloadManager.is_downloading:
+                _standard.status = DownloadButton.Status.DISABLED
+                _mono.status = DownloadButton.Status.DISABLED
+            else:
+                _standard.status = DownloadButton.Status.READY
+                _mono.status = DownloadButton.Status.READY
         
+        Status.DOWNLOADING_STANDARD:
+            _update_progress(_standard)
+            _mono.status = DownloadButton.Status.DISABLED
+        
+        Status.DOWNLOADING_MONO:
+            _update_progress(_mono)
+            _standard.status = DownloadButton.Status.DISABLED
+
+
+func _update_progress(download_button: DownloadButton):
+    if DownloadManager.is_downloading:
+        download_button.set_progress(DownloadManager.current_download_progress, String.humanize_size(DownloadManager.current_download_bytes))
+    else:
         status = Status.IDLE
 
 
 func _on_standard_pressed():
     status = Status.DOWNLOADING_STANDARD
+    _standard.status = DownloadButton.Status.DOWNLOADING
     started_standard_download.emit(release)
 
 
 func _on_mono_pressed():
     status = Status.DOWNLOADING_MONO
+    _mono.status = DownloadButton.Status.DOWNLOADING
     started_mono_download.emit(release)
