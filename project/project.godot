@@ -66,6 +66,7 @@ config/icon="res://assets/icons/logo_64.png"
 [autoload]
 
 ConfigManager="*res://core/managers/config_manager.gd"
+InstallManager="*res://core/managers/install_manager.gd"
 DownloadManager="*res://core/managers/download_manager.tscn"
 
 [display]

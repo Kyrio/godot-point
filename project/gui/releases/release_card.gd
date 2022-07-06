@@ -53,7 +53,10 @@ func _process(_delta):
 
 func _update_progress(download_button: DownloadButton):
     if DownloadManager.is_downloading:
-        download_button.set_progress(DownloadManager.current_download_progress, String.humanize_size(DownloadManager.current_download_bytes))
+        if DownloadManager.is_extracting:
+            download_button.set_progress(1.0, "Extracting...")
+        else:
+            download_button.set_progress(DownloadManager.current_download_progress, String.humanize_size(DownloadManager.current_download_bytes))
     else:
         status = Status.IDLE
 
