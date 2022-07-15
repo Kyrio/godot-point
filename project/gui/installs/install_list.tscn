@@ -1,9 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://nvl2up6m7x77"]
 
-[ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
-
-[sub_resource type="Font" id="Font_l6hwa"]
-data/0 = ExtResource("2_pvafj")
+[ext_resource type="FontFile" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
 
 [node name="Installs" type="Control"]
 anchor_right = 1.0
@@ -28,6 +25,6 @@ theme_override_constants/separation = 20
 offset_right = 994.0
 offset_bottom = 42.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("Font_l6hwa")
+theme_override_fonts/font = ExtResource("2_pvafj")
 theme_override_font_sizes/font_size = 32
 text = "Installed"

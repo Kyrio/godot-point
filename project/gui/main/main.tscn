@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://c2j3v2pcxok8i"]
 
 [ext_resource type="Script" path="res://gui/main/main.gd" id="1_nya24"]
-[ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="3_cl3hj"]
+[ext_resource type="FontFile" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="3_cl3hj"]
 [ext_resource type="Texture2D" uid="uid://25oglmu7nv1o" path="res://assets/icons/hard-drive.png" id="3_iy865"]
 [ext_resource type="Texture2D" uid="uid://c4gie421xhjyv" path="res://assets/icons/download-cloud.png" id="4_axlf2"]
 [ext_resource type="Texture2D" uid="uid://ni8gf8mlfr6t" path="res://assets/icons/logo_64.png" id="4_oafdt"]
@@ -16,9 +16,6 @@ content_margin_bottom = 15.0
 bg_color = Color(1, 1, 1, 1)
 border_width_right = 1
 border_color = Color(0.870588, 0.866667, 0.854902, 1)
-
-[sub_resource type="Font" id="Font_xkwm1"]
-data/0 = ExtResource("3_cl3hj")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6irce"]
 content_margin_left = 12.0
@@ -55,12 +52,6 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_ofb1b"]
 resource_name = "MenuButtons"
-
-[sub_resource type="Font" id="Font_i1cvs"]
-data/0 = ExtResource("3_cl3hj")
-
-[sub_resource type="Font" id="Font_v6d80"]
-data/0 = ExtResource("3_cl3hj")
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -113,7 +104,7 @@ theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_constants/h_separation = 10
-theme_override_fonts/font = SubResource("Font_xkwm1")
+theme_override_fonts/font = ExtResource("3_cl3hj")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6irce")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_6irce")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2atrb")
@@ -141,7 +132,7 @@ theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_constants/h_separation = 10
-theme_override_fonts/font = SubResource("Font_i1cvs")
+theme_override_fonts/font = ExtResource("3_cl3hj")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6irce")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_6irce")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2atrb")
@@ -175,7 +166,7 @@ theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_constants/h_separation = 10
-theme_override_fonts/font = SubResource("Font_v6d80")
+theme_override_fonts/font = ExtResource("3_cl3hj")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6irce")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_6irce")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2atrb")

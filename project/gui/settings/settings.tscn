@@ -2,18 +2,15 @@
 
 [ext_resource type="Script" path="res://gui/settings/settings.gd" id="1_b5387"]
 [ext_resource type="Texture2D" uid="uid://cxns25rgigwyi" path="res://assets/icons/award.png" id="2_1jpnj"]
-[ext_resource type="FontData" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
+[ext_resource type="FontFile" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
 [ext_resource type="Texture2D" uid="uid://cb1k0npd3323o" path="res://assets/icons/check-blue.png" id="4_bn78d"]
 [ext_resource type="Texture2D" uid="uid://b6mdhm0s3cwei" path="res://assets/icons/library.png" id="4_pac3j"]
-[ext_resource type="FontData" uid="uid://djyxorhks20ht" path="res://assets/fonts/inter.otf" id="5_2tu4l"]
+[ext_resource type="FontFile" uid="uid://djyxorhks20ht" path="res://assets/fonts/inter.otf" id="5_2tu4l"]
 [ext_resource type="Texture2D" uid="uid://dthe1lglit2bm" path="res://assets/icons/x.png" id="5_itt8y"]
 [ext_resource type="Texture2D" uid="uid://dl76jfoec4d8h" path="res://assets/icons/chevron-down.png" id="5_osjwf"]
 [ext_resource type="Texture2D" uid="uid://cpbkhkdq4fies" path="res://assets/icons/undo-2.png" id="5_y7y2y"]
 [ext_resource type="Texture2D" uid="uid://c8l7cmeu7346n" path="res://assets/icons/check.png" id="6_ury8l"]
 [ext_resource type="Texture2D" uid="uid://0rpmrgtwkpq8" path="res://assets/icons/save.png" id="9_e1vnk"]
-
-[sub_resource type="Font" id="Font_l6hwa"]
-data/0 = ExtResource("2_pvafj")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duo5q"]
 bg_color = Color(0.752941, 0.74902, 0.737255, 1)
@@ -39,9 +36,6 @@ corner_radius_bottom_left = 5
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_kcr81"]
 color = Color(1, 1, 1, 0)
 thickness = 8
-
-[sub_resource type="Font" id="Font_u68rp"]
-data/0 = ExtResource("5_2tu4l")
 
 [sub_resource type="Texture2D" id="Texture2D_1diil"]
 resource_local_to_scene = false
@@ -80,7 +74,7 @@ PopupMenu/colors/font_color = Color(0.141176, 0.121569, 0.192157, 1)
 PopupMenu/colors/font_hover_color = Color(0.141176, 0.121569, 0.192157, 1)
 PopupMenu/constants/v_separation = 8
 PopupMenu/font_sizes/font_size = 14
-PopupMenu/fonts/font = SubResource("Font_u68rp")
+PopupMenu/fonts/font = ExtResource("5_2tu4l")
 PopupMenu/icons/radio_checked = ExtResource("4_bn78d")
 PopupMenu/icons/radio_unchecked = SubResource("Texture2D_1diil")
 PopupMenu/styles/hover = SubResource("StyleBoxFlat_0g30a")
@@ -94,12 +88,6 @@ VScrollBar/styles/scroll = SubResource("StyleBoxLine_m7wju")
 content_margin_left = 10.0
 content_margin_right = 20.0
 
-[sub_resource type="Font" id="Font_s7bq6"]
-data/0 = ExtResource("2_pvafj")
-
-[sub_resource type="Font" id="Font_hoqef"]
-data/0 = ExtResource("5_2tu4l")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nu73"]
 content_margin_bottom = 2.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -109,9 +97,6 @@ border_color = Color(0, 0, 0, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0agd"]
 content_margin_bottom = 2.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="Font" id="Font_hxwob"]
-data/0 = ExtResource("5_2tu4l")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ht16"]
 content_margin_left = 10.0
@@ -144,12 +129,6 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-
-[sub_resource type="Font" id="Font_xredk"]
-data/0 = ExtResource("5_2tu4l")
-
-[sub_resource type="Font" id="Font_ooqho"]
-data/0 = ExtResource("5_2tu4l")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgjko"]
 content_margin_left = 10.0
@@ -228,15 +207,6 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[sub_resource type="Font" id="Font_54n3q"]
-data/0 = ExtResource("2_pvafj")
-
-[sub_resource type="Font" id="Font_8qri6"]
-data/0 = ExtResource("5_2tu4l")
-
-[sub_resource type="Font" id="Font_7qpcw"]
-data/0 = ExtResource("2_pvafj")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyiqo"]
 content_margin_left = 10.0
 content_margin_top = 10.0
@@ -271,7 +241,7 @@ offset_bottom = 62.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("Font_l6hwa")
+theme_override_fonts/font = ExtResource("2_pvafj")
 theme_override_font_sizes/font_size = 32
 text = "Settings"
 
@@ -308,7 +278,7 @@ theme_override_constants/separation = 5
 offset_right = 492.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("Font_s7bq6")
+theme_override_fonts/font = ExtResource("2_pvafj")
 text = "Custom Install Directory"
 
 [node name="Description" type="Label" parent="Content/Scroll/SettingsList/InstallDirectory/Label"]
@@ -316,7 +286,7 @@ offset_top = 28.0
 offset_right = 492.0
 offset_bottom = 70.0
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
-theme_override_fonts/font = SubResource("Font_hoqef")
+theme_override_fonts/font = ExtResource("5_2tu4l")
 theme_override_font_sizes/font_size = 14
 text = "Each Godot release you download will be installed in a sub-directory named after the version number and status, e.g. 4.0.alpha9."
 autowrap_mode = 2
@@ -370,7 +340,7 @@ theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.752941, 0.74902, 0.737255, 1)
 theme_override_colors/caret_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/selection_color = Color(0.6, 0.756863, 0.945098, 1)
-theme_override_fonts/font = SubResource("Font_hxwob")
+theme_override_fonts/font = ExtResource("5_2tu4l")
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_2ht16")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8frm6")
@@ -384,7 +354,7 @@ offset_top = 30.0
 offset_right = 492.0
 offset_bottom = 48.0
 theme_override_colors/font_color = Color(0.752941, 0.109804, 0.156863, 1)
-theme_override_fonts/font = SubResource("Font_xredk")
+theme_override_fonts/font = ExtResource("5_2tu4l")
 theme_override_font_sizes/font_size = 12
 text = "The path is invalid or the directory doesn't exist."
 
@@ -404,7 +374,7 @@ theme_override_constants/separation = 5
 offset_right = 492.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("Font_s7bq6")
+theme_override_fonts/font = ExtResource("2_pvafj")
 text = "Preferred Download Mirror"
 
 [node name="Description" type="Label" parent="Content/Scroll/SettingsList/DownloadMirror/Label"]
@@ -412,7 +382,7 @@ offset_top = 28.0
 offset_right = 492.0
 offset_bottom = 70.0
 theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
-theme_override_fonts/font = SubResource("Font_hoqef")
+theme_override_fonts/font = ExtResource("5_2tu4l")
 theme_override_font_sizes/font_size = 14
 text = "When available, use this mirror to download releases. Godot Point will fall back to TuxFamily servers for prereleases and older versions."
 autowrap_mode = 2
@@ -461,7 +431,7 @@ theme_override_colors/font_color = Color(0.141176, 0.121569, 0.192157, 1)
 theme_override_colors/font_pressed_color = Color(0.207843, 0.517647, 0.894118, 1)
 theme_override_colors/font_hover_color = Color(0.141176, 0.121569, 0.192157, 1)
 theme_override_colors/font_focus_color = Color(0.141176, 0.121569, 0.192157, 1)
-theme_override_fonts/font = SubResource("Font_ooqho")
+theme_override_fonts/font = ExtResource("5_2tu4l")
 theme_override_font_sizes/font_size = 14
 theme_override_icons/arrow = ExtResource("5_osjwf")
 theme_override_styles/focus = SubResource("StyleBoxFlat_wgjko")
@@ -609,7 +579,7 @@ theme_override_constants/separation = 10
 offset_right = 789.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("Font_54n3q")
+theme_override_fonts/font = ExtResource("2_pvafj")
 text = "Credits"
 horizontal_alignment = 1
 metadata/_edit_layout_mode = 1
@@ -622,8 +592,8 @@ size_flags_vertical = 3
 theme = SubResource("Theme_b6n5x")
 theme_override_colors/default_color = Color(0.141176, 0.121569, 0.192157, 1)
 theme_override_constants/line_separation = 2
-theme_override_fonts/normal_font = SubResource("Font_8qri6")
-theme_override_fonts/bold_font = SubResource("Font_7qpcw")
+theme_override_fonts/normal_font = ExtResource("5_2tu4l")
+theme_override_fonts/bold_font = ExtResource("2_pvafj")
 theme_override_font_sizes/normal_font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_dyiqo")
 bbcode_enabled = true
@@ -736,7 +706,7 @@ theme_override_constants/separation = 10
 offset_right = 789.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("Font_54n3q")
+theme_override_fonts/font = ExtResource("2_pvafj")
 text = "Third-party Licenses"
 horizontal_alignment = 1
 metadata/_edit_layout_mode = 1
@@ -749,8 +719,8 @@ size_flags_vertical = 3
 theme = SubResource("Theme_b6n5x")
 theme_override_colors/default_color = Color(0.141176, 0.121569, 0.192157, 1)
 theme_override_constants/line_separation = 2
-theme_override_fonts/normal_font = SubResource("Font_8qri6")
-theme_override_fonts/bold_font = SubResource("Font_7qpcw")
+theme_override_fonts/normal_font = ExtResource("5_2tu4l")
+theme_override_fonts/bold_font = ExtResource("2_pvafj")
 theme_override_font_sizes/normal_font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_dyiqo")
 bbcode_enabled = true
