@@ -2,23 +2,17 @@ class_name ReleaseCard
 extends PanelContainer
 
 
-signal started_standard_download(release: Release)
-signal started_mono_download(release: Release)
-
-enum Status { IDLE, DOWNLOADING_STANDARD, DOWNLOADING_MONO }
-
 var release: Release
 var is_latest: bool
 var has_mono: bool
-var status = Status.IDLE
+
+@onready var standard_button := %Standard as DownloadButton
+@onready var mono_button := %Mono as DownloadButton
 
 @onready var _version := %Version as Label
 @onready var _latest := %Latest as Label
 @onready var _date := %Date as Label
 @onready var _description := %Description as Label
-
-@onready var _standard := %Standard as DownloadButton
-@onready var _mono := %Mono as DownloadButton
 
 
 func _ready():
@@ -29,45 +23,54 @@ func _ready():
     _latest.visible = is_latest
     _date.text = Constants.get_pretty_date_from_timestamp(release.publish_date)
     _description.text = release.description
-    _mono.visible = has_mono
+    mono_button.visible = has_mono
 
 
 func _process(_delta):
-    match status:
-        Status.IDLE:
-            if DownloadManager.is_downloading:
-                _standard.status = DownloadButton.Status.DISABLED
-                _mono.status = DownloadButton.Status.DISABLED
-            else:
-                _standard.status = DownloadButton.Status.READY
-                _mono.status = DownloadButton.Status.READY
-        
-        Status.DOWNLOADING_STANDARD:
-            _update_progress(_standard)
-            _mono.status = DownloadButton.Status.DISABLED
-        
-        Status.DOWNLOADING_MONO:
-            _update_progress(_mono)
-            _standard.status = DownloadButton.Status.DISABLED
+    if standard_button.status == DownloadButton.Status.DOWNLOADING:
+        _update_progress(standard_button)
+    elif mono_button.status == DownloadButton.Status.DOWNLOADING:
+        _update_progress(mono_button)
 
 
 func _update_progress(download_button: DownloadButton):
-    if DownloadManager.is_downloading:
-        if DownloadManager.is_extracting:
-            download_button.set_progress(1.0, "Extracting...")
-        else:
-            download_button.set_progress(DownloadManager.current_download_progress, String.humanize_size(DownloadManager.current_download_bytes))
+    if DownloadManager.is_extracting:
+        download_button.set_progress(1.0, "Extracting...")
     else:
-        status = Status.IDLE
+        download_button.set_progress(DownloadManager.current_download_progress, String.humanize_size(DownloadManager.current_download_bytes))
 
 
 func _on_standard_pressed():
-    status = Status.DOWNLOADING_STANDARD
-    _standard.status = DownloadButton.Status.DOWNLOADING
-    started_standard_download.emit(release)
+    var success = DownloadManager.start_download(release, Release.ModuleConfig.NONE)
+    
+    if success:
+        standard_button.status = DownloadButton.Status.DOWNLOADING
+        _connect_with_download_manager(standard_button)
 
 
 func _on_mono_pressed():
-    status = Status.DOWNLOADING_MONO
-    _mono.status = DownloadButton.Status.DOWNLOADING
-    started_mono_download.emit(release)
+    var success = DownloadManager.start_download(release, Release.ModuleConfig.MONO)
+    
+    if success:
+        mono_button.status = DownloadButton.Status.DOWNLOADING
+        _connect_with_download_manager(mono_button)
+
+
+func _connect_with_download_manager(download_button: DownloadButton):
+    DownloadManager.download_failed.connect(_on_download_failed.bind(download_button))
+    DownloadManager.installed.connect(_on_installed.bind(download_button))
+
+
+func _disconnect_from_download_manager():
+    DownloadManager.download_failed.disconnect(_on_download_failed)
+    DownloadManager.installed.disconnect(_on_installed)
+
+
+func _on_download_failed(download_button: DownloadButton):
+    download_button.status = DownloadButton.Status.IDLE
+    _disconnect_from_download_manager()
+
+
+func _on_installed(download_button: DownloadButton):
+    download_button.status = DownloadButton.Status.DONE
+    _disconnect_from_download_manager()

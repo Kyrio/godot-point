@@ -4,11 +4,11 @@ extends VBoxContainer
 
 signal pressed
 
-enum Status { READY, DISABLED, DOWNLOADING, DONE }
+enum Status { IDLE, DOWNLOADING, DONE }
 
 @export var download_title = "Download"
 
-var status = Status.READY
+var status = Status.IDLE
 
 @onready var start_button := $Start as Button
 @onready var progress_bar := $Progress as ProgressBar
@@ -21,16 +21,11 @@ func _ready():
 
 
 func _process(_delta):
+    start_button.disabled = DownloadManager.is_working
+    
     match status:
-        Status.READY:
+        Status.IDLE:
             start_button.visible = true
-            start_button.disabled = false
-            progress_bar.visible = false
-            done_button.visible = false
-            
-        Status.DISABLED:
-            start_button.visible = true
-            start_button.disabled = true
             progress_bar.visible = false
             done_button.visible = false
         

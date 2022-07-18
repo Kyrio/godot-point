@@ -195,8 +195,6 @@ func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int
         release_card.has_mono = true
 
         stable_list.add_child(release_card)
-        release_card.started_standard_download.connect(DownloadManager.start_download.bind(Release.ModuleConfig.NONE))
-        release_card.started_mono_download.connect(DownloadManager.start_download.bind(Release.ModuleConfig.MONO))
         
         if release.version_name == Constants.EARLIEST_SUPPORTED_RELEASE:
             _next_page_url = ""
@@ -225,8 +223,6 @@ func _on_prerelease_results_received(results: Array[Release], tab: Tab):
         release_card.has_mono = release.version_number != "4.0"
 
         list.add_child(release_card)
-        release_card.started_standard_download.connect(DownloadManager.start_download.bind(Release.ModuleConfig.NONE))
-        release_card.started_mono_download.connect(DownloadManager.start_download.bind(Release.ModuleConfig.MONO))
         
     tab_statuses[tab] = TabStatus.READY
 

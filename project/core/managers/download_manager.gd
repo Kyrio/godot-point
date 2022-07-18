@@ -1,7 +1,10 @@
 extends Node
 
 
-var is_downloading = false
+signal download_failed
+signal installed
+
+var is_working = false
 var is_extracting = false
 var current_download_release: Release
 var current_download_module_config: Release.ModuleConfig
@@ -17,7 +20,7 @@ var _extract_dirname: String
 
 
 func _process(delta):
-    if not is_downloading:
+    if not is_working:
         return
     
     if is_extracting:
@@ -25,7 +28,7 @@ func _process(delta):
             return
         
         _install_release()
-        is_downloading = false
+        is_working = false
         is_extracting = false
     
     _update_countdown -= delta
@@ -48,9 +51,9 @@ func _process(delta):
             current_download_progress = 0.0
 
 
-func start_download(release: Release, module_config: Release.ModuleConfig):
-    if is_downloading:
-        return
+func start_download(release: Release, module_config: Release.ModuleConfig) -> bool:
+    if is_working:
+        return false
     
     var mirror = ConfigManager.get_setting("core", "download_mirror")
     var url: String
@@ -65,19 +68,23 @@ func start_download(release: Release, module_config: Release.ModuleConfig):
     
     var error = download_request.request(url)
     if error == OK:
-        is_downloading = true
+        is_working = true
         is_extracting = false
         current_download_release = release
         current_download_module_config = module_config
         current_download_progress = 0.0
         current_download_bytes = 0
+        return true
     else:
         push_error("Error when creating download request.")
+        return false
 
 
 func _on_download_request_completed(result: int, response_code: int, _headers: PackedStringArray, _body: PackedByteArray):
     if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
         push_error("Download request returned with error ", result , "and response code ", response_code)
+        is_working = false
+        download_failed.emit()
         return
     
     _extract_dirname = _download_filename.get_slice(".zip", 0)
@@ -92,7 +99,8 @@ func _on_download_request_completed(result: int, response_code: int, _headers: P
             
     if _extract_process < 0:
         push_error("Cannot extract the release, this might be an unsupported platform.")
-        is_downloading = false
+        is_working = false
+        download_failed.emit()
         return
     
     is_extracting = true
@@ -104,6 +112,7 @@ func _install_release():
     
     if not working_dir.dir_exists(_extract_dirname):
         push_error("The release wasn't extracted properly.")
+        download_failed.emit()
         return
     
     working_dir.remove(_download_filename)
@@ -112,11 +121,13 @@ func _install_release():
     var installs_dir = Directory.new()
     if installs_dir.open(installs_path) != OK:
         push_error("Could not open the configured install directory.")
+        download_failed.emit()
         return
     
     if not installs_dir.dir_exists(current_download_release.version_name):
         if installs_dir.make_dir(current_download_release.version_name) != OK:
             push_error("Could not create a directory for the release.")
+            download_failed.emit()
             return
     
     var release_path = installs_path.plus_file(current_download_release.version_name)
@@ -140,6 +151,12 @@ func _install_release():
 
     if move_error != OK:
         push_error("Could not move the release to the configured install directory.")
+        download_failed.emit()
         return
         
-    InstallManager.register_install(current_download_release, current_download_module_config, release_path)
+    var success = InstallManager.register_install(current_download_release, current_download_module_config, release_path)
+    
+    if success:
+        installed.emit()
+    else:
+        download_failed.emit()

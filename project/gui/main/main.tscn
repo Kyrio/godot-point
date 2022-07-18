@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c2j3v2pcxok8i"]
+[gd_scene load_steps=13 format=3 uid="uid://c2j3v2pcxok8i"]
 
 [ext_resource type="Script" path="res://gui/main/main.gd" id="1_nya24"]
 [ext_resource type="FontFile" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="3_cl3hj"]

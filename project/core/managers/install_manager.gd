@@ -10,9 +10,9 @@ func _ready():
     var _error = registry.load("user://registry.ini")
 
 
-func register_install(release: Release, module_config: Release.ModuleConfig, install_path: String):
+func register_install(release: Release, module_config: Release.ModuleConfig, install_path: String) -> bool:
     registry.set_value(release.version_name, MODULE_CONFIGS[module_config], install_path)
-    registry.save("user://registry.ini")
+    return registry.save("user://registry.ini") == OK
 
 
 func is_installed(release: Release, module_config: Release.ModuleConfig) -> bool:
