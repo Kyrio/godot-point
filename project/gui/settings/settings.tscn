@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bjsrr4ovnc3vm"]
+[gd_scene load_steps=33 format=3 uid="uid://bjsrr4ovnc3vm"]
 
 [ext_resource type="Script" path="res://gui/settings/settings.gd" id="1_b5387"]
 [ext_resource type="Texture2D" uid="uid://cxns25rgigwyi" path="res://assets/icons/award.png" id="2_1jpnj"]

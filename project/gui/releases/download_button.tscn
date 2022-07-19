@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dy7om6rm04ose"]
+[gd_scene load_steps=13 format=3 uid="uid://dy7om6rm04ose"]
 
 [ext_resource type="Script" path="res://gui/releases/download_button.gd" id="1_1e26t"]
 [ext_resource type="FontFile" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pc5ff"]

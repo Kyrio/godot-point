@@ -24,6 +24,12 @@ func _ready():
     _date.text = Constants.get_pretty_date_from_timestamp(release.publish_date)
     _description.text = release.description
     mono_button.visible = has_mono
+    
+    if InstallManager.is_installed(release, Release.ModuleConfig.NONE):
+        standard_button.status = DownloadButton.Status.DONE
+        
+    if InstallManager.is_installed(release, Release.ModuleConfig.MONO):
+        mono_button.status = DownloadButton.Status.DONE
 
 
 func _process(_delta):

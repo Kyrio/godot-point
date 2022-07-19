@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://s3buqb1yfncx"]
+[gd_scene load_steps=5 format=3 uid="uid://s3buqb1yfncx"]
 
 [ext_resource type="Script" path="res://gui/releases/placeholder.gd" id="1_k1tft"]
 [ext_resource type="Texture2D" uid="uid://dc62jfanpuuqc" path="res://assets/icons/package-search.png" id="1_sk7xs"]

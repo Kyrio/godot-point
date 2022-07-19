@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://nvl2up6m7x77"]
+[gd_scene load_steps=5 format=3 uid="uid://nvl2up6m7x77"]
 
+[ext_resource type="PackedScene" uid="uid://brl8ggu1gm2dx" path="res://gui/installs/install_card.tscn" id="2_7blkn"]
 [ext_resource type="FontFile" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
+[ext_resource type="FontFile" uid="uid://djyxorhks20ht" path="res://assets/fonts/inter.otf" id="3_3tqmw"]
+[ext_resource type="Texture2D" uid="uid://dk228dtjiovk6" path="res://assets/icons/layout-list.png" id="3_hlp0d"]
 
 [node name="Installs" type="Control"]
 anchor_right = 1.0
@@ -28,3 +31,46 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_pvafj")
 theme_override_font_sizes/font_size = 32
 text = "Installed"
+
+[node name="Cards" type="VBoxContainer" parent="Margins/Content"]
+offset_top = 62.0
+offset_right = 994.0
+offset_bottom = 560.0
+size_flags_vertical = 3
+
+[node name="Placeholder" type="CenterContainer" parent="Margins/Content/Cards"]
+visible = false
+offset_right = 994.0
+offset_bottom = 498.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty" type="VBoxContainer" parent="Margins/Content/Cards/Placeholder"]
+offset_left = 306.0
+offset_top = 189.0
+offset_right = 687.0
+offset_bottom = 309.0
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="Margins/Content/Cards/Placeholder/Empty"]
+offset_left = 158.0
+offset_right = 222.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_hlp0d")
+
+[node name="Label" type="Label" parent="Margins/Content/Cards/Placeholder/Empty"]
+offset_top = 74.0
+offset_right = 381.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.603922, 0.6, 0.588235, 1)
+theme_override_fonts/font = ExtResource("3_3tqmw")
+text = "This is an empty list.
+Use the Available tab to download Godot releases."
+horizontal_alignment = 1
+
+[node name="InstallCard" parent="Margins/Content/Cards" instance=ExtResource("2_7blkn")]
+anchor_right = 0.0
+offset_right = 994.0
+offset_bottom = 116.0
