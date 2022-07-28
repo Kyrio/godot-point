@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://nvl2up6m7x77"]
+[gd_scene load_steps=6 format=3 uid="uid://nvl2up6m7x77"]
 
+[ext_resource type="Script" path="res://gui/installs/install_list.gd" id="1_5k6tg"]
 [ext_resource type="PackedScene" uid="uid://brl8ggu1gm2dx" path="res://gui/installs/install_card.tscn" id="2_7blkn"]
 [ext_resource type="FontFile" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_pvafj"]
 [ext_resource type="FontFile" uid="uid://djyxorhks20ht" path="res://assets/fonts/inter.otf" id="3_3tqmw"]
@@ -8,6 +9,7 @@
 [node name="Installs" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource("1_5k6tg")
 
 [node name="Margins" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -33,6 +35,7 @@ theme_override_font_sizes/font_size = 32
 text = "Installed"
 
 [node name="Cards" type="VBoxContainer" parent="Margins/Content"]
+unique_name_in_owner = true
 offset_top = 62.0
 offset_right = 994.0
 offset_bottom = 560.0
@@ -73,4 +76,4 @@ horizontal_alignment = 1
 [node name="InstallCard" parent="Margins/Content/Cards" instance=ExtResource("2_7blkn")]
 anchor_right = 0.0
 offset_right = 994.0
-offset_bottom = 116.0
+offset_bottom = 90.0

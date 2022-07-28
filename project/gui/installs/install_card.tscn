@@ -1,10 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://brl8ggu1gm2dx"]
+[gd_scene load_steps=6 format=3 uid="uid://brl8ggu1gm2dx"]
 
+[ext_resource type="Script" path="res://gui/installs/install_card.gd" id="1_6vsot"]
 [ext_resource type="Texture2D" uid="uid://bj53cjljoob1y" path="res://assets/icons/godot.png" id="1_hjhl3"]
 [ext_resource type="FontFile" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_54luw"]
-[ext_resource type="FontFile" uid="uid://djyxorhks20ht" path="res://assets/fonts/inter.otf" id="3_4ak66"]
-[ext_resource type="Texture2D" uid="uid://mnti3cy44j52" path="res://assets/icons/play.png" id="4_yo6k0"]
-[ext_resource type="Texture2D" uid="uid://btw32ronmup6l" path="res://assets/icons/trash-2.png" id="5_1osic"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqlfh"]
 bg_color = Color(1, 1, 1, 0)
@@ -29,327 +27,52 @@ border_color = Color(0.870588, 0.866667, 0.854902, 1)
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku5lv"]
-content_margin_left = 10.0
-content_margin_top = 5.0
-content_margin_right = 10.0
-content_margin_bottom = 5.0
-bg_color = Color(0.964706, 0.960784, 0.956863, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.870588, 0.866667, 0.854902, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efice"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.207843, 0.517647, 0.894118, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hr7xw"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.207843, 0.517647, 0.894118, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knh8h"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.101961, 0.372549, 0.705882, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ntcl"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.603922, 0.6, 0.588235, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxqdb"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.870588, 0.866667, 0.854902, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-expand_margin_left = 3.0
-expand_margin_top = 3.0
-expand_margin_right = 3.0
-expand_margin_bottom = 3.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g31cs"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.752941, 0.109804, 0.156863, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkb0a"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.752941, 0.109804, 0.156863, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26mxs"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(0.647059, 0.113725, 0.176471, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
 [node name="InstallCard" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 90)
 anchor_right = 1.0
 offset_bottom = 77.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vqlfh")
+script = ExtResource("1_6vsot")
 
 [node name="Layout" type="HBoxContainer" parent="."]
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 1023.0
-offset_bottom = 110.0
+offset_bottom = 89.0
 theme_override_constants/separation = 0
 
 [node name="CenterContainer" type="CenterContainer" parent="Layout"]
 custom_minimum_size = Vector2(64, 0)
 offset_right = 64.0
-offset_bottom = 109.0
+offset_bottom = 88.0
 
 [node name="Logo" type="TextureRect" parent="Layout/CenterContainer"]
 offset_left = 8.0
-offset_top = 30.0
+offset_top = 20.0
 offset_right = 56.0
-offset_bottom = 78.0
+offset_bottom = 68.0
 texture = ExtResource("1_hjhl3")
 
 [node name="Card" type="PanelContainer" parent="Layout"]
 offset_left = 64.0
 offset_right = 1022.0
-offset_bottom = 109.0
+offset_bottom = 88.0
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ourqr")
 
-[node name="Content" type="VBoxContainer" parent="Layout/Card"]
+[node name="Rows" type="VBoxContainer" parent="Layout/Card"]
+unique_name_in_owner = true
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 948.0
-offset_bottom = 99.0
+offset_bottom = 78.0
 theme_override_constants/separation = 5
 
-[node name="Title" type="Label" parent="Layout/Card/Content"]
+[node name="Title" type="Label" parent="Layout/Card/Rows"]
+unique_name_in_owner = true
 offset_right = 938.0
 offset_bottom = 23.0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_54luw")
 text = "3.5-rc6"
-
-[node name="Standard" type="HBoxContainer" parent="Layout/Card/Content"]
-offset_top = 28.0
-offset_right = 938.0
-offset_bottom = 56.0
-theme_override_constants/separation = 5
-
-[node name="Location" type="PanelContainer" parent="Layout/Card/Content/Standard"]
-custom_minimum_size = Vector2(200, 0)
-offset_right = 774.0
-offset_bottom = 28.0
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ku5lv")
-
-[node name="Path" type="Label" parent="Layout/Card/Content/Standard/Location"]
-offset_left = 10.0
-offset_top = 5.0
-offset_right = 764.0
-offset_bottom = 23.0
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
-theme_override_fonts/font = ExtResource("3_4ak66")
-theme_override_font_sizes/font_size = 12
-text = "C:\\Users\\tpallot\\AppData\\Roaming\\GodotPoint\\installs\\3.5-rc6\\standard"
-autowrap_mode = 1
-
-[node name="Spacing" type="Control" parent="Layout/Card/Content/Standard"]
-offset_left = 779.0
-offset_right = 779.0
-offset_bottom = 28.0
-
-[node name="Launch" type="Button" parent="Layout/Card/Content/Standard"]
-custom_minimum_size = Vector2(115, 28)
-offset_left = 784.0
-offset_right = 899.0
-offset_bottom = 28.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
-theme_override_colors/icon_normal_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
-theme_override_constants/h_separation = 5
-theme_override_fonts/font = ExtResource("2_54luw")
-theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_efice")
-theme_override_styles/hover = SubResource("StyleBoxFlat_hr7xw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_knh8h")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_5ntcl")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gxqdb")
-text = "Standard"
-icon = ExtResource("4_yo6k0")
-
-[node name="Uninstall" type="Button" parent="Layout/Card/Content/Standard"]
-custom_minimum_size = Vector2(0, 28)
-offset_left = 904.0
-offset_right = 938.0
-offset_bottom = 28.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0.752941, 0.109804, 0.156863, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0.752941, 0.109804, 0.156863, 1)
-theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
-theme_override_colors/icon_normal_color = Color(0.752941, 0.109804, 0.156863, 1)
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_focus_color = Color(0.752941, 0.109804, 0.156863, 1)
-theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
-theme_override_constants/h_separation = 5
-theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_g31cs")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dkb0a")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_26mxs")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_5ntcl")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gxqdb")
-icon = ExtResource("5_1osic")
-
-[node name="Standard2" type="HBoxContainer" parent="Layout/Card/Content"]
-offset_top = 61.0
-offset_right = 938.0
-offset_bottom = 89.0
-theme_override_constants/separation = 5
-
-[node name="Location" type="PanelContainer" parent="Layout/Card/Content/Standard2"]
-custom_minimum_size = Vector2(200, 0)
-offset_right = 774.0
-offset_bottom = 28.0
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ku5lv")
-
-[node name="Path" type="Label" parent="Layout/Card/Content/Standard2/Location"]
-offset_left = 10.0
-offset_top = 5.0
-offset_right = 764.0
-offset_bottom = 23.0
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
-theme_override_fonts/font = ExtResource("3_4ak66")
-theme_override_font_sizes/font_size = 12
-text = "C:\\Users\\tpallot\\AppData\\Roaming\\GodotPoint\\installs\\3.5-rc6\\mono"
-autowrap_mode = 1
-
-[node name="Spacing" type="Control" parent="Layout/Card/Content/Standard2"]
-offset_left = 779.0
-offset_right = 779.0
-offset_bottom = 28.0
-
-[node name="Launch" type="Button" parent="Layout/Card/Content/Standard2"]
-custom_minimum_size = Vector2(115, 28)
-offset_left = 784.0
-offset_right = 899.0
-offset_bottom = 28.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
-theme_override_colors/icon_normal_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_focus_color = Color(0.207843, 0.517647, 0.894118, 1)
-theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
-theme_override_constants/h_separation = 5
-theme_override_fonts/font = ExtResource("2_54luw")
-theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_efice")
-theme_override_styles/hover = SubResource("StyleBoxFlat_hr7xw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_knh8h")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_5ntcl")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gxqdb")
-text = "Mono"
-icon = ExtResource("4_yo6k0")
-
-[node name="Uninstall" type="Button" parent="Layout/Card/Content/Standard2"]
-custom_minimum_size = Vector2(0, 28)
-offset_left = 904.0
-offset_right = 938.0
-offset_bottom = 28.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0.752941, 0.109804, 0.156863, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0.752941, 0.109804, 0.156863, 1)
-theme_override_colors/font_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
-theme_override_colors/icon_normal_color = Color(0.752941, 0.109804, 0.156863, 1)
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_focus_color = Color(0.752941, 0.109804, 0.156863, 1)
-theme_override_colors/icon_disabled_color = Color(0.603922, 0.6, 0.588235, 1)
-theme_override_constants/h_separation = 5
-theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_g31cs")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dkb0a")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_26mxs")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_5ntcl")
-theme_override_styles/focus = SubResource("StyleBoxFlat_gxqdb")
-icon = ExtResource("5_1osic")
