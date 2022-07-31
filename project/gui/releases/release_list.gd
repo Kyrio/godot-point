@@ -81,7 +81,7 @@ func _process(_delta):
             tab_placeholders[current_tab].set_loading()
         
         TabStatus.READY:
-            refresh.disabled = false
+            refresh.disabled = DownloadManager.is_working
             tab_placeholders[current_tab].set_ready()
             
     if current_tab == Tab.STABLE:
@@ -91,6 +91,10 @@ func _process(_delta):
             TabStatus.EMPTY, TabStatus.LOADING:
                 previous_page.disabled = true
                 next_page.disabled = true
+                
+            TabStatus.READY:
+                previous_page.disabled = DownloadManager.is_working
+                next_page.disabled = DownloadManager.is_working   
     else:
         pagination.hide()
         

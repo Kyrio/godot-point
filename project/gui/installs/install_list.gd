@@ -3,7 +3,8 @@ extends Control
 
 const CARD_SCENE = preload("res://gui/installs/install_card.tscn")
 
-@onready var cards := %Cards as VBoxContainer
+@onready var cards := %Cards as Control
+@onready var placeholder := %Placeholder as Control
 
 
 func _ready():
@@ -23,3 +24,5 @@ func refresh_list():
         install_card.version_name = version
         install_card.installs = installs[version]
         cards.add_child(install_card)
+        
+    placeholder.visible = cards.get_child_count() == 0

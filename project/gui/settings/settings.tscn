@@ -37,9 +37,7 @@ corner_radius_bottom_left = 5
 color = Color(1, 1, 1, 0)
 thickness = 8
 
-[sub_resource type="Texture2D" id="Texture2D_1diil"]
-resource_local_to_scene = false
-resource_name = ""
+[sub_resource type="ImageTexture" id="ImageTexture_o1k58"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0g30a"]
 bg_color = Color(0.870588, 0.866667, 0.854902, 1)
@@ -76,7 +74,7 @@ PopupMenu/constants/v_separation = 8
 PopupMenu/font_sizes/font_size = 14
 PopupMenu/fonts/font = ExtResource("5_2tu4l")
 PopupMenu/icons/radio_checked = ExtResource("4_bn78d")
-PopupMenu/icons/radio_unchecked = SubResource("Texture2D_1diil")
+PopupMenu/icons/radio_unchecked = SubResource("ImageTexture_o1k58")
 PopupMenu/styles/hover = SubResource("StyleBoxFlat_0g30a")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_8uqbn")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_duo5q")
