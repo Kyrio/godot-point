@@ -16,9 +16,16 @@
                     "target=debug",
                     "platform=windows",
                     "-j4"
+                ],
+                "problemMatcher": "$msCompile"
+            },
+            "linux": {
+                "args": [
+                    "target=debug",
+                    "platform=linux",
+                    "-j4"
                 ]
             },
-            "problemMatcher": "$msCompile"
         },
     ]
 }

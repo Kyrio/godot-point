@@ -55,9 +55,9 @@ opts.Add(EnumVariable("arch", "CPU architecture", "", architecture_array, archit
 godot_headers_path = "../godot-cpp/godot-headers/"
 cpp_bindings_path = "../godot-cpp/"
 cpp_library = "libgodot-cpp"
-curl_headers_path = "vendor/curl/builds/libcurl-vc14-x64-debug-static-ipv6-sspi-schannel/include/"
-curl_library_path = "vendor/curl/builds/libcurl-vc14-x64-debug-static-ipv6-sspi-schannel/lib/"
-curl_library = "libcurl_a"
+curl_headers_path = ""
+curl_library_path = ""
+curl_library = ""
 curl_deps = []
 
 # Updates the environment with the option variables.
@@ -150,6 +150,10 @@ elif env["platform"] in ("x11", "linux"):
         env.Append(CCFLAGS=["-g3", "-Og"])
     else:
         env.Append(CCFLAGS=["-g", "-O3"])
+    
+    curl_headers_path = "vendor/curl/include/"
+    curl_library_path = "vendor/curl/lib/.libs/"
+    curl_library = "libcurl"
 
 elif env["platform"] == "windows":
     env["target_path"] += "win64/"
@@ -174,15 +178,21 @@ elif env["platform"] == "windows":
     if not(env["use_llvm"]):
         env.Append(CPPDEFINES=["TYPED_METHOD_BIND"])
 
+    curl_headers_path = "vendor/curl/builds/libcurl-vc14-x64-debug-static-ipv6-sspi-schannel/include/"
+    curl_library_path = "vendor/curl/builds/libcurl-vc14-x64-debug-static-ipv6-sspi-schannel/lib/"
+    curl_library = "libcurl_a"
+
 if env["target"] in ("debug", "d"):
     cpp_library += ".debug"
-    curl_library += "_debug"
+
+    if env["platform"] == "windows":
+        curl_library += "_debug"
 else:
     cpp_library += ".release"
 
 cpp_library += "." + env["arch"]
 
-# make sure our binding library is properly includes
+# make sure our binding library is properly included
 env.Append(CPPPATH=[".", godot_headers_path, cpp_bindings_path + "include/", cpp_bindings_path + "gen/include/", curl_headers_path])
 env.Append(LIBPATH=[cpp_bindings_path + "bin/", curl_library_path])
 env.Append(LIBS=[cpp_library, curl_library])
