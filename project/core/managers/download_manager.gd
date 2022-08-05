@@ -95,8 +95,14 @@ func _on_download_request_completed(result: int, response_code: int, _headers: P
     
     match OS.get_name():
         "Windows", "UWP":
-            _extract_process = OS.create_process("powershell.exe", ["-Command", "Expand-Archive", zip_path, "-DestinationPath", extract_path])
-            
+            _extract_process = OS.create_process(
+                "powershell.exe",
+                ["-Command", "Expand-Archive", zip_path, "-DestinationPath", extract_path]
+            )
+        
+        "Linux":
+            _extract_process = OS.create_process("unzip", ["-d", extract_path, zip_path])
+    
     if _extract_process < 0:
         push_error("Cannot extract the release, this might be an unsupported platform.")
         is_working = false
@@ -154,7 +160,11 @@ func _install_release():
         download_failed.emit()
         return
         
-    var success = InstallManager.register_install(current_download_release, current_download_module_config, release_path)
+    var success = InstallManager.register_install(
+        current_download_release,
+        current_download_module_config,
+        release_path
+    )
     
     if success:
         installed.emit()
