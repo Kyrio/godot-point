@@ -132,13 +132,18 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[node name="InstallRow" type="HBoxContainer"]
+[node name="InstallRow" type="VBoxContainer"]
 anchor_right = 1.0
 offset_bottom = 28.0
-theme_override_constants/separation = 5
+size_flags_horizontal = 3
 script = ExtResource("1_ipb15")
 
-[node name="Location" type="LineEdit" parent="."]
+[node name="Main" type="HBoxContainer" parent="."]
+offset_right = 1024.0
+offset_bottom = 28.0
+theme_override_constants/separation = 5
+
+[node name="Location" type="LineEdit" parent="Main"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 offset_right = 860.0
@@ -153,12 +158,12 @@ theme_override_styles/read_only = SubResource("StyleBoxFlat_ku5lv")
 text = "Path to the install directory"
 editable = false
 
-[node name="Spacing" type="Control" parent="."]
+[node name="Spacing" type="Control" parent="Main"]
 offset_left = 865.0
 offset_right = 865.0
 offset_bottom = 28.0
 
-[node name="Launch" type="Button" parent="."]
+[node name="Launch" type="Button" parent="Main"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(115, 28)
 offset_left = 870.0
@@ -187,7 +192,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_gxqdb")
 text = "Launch"
 icon = ExtResource("3_mnurl")
 
-[node name="Uninstall" type="Button" parent="."]
+[node name="Uninstall" type="Button" parent="Main"]
 custom_minimum_size = Vector2(0, 28)
 offset_left = 990.0
 offset_right = 1024.0
@@ -213,4 +218,16 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_5ntcl")
 theme_override_styles/focus = SubResource("StyleBoxFlat_gxqdb")
 icon = ExtResource("4_h6nr0")
 
-[connection signal="gui_input" from="Location" to="." method="_on_location_gui_input"]
+[node name="Error" type="Label" parent="."]
+visible = false
+offset_top = 32.0
+offset_right = 1024.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0.752941, 0.109804, 0.156863, 1)
+theme_override_fonts/font = ExtResource("1_osfn5")
+theme_override_font_sizes/font_size = 12
+text = "Error message."
+horizontal_alignment = 2
+
+[connection signal="gui_input" from="Main/Location" to="." method="_on_location_gui_input"]
+[connection signal="pressed" from="Main/Launch" to="." method="_on_launch_pressed"]

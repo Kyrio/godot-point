@@ -12,6 +12,7 @@ var default_download_mirror: int
 
 @onready var install_directory_field := %InstallDirectoryField as LineEdit
 @onready var install_directory_undo := install_directory_field.get_node("../Undo") as Button
+@onready var install_directory_error = install_directory_field.get_node("../../Error") as Control
 @onready var download_mirror_options := %DownloadMirrorOptions as OptionButton
 @onready var download_mirror_undo := download_mirror_options.get_node("../Undo") as Button
 
@@ -24,6 +25,7 @@ func _ready():
     dialogs.hide()
     credits_dialog.hide()
     third_party_dialog.hide()
+    install_directory_error.hide()
     
     default_install_directory = ConfigManager.get_default_setting("paths", "installs")
     default_download_mirror = ConfigManager.get_default_setting("core", "download_mirror")
@@ -91,7 +93,6 @@ func _on_third_party_close_pressed():
 
 
 func _on_save_pressed():
-    var install_directory_error = install_directory_field.get_node("../../Error") as Control
     install_directory_error.hide()
     
     var install_directory = default_install_directory if install_directory_field.text.is_empty() else install_directory_field.text
