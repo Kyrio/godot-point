@@ -9,6 +9,7 @@ const CARD_SCENE = preload("res://gui/installs/install_card.tscn")
 
 func _ready():
     refresh_list()
+    DownloadManager.installed.connect(refresh_list)
 
 
 func refresh_list():

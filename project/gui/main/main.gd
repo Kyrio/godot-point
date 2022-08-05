@@ -1,13 +1,18 @@
 extends Control
 
 
-@onready var installs_button := $Split/Sidebar/Menu/Installs as Button
+@onready var releases_button := %Releases as Button
+@onready var installs_button := %Installs as Button
 @onready var view := $Split/View as View
 
 
 func _ready():
-    installs_button.button_pressed = true
-    installs_button.grab_focus()
+    if InstallManager.has_installs():
+        installs_button.button_pressed = true
+        installs_button.grab_focus()
+    else:
+        releases_button.button_pressed = true
+        releases_button.grab_focus()
 
 
 func _on_installs_toggled(button_pressed: bool):

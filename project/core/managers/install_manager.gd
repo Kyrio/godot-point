@@ -41,6 +41,10 @@ func get_installs() -> Dictionary:
     return installs
 
 
+func has_installs() -> bool:
+    return not registry.get_sections().is_empty()
+
+
 class Install extends RefCounted:
     var module_config: Release.ModuleConfig
     var install_path: String
