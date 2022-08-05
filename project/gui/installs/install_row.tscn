@@ -1,10 +1,26 @@
-[gd_scene load_steps=15 format=3 uid="uid://cnskb1ykgsq0i"]
+[gd_scene load_steps=16 format=3 uid="uid://cnskb1ykgsq0i"]
 
 [ext_resource type="Script" path="res://gui/installs/install_row.gd" id="1_ipb15"]
 [ext_resource type="FontFile" uid="uid://djyxorhks20ht" path="res://assets/fonts/inter.otf" id="1_osfn5"]
 [ext_resource type="FontFile" uid="uid://dr7ll8iy75es6" path="res://assets/fonts/inter-semibold.otf" id="2_vohov"]
 [ext_resource type="Texture2D" uid="uid://mnti3cy44j52" path="res://assets/icons/play.png" id="3_mnurl"]
 [ext_resource type="Texture2D" uid="uid://btw32ronmup6l" path="res://assets/icons/trash-2.png" id="4_h6nr0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tchp8"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.964706, 0.960784, 0.956863, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.207843, 0.517647, 0.894118, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku5lv"]
 content_margin_left = 10.0
@@ -122,25 +138,20 @@ offset_bottom = 28.0
 theme_override_constants/separation = 5
 script = ExtResource("1_ipb15")
 
-[node name="Location" type="PanelContainer" parent="."]
+[node name="Location" type="LineEdit" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 offset_right = 860.0
 offset_bottom = 28.0
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ku5lv")
-
-[node name="Path" type="Label" parent="Location"]
-unique_name_in_owner = true
-offset_left = 10.0
-offset_top = 5.0
-offset_right = 850.0
-offset_bottom = 23.0
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.239216, 0.219608, 0.27451, 1)
+mouse_default_cursor_shape = 2
+theme_override_colors/font_uneditable_color = Color(0.239216, 0.219608, 0.27451, 1)
 theme_override_fonts/font = ExtResource("1_osfn5")
 theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_tchp8")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_ku5lv")
 text = "Path to the install directory"
-autowrap_mode = 1
+editable = false
 
 [node name="Spacing" type="Control" parent="."]
 offset_left = 865.0
@@ -201,3 +212,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_26mxs")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_5ntcl")
 theme_override_styles/focus = SubResource("StyleBoxFlat_gxqdb")
 icon = ExtResource("4_h6nr0")
+
+[connection signal="gui_input" from="Location" to="." method="_on_location_gui_input"]
