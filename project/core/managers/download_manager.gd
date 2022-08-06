@@ -2,7 +2,7 @@ extends Node
 
 
 signal download_failed
-signal installed
+signal download_installed
 
 var is_working = false
 var is_extracting = false
@@ -144,6 +144,10 @@ func _install_release():
         Release.ModuleConfig.MONO:
             release_path = release_path.plus_file("mono")
     
+    if installs_dir.dir_exists(release_path):
+        # If there is a "lost" install there, remove it first
+        OS.move_to_trash(ProjectSettings.globalize_path(release_path))
+    
     var move_error
     var redundant_dir = _extract_dirname.plus_file(_extract_dirname)
     
@@ -161,12 +165,12 @@ func _install_release():
         return
         
     var success = InstallManager.register_install(
-        current_download_release,
+        current_download_release.version_name,
         current_download_module_config,
         release_path
     )
     
     if success:
-        installed.emit()
+        download_installed.emit()
     else:
         download_failed.emit()

@@ -19,6 +19,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://gui/releases/download_button.gd"
 }, {
+"base": "RefCounted",
+"class": &"Install",
+"language": &"GDScript",
+"path": "res://core/install.gd"
+}, {
 "base": "PanelContainer",
 "class": &"InstallCard",
 "language": &"GDScript",
@@ -57,6 +62,7 @@ _global_script_classes=[{
 _global_script_class_icons={
 "Constants": "",
 "DownloadButton": "",
+"Install": "",
 "InstallCard": "",
 "InstallRow": "",
 "ListPlaceholder": "",

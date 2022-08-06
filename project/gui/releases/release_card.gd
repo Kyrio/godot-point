@@ -64,12 +64,12 @@ func _on_mono_pressed():
 
 func _connect_with_download_manager(download_button: DownloadButton):
     DownloadManager.download_failed.connect(_on_download_failed.bind(download_button))
-    DownloadManager.installed.connect(_on_installed.bind(download_button))
+    DownloadManager.download_installed.connect(_on_installed.bind(download_button))
 
 
 func _disconnect_from_download_manager():
     DownloadManager.download_failed.disconnect(_on_download_failed)
-    DownloadManager.installed.disconnect(_on_installed)
+    DownloadManager.download_installed.disconnect(_on_installed)
 
 
 func _on_download_failed(download_button: DownloadButton):

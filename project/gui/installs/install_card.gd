@@ -5,7 +5,7 @@ extends PanelContainer
 const ROW_SCENE = preload("res://gui/installs/install_row.tscn")
 
 var version_name: String
-var installs: Array
+var installs: Array[Install]
 
 @onready var title := %Title as Label
 @onready var rows := %Rows as VBoxContainer

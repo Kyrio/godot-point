@@ -231,3 +231,4 @@ horizontal_alignment = 2
 
 [connection signal="gui_input" from="Main/Location" to="." method="_on_location_gui_input"]
 [connection signal="pressed" from="Main/Launch" to="." method="_on_launch_pressed"]
+[connection signal="pressed" from="Main/Uninstall" to="." method="_on_uninstall_pressed"]

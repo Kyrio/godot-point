@@ -15,7 +15,7 @@ var version_number: String
 var status: String
 
 ## A prettier name used on GitHub, usually comprised of the version number and status
-## (e.g. 3.4.4-stable)
+## (e.g. 3.4.4-stable).
 var version_name: String
 
 ## The Unix timestamp at which the release was published either on GitHub or mirrors.

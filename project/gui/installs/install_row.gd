@@ -4,7 +4,7 @@ extends VBoxContainer
 
 const CONFIG_NAMES = [ "Standard", "Mono" ]
 
-var install
+var install: Install
 
 var _global_path: String
 
@@ -65,3 +65,8 @@ func _on_launch_pressed():
         
     error_message.text = "Could not find an executable in the directory."
     error_message.show()
+
+
+func _on_uninstall_pressed():
+    if InstallManager.unregister_install(install.version_name, install.module_config):
+        OS.move_to_trash(_global_path)
