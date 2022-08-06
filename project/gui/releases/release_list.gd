@@ -1,7 +1,7 @@
 extends Control
 
 
-enum Tab { STABLE, NEXT_MINOR, NEXT_MAJOR, COUNT }
+enum Tab { STABLE, NEXT_MAJOR, COUNT }
 enum TabStatus { EMPTY, LOADING, READY }
 
 const RELEASE_SCENE = preload("res://gui/releases/release_card.tscn")
@@ -51,14 +51,7 @@ func _ready():
                 
                 var request: HTTPRequest = tab_requests[tab]
                 request.request_completed.connect(_on_stable_request_completed)
-            
-            Tab.NEXT_MINOR:
-                tabs.set_tab_title(tab, "Godot " + Constants.NEXT_MINOR_VERSION)
-                
-                var request: PrereleaseRequest = tab_requests[tab]
-                request.results_received.connect(_on_prerelease_results_received.bind(tab))
-                request.request_failed.connect(_on_prerelease_request_failed.bind(tab))
-            
+
             Tab.NEXT_MAJOR:
                 tabs.set_tab_title(tab, "Godot " + Constants.NEXT_MAJOR_VERSION)
                 
@@ -130,14 +123,7 @@ func fetch_tab_list(tab: Tab, page_url = ""):
             if error != OK:
                 push_error("Error when creating stable releases request.")
                 tab_statuses[Tab.STABLE] = TabStatus.EMPTY
-        
-        Tab.NEXT_MINOR:
-            var next_minor_request: PrereleaseRequest = tab_requests[tab]
-            
-            var error = next_minor_request.request_releases(Constants.NEXT_MINOR_VERSION)
-            if error != OK:
-                return
-                
+
         Tab.NEXT_MAJOR:
             var next_major_request: PrereleaseRequest = tab_requests[tab]
             

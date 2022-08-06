@@ -166,40 +166,6 @@ This is usually a connectivity issue, so we recommend trying to refresh."
 
 [node name="Request" type="HTTPRequest" parent="Margins/Content/Tabs/Stable"]
 
-[node name="NextMinor" type="ScrollContainer" parent="Margins/Content/Tabs"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 34.0
-theme = SubResource("Theme_dlskl")
-follow_focus = true
-
-[node name="Content" type="VBoxContainer" parent="Margins/Content/Tabs/NextMinor"]
-offset_right = 994.0
-offset_bottom = 422.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 0
-
-[node name="List" type="VBoxContainer" parent="Margins/Content/Tabs/NextMinor/Content"]
-offset_right = 1004.0
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_constants/separation = 0
-
-[node name="Placeholder" parent="Margins/Content/Tabs/NextMinor/Content" instance=ExtResource("3_4bsmp")]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 1004.0
-offset_bottom = 464.0
-loading_text = "We are searching TuxFamily servers for Godot pre-releases.
-If nothing happens, there may be a connectivity issue."
-empty_text = "We could not find any pre-releases on TuxFamily servers.
-If refreshing does not help, Godot Point might need to be updated."
-
-[node name="Request" type="Node" parent="Margins/Content/Tabs/NextMinor"]
-script = ExtResource("5_qgilg")
-
 [node name="NextMajor" type="ScrollContainer" parent="Margins/Content/Tabs"]
 visible = false
 anchor_right = 1.0
