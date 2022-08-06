@@ -27,6 +27,8 @@ func refresh_list():
     for i in child_count:
         cards.get_child(i).queue_free()
     
+    placeholder.visible = true
+    
     for version_name in InstallManager.get_installed_versions():
         var installs = InstallManager.get_installs(version_name)
         
@@ -35,4 +37,4 @@ func refresh_list():
         install_card.installs = installs
         cards.add_child(install_card)
         
-    placeholder.visible = cards.get_child_count() == 0
+        placeholder.visible = false
