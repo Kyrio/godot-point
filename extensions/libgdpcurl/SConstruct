@@ -12,8 +12,6 @@ import sys
 # This is used if no `platform` argument is passed
 if sys.platform.startswith("linux"):
     host_platform = "linux"
-elif sys.platform == "darwin":
-    host_platform = "osx"
 elif sys.platform == "win32" or sys.platform == "msys":
     host_platform = "windows"
 else:
@@ -25,12 +23,12 @@ opts = Variables([], ARGUMENTS)
 
 # Define our options
 opts.Add(EnumVariable("target", "Compilation target", "debug", ["d", "debug", "r", "release"]))
-opts.Add(EnumVariable("platform", "Compilation platform", host_platform, ["", "windows", "x11", "linux", "osx"]))
+opts.Add(EnumVariable("platform", "Compilation platform", host_platform, ["", "windows", "linux"]))
 opts.Add(
-    EnumVariable("p", "Compilation target, alias for 'platform'", host_platform, ["", "windows", "x11", "linux", "osx"])
+    EnumVariable("p", "Compilation target, alias for 'platform'", host_platform, ["", "windows", "linux"])
 )
 opts.Add(BoolVariable("use_llvm", "Use the LLVM / Clang compiler", "no"))
-opts.Add(PathVariable("target_path", "The path where the lib is installed.", "../../project/addons/godot_point_curl/bin/", PathVariable.PathAccept))
+opts.Add(PathVariable("target_path", "The path where the lib is installed.", "../../project/addons/gdpcurl/bin/", PathVariable.PathAccept))
 opts.Add(PathVariable("target_name", "The library name.", "libgdpcurl", PathVariable.PathAccept))
 
 # CPU architecture options.
@@ -67,27 +65,18 @@ Help(opts.GenerateHelpText(env))
 
 # Process CPU architecture argument.
 if env["arch"] == "":
-    # No architecture specified. Default to arm64 if building for Android,
-    # universal if building for macOS or iOS, wasm32 if building for web,
-    # otherwise default to the host architecture.
-    if env["platform"] in ["osx", "ios"]:
-        env["arch"] = "universal"
-    elif env["platform"] == "android":
-        env["arch"] = "arm64"
-    elif env["platform"] == "javascript":
-        env["arch"] = "wasm32"
+    # No architecture specified. Default to the host architecture.
+    host_machine = platform.machine().lower()
+    if host_machine in architecture_array:
+        env["arch"] = host_machine
+    elif host_machine in architecture_aliases.keys():
+        env["arch"] = architecture_aliases[host_machine]
+    elif "86" in host_machine:
+        # Catches x86, i386, i486, i586, i686, etc.
+        env["arch"] = "x86_32"
     else:
-        host_machine = platform.machine().lower()
-        if host_machine in architecture_array:
-            env["arch"] = host_machine
-        elif host_machine in architecture_aliases.keys():
-            env["arch"] = architecture_aliases[host_machine]
-        elif "86" in host_machine:
-            # Catches x86, i386, i486, i586, i686, etc.
-            env["arch"] = "x86_32"
-        else:
-            print("Unsupported CPU architecture: " + host_machine)
-            Exit()
+        print("Unsupported CPU architecture: " + host_machine)
+        Exit()
 
 # We use this to re-set env["arch"] anytime we call opts.Update(env).
 env_arch = env["arch"]
@@ -97,7 +86,7 @@ print("Building for architecture " + env["arch"] + " on platform " + env["platfo
 # This makes sure to keep the session environment variables on Windows.
 # This way, you can run SCons in a Visual Studio 2017 prompt and it will find
 # all the required tools
-if host_platform == "windows" and env["platform"] != "android":
+if host_platform == "windows":
     if env["arch"] == "x86_64":
         env = Environment(TARGET_ARCH="amd64")
     elif env["arch"] == "x86_32":
@@ -130,19 +119,8 @@ if env["target"] == "debug":
     env.Append(CPPDEFINES=["DEBUG_ENABLED", "DEBUG_METHODS_ENABLED"])
 
 # Check our platform specifics
-if env["platform"] == "osx":
-    env["target_path"] += "osx/"
-    cpp_library += ".osx"
-    env.Append(CCFLAGS=["-arch", "x86_64"])
-    env.Append(CXXFLAGS=["-std=c++17"])
-    env.Append(LINKFLAGS=["-arch", "x86_64"])
-    if env["target"] in ("debug", "d"):
-        env.Append(CCFLAGS=["-g", "-O2"])
-    else:
-        env.Append(CCFLAGS=["-g", "-O3"])
-
-elif env["platform"] in ("x11", "linux"):
-    env["target_path"] += "x11/"
+if env["platform"] == "linux":
+    env["target_path"] += "linux/"
     cpp_library += ".linux"
     env.Append(CCFLAGS=["-fPIC"])
     env.Append(CXXFLAGS=["-std=c++17"])
@@ -156,7 +134,7 @@ elif env["platform"] in ("x11", "linux"):
     curl_library = "libcurl"
 
 elif env["platform"] == "windows":
-    env["target_path"] += "win64/"
+    env["target_path"] += "windows/"
     cpp_library += ".windows"
     curl_deps += ["ws2_32", "wldap32", "advapi32", "crypt32", "normaliz"]
     
@@ -202,6 +180,11 @@ env.Append(LIBS=curl_deps)
 env.Append(CPPPATH=["src/"])
 sources = Glob("src/*.cpp")
 
-library = env.SharedLibrary(target=env["target_path"] + env["target_name"], source=sources)
+library = env.SharedLibrary(
+    target=env["target_path"] + env["target_name"] + ".{}.{}.{}{}".format(
+        env["platform"], env["target"], env["arch"], env["SHLIBSUFFIX"]
+    ),
+    source=sources,
+)
 
 Default(library)
