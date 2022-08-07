@@ -132,7 +132,7 @@ func fetch_tab_list(tab: Tab, page_url = ""):
                 return
 
 
-func _on_stable_request_completed(result: HTTPRequest.Result, response_code: int, headers: PackedStringArray, body: PackedByteArray):
+func _on_stable_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray):
     if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
         push_error("JSON request returned with error ", result , "and response code ", response_code)
         tab_statuses[Tab.STABLE] = TabStatus.EMPTY
