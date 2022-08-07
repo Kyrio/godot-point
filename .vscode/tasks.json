@@ -27,5 +27,29 @@
                 ]
             },
         },
+        {
+            "label": "Build libgdpcurl (release)",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/extensions/libgdpcurl"
+            },
+            "command": "scons",
+            "group": "build",
+            "windows": {
+                "args": [
+                    "target=release",
+                    "platform=windows",
+                    "-j4"
+                ],
+                "problemMatcher": "$msCompile"
+            },
+            "linux": {
+                "args": [
+                    "target=release",
+                    "platform=linux",
+                    "-j4"
+                ]
+            },
+        },
     ]
 }

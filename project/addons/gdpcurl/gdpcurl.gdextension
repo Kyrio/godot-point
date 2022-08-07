@@ -5,6 +5,6 @@ entry_symbol = "gdpcurl_library_init"
 [libraries]
 
 windows.debug.x86_64 = "bin/windows/libgdpcurl.windows.debug.x86_64.dll"
-windows.release.x86_64 = "bin//windows/libgdpcurl.windows.release.x86_64.dll"
+windows.release.x86_64 = "bin/windows/libgdpcurl.windows.release.x86_64.dll"
 linux.debug.x86_64 = "bin/linux/libgdpcurl.linux.debug.x86_64.so"
 linux.release.x86_64 = "bin/linux/libgdpcurl.linux.release.x86_64.so"
