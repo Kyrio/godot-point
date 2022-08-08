@@ -3,7 +3,7 @@
 
 *.sconsign.dblite
 
-bin/
+*.so
 *.idb
 *.pdb
 *.obj
