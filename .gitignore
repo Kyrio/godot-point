@@ -4,6 +4,7 @@
 *.sconsign.dblite
 
 *.so
+*.so.*
 *.idb
 *.pdb
 *.obj

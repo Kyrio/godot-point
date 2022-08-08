@@ -4,14 +4,18 @@ entry_symbol = "gdpcurl_library_init"
 
 [libraries]
 
-windows.64.debug = "res://addons/gdpcurl/bin/windows/libgdpcurl.windows.debug.x86_64.dll"
-windows.64.release = "res://addons/gdpcurl/bin/windows/libgdpcurl.windows.release.x86_64.dll"
-linux.64.debug = "res://addons/gdpcurl/bin/linux/libgdpcurl.linux.debug.x86_64.so"
-linux.64.release = "res://addons/gdpcurl/bin/linux/libgdpcurl.linux.release.x86_64.so"
+windows.debug.x86_64 = "res://addons/gdpcurl/bin/windows/libgdpcurl.windows.debug.x86_64.dll"
+windows.release.x86_64 = "res://addons/gdpcurl/bin/windows/libgdpcurl.windows.release.x86_64.dll"
+linux.debug.x86_64 = "res://addons/gdpcurl/bin/linux/libgdpcurl.linux.debug.x86_64.so"
+linux.release.x86_64 = "res://addons/gdpcurl/bin/linux/libgdpcurl.linux.debug.x86_64.so"
 
 [dependencies]
 
-windows.64.debug = {}
-windows.64.release = {}
-linux.64.debug = {}
-linux.64.release = {}
+windows.debug.x86_64 = {}
+windows.release.x86_64 = {}
+linux.debug.x86_64 = {
+    "res://addons/gdpcurl/bin/linux/libcurl.so.4": ""
+}
+linux.release.x86_64 = {
+    "res://addons/gdpcurl/bin/linux/libcurl.so.4": ""
+}

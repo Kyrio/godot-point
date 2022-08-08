@@ -1,148 +1,23 @@
-# This build script is adapted from the following projects released under the MIT License.
-# godot-cpp <https://github.com/godotengine/godot-cpp>
-# Copyright (c) 2017-2022 Godot Engine contributors.
-# godot_xr_reference <https://github.com/GodotVR/godot_xr_reference>
-# Copyright (c) 2021 Bastiaan Olij and contributors
-
+#!/usr/bin/env python
 import os
-import platform
 import sys
 
-# Try to detect the host platform automatically.
-# This is used if no `platform` argument is passed
-if sys.platform.startswith("linux"):
-    host_platform = "linux"
-elif sys.platform == "win32" or sys.platform == "msys":
-    host_platform = "windows"
-else:
-    raise ValueError("Could not detect platform automatically, please specify with " "platform=<platform>")
+env = SConscript("../godot-cpp/SConstruct")
 
-env = Environment(ENV=os.environ)
-
-opts = Variables([], ARGUMENTS)
-
-# Define our options
-opts.Add(EnumVariable("target", "Compilation target", "debug", ["debug", "release"]))
-opts.Add(EnumVariable("platform", "Compilation platform", host_platform, ["", "windows", "linux"]))
-opts.Add(
-    EnumVariable("p", "Compilation target, alias for 'platform'", host_platform, ["", "windows", "linux"])
-)
-opts.Add(PathVariable("target_path", "The path where the lib is installed.", "../../project/addons/gdpcurl/bin/", PathVariable.PathAccept))
-opts.Add(PathVariable("target_name", "The library name.", "libgdpcurl", PathVariable.PathAccept))
-
-# CPU architecture options.
-architecture_array = ["", "universal", "x86_32", "x86_64"]
-architecture_aliases = {
-    "x64": "x86_64",
-    "amd64": "x86_64",
-}
-
-opts.Add(EnumVariable("arch", "CPU architecture", "", architecture_array, architecture_aliases))
-
-# Local dependency paths, adapt them to your setup
-godot_headers_path = "../godot-cpp/godot-headers/"
-cpp_bindings_path = "../godot-cpp/"
+target_path = "../../project/addons/gdpcurl/bin/"
 curl_headers_path = ""
 curl_library_path = ""
 curl_library = ""
 curl_deps = []
 
-# Updates the environment with the option variables.
-opts.Update(env)
-# Generates help for the -h scons option.
-Help(opts.GenerateHelpText(env))
-
-# Process CPU architecture argument.
-if env["arch"] == "":
-    # No architecture specified. Default to the host architecture.
-    host_machine = platform.machine().lower()
-    if host_machine in architecture_array:
-        env["arch"] = host_machine
-    elif host_machine in architecture_aliases.keys():
-        env["arch"] = architecture_aliases[host_machine]
-    elif "86" in host_machine:
-        # Catches x86, i386, i486, i586, i686, etc.
-        env["arch"] = "x86_32"
-    else:
-        print("Unsupported CPU architecture: " + host_machine)
-        Exit()
-
-# We use this to re-set env["arch"] anytime we call opts.Update(env).
-env_arch = env["arch"]
-
-print("Building for architecture " + env["arch"] + " on platform " + env["platform"])
-
-# This makes sure to keep the session environment variables on Windows.
-# This way, you can run SCons in a Visual Studio 2017 prompt and it will find
-# all the required tools
-if host_platform == "windows":
-    if env["arch"] == "x86_64":
-        env = Environment(TARGET_ARCH="amd64")
-    elif env["arch"] == "x86_32":
-        env = Environment(TARGET_ARCH="x86")
-
-    opts.Update(env)
-    env["arch"] = env_arch
-
-if env["p"] != "":
-    env["platform"] = env["p"]
-
-if env["platform"] == "":
-    print("No valid target platform selected.")
-    quit()
-
-# For the reference:
-# - CCFLAGS are compilation flags shared between C and C++
-# - CFLAGS are for C-specific compilation flags
-# - CXXFLAGS are for C++-specific compilation flags
-# - CPPFLAGS are for pre-processor flags
-# - CPPDEFINES are for pre-processor defines
-# - LINKFLAGS are for linking flags
-
-if env["target"] == "debug":
-    env.Append(CPPDEFINES=["DEBUG_ENABLED", "DEBUG_METHODS_ENABLED"])
-
-# Check our platform specifics
 if env["platform"] == "linux":
-    env["target_path"] += "linux/"
-
-    env.Append(CCFLAGS=["-fPIC", "-Wwrite-strings"])
-    env.Append(CXXFLAGS=["-std=c++17"])
-    env.Append(LINKFLAGS=["-Wl,-R,'$$ORIGIN'"])
-
-    if env["target"] == "debug":
-        env.Append(CCFLAGS=["-Og", "-g"])
-    elif env["target"] == "release":
-        env.Append(CCFLAGS=["-O3"])
-
-    if env["arch"] == "x86_64":
-        # -m64 and -m32 are x86-specific already, but it doesn't hurt to
-        # be clear and also specify -march=x86-64. Similar with 32-bit.
-        env.Append(CCFLAGS=["-m64", "-march=x86-64"])
-        env.Append(LINKFLAGS=["-m64", "-march=x86-64"])
-    elif env["arch"] == "x86_32":
-        env.Append(CCFLAGS=["-m32", "-march=i686"])
-        env.Append(LINKFLAGS=["-m32", "-march=i686"])
-    
+    target_path += "linux/"
     curl_headers_path = "vendor/curl/include/"
     curl_library_path = "vendor/curl/lib/.libs/"
     curl_library = "libcurl"
-
 elif env["platform"] == "windows":
-    env["target_path"] += "windows/"
-    
-    env.Append(CPPDEFINES=["TYPED_METHOD_BIND", "CURL_STATICLIB"])
-    env.Append(CXXFLAGS=["/std:c++17"])
-    env.Append(LINKFLAGS=["/WX"])
-
-    if env["target"] == "debug":
-        env.Append(CPPDEFINES=["_DEBUG"])
-        env.Append(CCFLAGS=["/Z7", "/Od", "/EHsc", "/MDd"])
-    else:
-        env.Append(CPPDEFINES=["NDEBUG"])
-        env.Append(CCFLAGS=["/O2", "/EHsc", "/MD"])
-
-    curl_deps += ["ws2_32", "wldap32", "advapi32", "crypt32", "normaliz"]
+    # WIP, we're moving to shared libs (hopefully)
+    target_path += "windows/"
     curl_arch = "x64" if env["arch"] == "x86_64" else "x86"
     curl_headers_path = "vendor/curl/builds/libcurl-vc14-{}-{}-static-ipv6-sspi-schannel/include/".format(curl_arch, env["target"])
     curl_library_path = "vendor/curl/builds/libcurl-vc14-{}-{}-static-ipv6-sspi-schannel/lib/".format(curl_arch, env["target"])
@@ -151,20 +26,16 @@ elif env["platform"] == "windows":
     if env["target"] == "debug":
         curl_library += "_debug"
 
-# make sure our binding library is properly included
-cpp_library = "libgodot-cpp.{}.{}.{}".format(env["platform"], env["target"], env["arch"])
-
-env.Append(CPPPATH=[".", godot_headers_path, cpp_bindings_path + "include/", cpp_bindings_path + "gen/include/", curl_headers_path])
-env.Append(LIBPATH=[cpp_bindings_path + "bin/", curl_library_path])
-env.Append(LIBS=[cpp_library, curl_library])
+env.Append(CPPPATH=[curl_headers_path])
+env.Append(LIBPATH=[curl_library_path])
+env.Append(LIBS=[curl_library])
 env.Append(LIBS=curl_deps)
 
-# tweak this if you want to use different folders, or more folders, to store your source code in.
 env.Append(CPPPATH=["src/"])
 sources = Glob("src/*.cpp")
 
 library = env.SharedLibrary(
-    target=env["target_path"] + env["target_name"] + ".{}.{}.{}{}".format(
+    target=target_path + "libgdpcurl.{}.{}.{}{}".format(
         env["platform"], env["target"], env["arch"], env["SHLIBSUFFIX"]
     ),
     source=sources,
