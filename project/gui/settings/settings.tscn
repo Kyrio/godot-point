@@ -593,6 +593,7 @@ theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("5_2tu4l")
 theme_override_fonts/bold_font = ExtResource("2_pvafj")
 theme_override_font_sizes/normal_font_size = 13
+theme_override_font_sizes/bold_font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_dyiqo")
 bbcode_enabled = true
 text = "[b]Godot Point[/b] - a version manager for Godot Engine
@@ -602,12 +603,11 @@ This project is not affiliated with Godot or its developers.
 Developed by [b]Kyrio[/b]
 Sources available at: [url]https://github.com/Kyrio/godot-point[/url]
 
-This author would like to thank the following projects and their contributors:
-• Godot Engine for being robust enough that making this entire app as a Godot 4.0 \"game\" was a breeze
-[indent]• Godot XR Reference for providing a reference GDExtension build script[/indent]
-• Lucide Icons for giving this app its professional looks
-• curl, for the quality of its documentation that made integrating it into Godot surprisingly smooth
-• The Inter font family, because one should always be thankful for open source typefaces
+The author would like to thank the following projects and their contributors:
+• Godot Engine, for its ever robust UI toolkit
+• Lucide Icons and the Inter font family, for giving this app its professional looks
+• TuxFamily, for providing a FTP server without which this app would only list stable releases ;)
+• curl, for doing all the heavy lifting of querying that server
 
 Godot Point is released under the zlib/libpng license:
 Copyright (c) 2022 Kyrio <https://github.com/Kyrio>
@@ -720,6 +720,7 @@ theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("5_2tu4l")
 theme_override_fonts/bold_font = ExtResource("2_pvafj")
 theme_override_font_sizes/normal_font_size = 13
+theme_override_font_sizes/bold_font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxFlat_dyiqo")
 bbcode_enabled = true
 text = "Powered by Godot Engine <[url]https://godotengine.org[/url]>
