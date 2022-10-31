@@ -24,18 +24,21 @@ func _ready():
     _date.text = Constants.get_pretty_date_from_timestamp(release.publish_date)
     _description.text = release.description
     mono_button.visible = has_mono
-    
-    if InstallManager.is_installed(release, Release.ModuleConfig.NONE):
-        standard_button.status = DownloadButton.Status.DONE
-        
-    if InstallManager.is_installed(release, Release.ModuleConfig.MONO):
-        mono_button.status = DownloadButton.Status.DONE
 
 
 func _process(_delta):
-    if standard_button.status == DownloadButton.Status.DOWNLOADING:
+    if InstallManager.is_installed(release, Release.ModuleConfig.NONE):
+        standard_button.status = DownloadButton.Status.DONE
+    elif standard_button.status != DownloadButton.Status.DOWNLOADING:
+        standard_button.status = DownloadButton.Status.IDLE
+    else:
         _update_progress(standard_button)
-    elif mono_button.status == DownloadButton.Status.DOWNLOADING:
+        
+    if InstallManager.is_installed(release, Release.ModuleConfig.MONO):
+        mono_button.status = DownloadButton.Status.DONE
+    elif mono_button.status != DownloadButton.Status.DOWNLOADING:
+        mono_button.status = DownloadButton.Status.IDLE
+    else:
         _update_progress(mono_button)
 
 
@@ -64,19 +67,12 @@ func _on_mono_pressed():
 
 func _connect_with_download_manager(download_button: DownloadButton):
     DownloadManager.download_failed.connect(_on_download_failed.bind(download_button))
-    DownloadManager.download_installed.connect(_on_installed.bind(download_button))
 
 
 func _disconnect_from_download_manager():
     DownloadManager.download_failed.disconnect(_on_download_failed)
-    DownloadManager.download_installed.disconnect(_on_installed)
 
 
 func _on_download_failed(download_button: DownloadButton):
     download_button.status = DownloadButton.Status.IDLE
-    _disconnect_from_download_manager()
-
-
-func _on_installed(download_button: DownloadButton):
-    download_button.status = DownloadButton.Status.DONE
     _disconnect_from_download_manager()

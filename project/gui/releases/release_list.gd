@@ -86,8 +86,8 @@ func _process(_delta):
                 next_page.disabled = true
                 
             TabStatus.READY:
-                previous_page.disabled = DownloadManager.is_working
-                next_page.disabled = DownloadManager.is_working   
+                previous_page.disabled = _previous_page_url.is_empty() or DownloadManager.is_working
+                next_page.disabled = _next_page_url.is_empty() or DownloadManager.is_working
     else:
         pagination.hide()
         
@@ -189,9 +189,6 @@ func _on_stable_request_completed(result: int, response_code: int, headers: Pack
         if release.version_name == Constants.EARLIEST_SUPPORTED_RELEASE:
             _next_page_url = ""
             break
-    
-    previous_page.disabled = _previous_page_url.is_empty()
-    next_page.disabled = _next_page_url.is_empty()
 
     if stable_list.get_child_count() > 0:
         tab_statuses[Tab.STABLE] = TabStatus.READY

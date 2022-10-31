@@ -2,7 +2,6 @@ extends Node
 
 
 signal download_failed
-signal download_installed
 
 var is_working = false
 var is_extracting = false
@@ -170,7 +169,5 @@ func _install_release():
         release_path
     )
     
-    if success:
-        download_installed.emit()
-    else:
+    if not success:
         download_failed.emit()
