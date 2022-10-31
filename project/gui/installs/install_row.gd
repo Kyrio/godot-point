@@ -53,7 +53,7 @@ func _on_launch_pressed():
     while filename != "":
         if filename.ends_with(extension):
             var full_path = _global_path.plus_file(filename)
-            var process = OS.create_process(full_path, PackedStringArray())
+            var process = OS.create_process(full_path, ["-p"])
             
             if process == -1:
                 error_message.text = "An error happened while starting Godot."
